@@ -102,3 +102,12 @@ dist
 
 # TernJS port file
 .tern-port
+
+
+.vercel
+.output
+
+/build/
+/public/build
+/api/index.js
+/app/tailwind.css
