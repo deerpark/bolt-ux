@@ -2,8 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .custom-class {
-    @apply ...;
+@layer utilities {
+  .min-w-80 {
+    min-width: 320px;
+  }
+  .max-w-80 {
+    max-width: 320px;
+  }
+  .max-w-112 {
+    max-width: 448px;
   }
 }
+
+@layer base {
+  body {
+    @apply min-h-screen;
+  }
+}
+
+@layer components {
+  .container {
+    @apply flex flex-col min-h-screen mx-auto md:flex-row md:items-stretch;
+  }
+  .section {
+    @apply w-full md:min-w-80 md:max-w-112 flex flex-col bg-white md:border-r md:border-r-slate-100;
+  }
+  .section:first-of-type {
+    @apply md:max-w-80 bg-slate-50 md:border-l md:border-l-slate-100;
+  }
+}
+

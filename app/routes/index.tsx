@@ -1,7 +1,12 @@
+// import { motion } from 'framer-motion'
+
 export default function Index() {
   return (
-    <main>
-      <h1>BOLT UX</h1>
-    </main>
+    <div className='container'>
+      <div className='section'>dd</div>
+      <div className='section'>dd</div>
+      <div className='section'>dd</div>
+      <div className='section'>dd</div>
+    </div>
   )
 }
