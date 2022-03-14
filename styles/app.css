@@ -21,13 +21,13 @@
 }
 
 @layer components {
-  .container {
+  .bx-container {
     @apply flex flex-col min-h-screen mx-auto md:flex-row md:items-stretch;
   }
-  .section {
+  .bx-section {
     @apply w-full md:min-w-80 md:max-w-112 flex flex-col bg-white md:border-r md:border-r-slate-100;
   }
-  .section:first-of-type {
+  .bx-section:first-of-type {
     @apply md:max-w-80 bg-slate-50 md:border-l md:border-l-slate-100;
   }
 }
