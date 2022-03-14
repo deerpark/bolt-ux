@@ -5,13 +5,10 @@
   "license": "",
   "sideEffects": false,
   "scripts": {
-    "build": "run-p build:*",
-    "build:css": "npm run generate:css -- --minify",
-    "build:remix": "cross-env NODE_ENV=production remix build",
-    "dev": "run-p dev:*",
-    "dev:css": "npm run generate:css -- --watch",
-    "dev:remix": "cross-env NODE_ENV=development remix dev",
-    "generate:css": "npx tailwindcss -i ./styles/tailwind.css -o ./app/tailwind.css",
+    "build": "npm run build:css && remix build",
+    "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
+    "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
+    "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
     "postinstall": "remix setup node"
   },
   "dependencies": {
@@ -28,9 +25,12 @@
     "@remix-run/serve": "^1.2.3",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
+    "autoprefixer": "^10.4.2",
+    "concurrently": "^7.0.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.9.0",
     "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.8",
     "tailwindcss": "^3.0.23",
     "typescript": "^4.5.5"
   },
