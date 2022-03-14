@@ -16,19 +16,52 @@
 
 @layer base {
   body {
-    @apply min-h-screen;
+    @apply min-h-screen text-slate-400 dark:text-slate-500;
   }
 }
 
 @layer components {
   .bx-container {
-    @apply flex flex-col min-h-screen mx-auto md:flex-row md:items-stretch;
+    @apply flex flex-col bg-white justify-center dark:bg-slate-800 min-h-screen mx-auto md:flex-row md:items-stretch;
   }
   .bx-section {
-    @apply w-full md:min-w-80 md:max-w-112 flex flex-col bg-white md:border-r md:border-r-slate-100;
+    @apply w-full md:min-w-80 md:max-w-112 flex flex-col gap-y-5 bg-white dark:bg-slate-700 md:border-r md:border-r-slate-100 dark:md:border-r-slate-900 dark:md:border-opacity-70;
   }
   .bx-section:first-of-type {
-    @apply md:max-w-80 bg-slate-50 md:border-l md:border-l-slate-100;
+    @apply md:max-w-80 bg-slate-50 dark:bg-slate-800 md:border-l md:border-l-slate-100 dark:md:border-l-slate-900 dark:md:border-opacity-30;
+  }
+  .bx-hero {
+    @apply flex-none flex flex-col items-center;
+  }
+  .bx-hero-logo {
+    @apply w-full py-12 flex items-center justify-center;
+  }
+  .bx-hero-links {
+    @apply w-full px-8 mt-14;
+  }
+  .bx-hero-links > .bx-button-group > * {
+    @apply flex-1;
+  }
+  .bx-hero-links > .bx-button-group .bx-button {
+    @apply w-full;
+  }
+  .bx-hero-links > .bx-button-group > a {
+    @apply w-full;
+  }
+  .bx-hero-links > .bx-button-group .bx-button-label {
+    @apply w-full;
+  }
+  .bx-button {
+    @apply relative flex items-stretch;
+  }
+  .bx-button-label {
+    @apply m-[3px] mt-0 active:mt-[2px] focus:mt-[2px] relative z-10 px-2.5 flex flex-nowrap whitespace-nowrap gap-x-1 justify-center items-center bg-white dark:bg-slate-500 text-slate-600 dark:text-slate-900 border rounded border-slate-300 dark:border-slate-900 font-bold transition-all;
+  }
+  .bx-button-background {
+    @apply absolute inset-0 top-[3px] z-0 bg-slate-200 dark:bg-slate-700 border rounded border-slate-300 dark:border-slate-900;
+  }
+  .bx-button-group {
+    @apply inline-flex gap-x-0.5;
   }
 }
 

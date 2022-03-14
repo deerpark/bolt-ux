@@ -1,9 +1,8 @@
 import { Outlet } from 'remix'
 
-export default function Index() {
+export default function Posts() {
   return (
     <>
-      ^^
       <Outlet />
     </>
   )

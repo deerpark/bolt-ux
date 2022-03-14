@@ -98,7 +98,7 @@ export default function PostSlug() {
   } = useQuerySubscription(datoQuerySubscription)
 
   return (
-    <div className='container'>
+    <div className='bx-section'>
       <section className='section'>
         <h1 className='title'>{post.title}</h1>
       </section>

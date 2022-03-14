@@ -1,15 +1,15 @@
-import tiny from 'tiny-json-http';
-import { getSession } from '~/sessions';
+import tiny from 'tiny-json-http'
+import { getSession } from '~/sessions'
 
-export async function load({ query, variables, preview }) {
-  let endpoint = 'https://graphql.datocms.com';
+export async function load({ query, variables, preview }: any) {
+  let endpoint = 'https://graphql.datocms.com'
 
   if (process.env.DATOCMS_ENVIRONMENT) {
-    endpoint += `/environments/${process.env.DATOCMS_ENVIRONMENT}`;
+    endpoint += `/environments/${process.env.DATOCMS_ENVIRONMENT}`
   }
 
   if (preview) {
-    endpoint += `/preview`;
+    endpoint += `/preview`
   }
 
   const { body } = await tiny.post({
@@ -21,19 +21,19 @@ export async function load({ query, variables, preview }) {
       query,
       variables,
     },
-  });
+  })
 
   if (body.errors) {
-    console.error('Ouch! The query has some errors!', body.errors);
-    throw body.errors;
+    console.error('Ouch! The query has some errors!', body.errors)
+    throw body.errors
   }
 
-  return body.data;
+  return body.data
 }
 
-export async function datoQuerySubscription({ request, ...gqlRequest }) {
-  const session = await getSession(request.headers.get('Cookie'));
-  const previewEnabled = session.get('preview');
+export async function datoQuerySubscription({ request, ...gqlRequest }: any) {
+  const session = await getSession(request.headers.get('Cookie'))
+  const previewEnabled = session.get('preview')
 
   return {
     datoQuerySubscription: previewEnabled
@@ -48,5 +48,5 @@ export async function datoQuerySubscription({ request, ...gqlRequest }) {
           enabled: false,
           initialData: await load(gqlRequest),
         },
-  };
+  }
 }
