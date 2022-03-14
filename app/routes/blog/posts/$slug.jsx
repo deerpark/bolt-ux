@@ -100,11 +100,6 @@ export default function PostSlug() {
   return (
     <div className='container'>
       <section className='section'>
-        <Link to='/' className='grid__link'>
-          <p className='section__title'>Remix Blog.</p>
-        </Link>
-      </section>
-      <section className='section'>
         <h1 className='title'>{post.title}</h1>
       </section>
       <section className='section'>
