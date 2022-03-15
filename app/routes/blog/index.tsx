@@ -52,7 +52,7 @@ export default function Index() {
     <>
       <div className='bx-section'>
         <div className='preview'>
-          {previewEnabled ? (
+          {/* {previewEnabled ? (
             <Form method='post' action='/blog/preview/stop'>
               This is page is showing draft content. <button>Click here</button> to exit preview mode.
             </Form>
@@ -60,7 +60,7 @@ export default function Index() {
             <Form method='post' action='/blog/preview/start'>
               This is page is showing published content. <button>Click here</button> to enter preview mode!
             </Form>
-          )}
+          )} */}
         </div>
         <section className='section'>
           <Image className='grid__image' data={firstPost.coverImage.responsiveImage} />

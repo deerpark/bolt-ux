@@ -37,6 +37,9 @@
   .bx-section {
     @apply w-full md:min-w-80 md:max-w-112 flex flex-col gap-y-12 bg-white dark:bg-slate-700 md:border-r md:border-r-slate-100 dark:md:border-r-slate-900 dark:md:border-opacity-70;
   }
+  .bx-section-row {
+    @apply flex flex-col items-center gap-y-10;
+  }
   .bx-section:first-of-type {
     @apply md:max-w-80 bg-slate-50 dark:bg-slate-800 md:border-l md:border-l-slate-100 dark:md:border-l-slate-900 dark:md:border-opacity-30;
   }
@@ -74,11 +77,11 @@
     @apply relative flex items-stretch outline-none;
   }
   .bx-button-label {
-    @apply m-[3px] mt-0 active:mt-[2px] focus:mt-[2px] relative z-10 px-2.5 flex flex-nowrap whitespace-nowrap gap-x-1 justify-center items-center bg-white dark:bg-slate-500 hover:bg-slate-100 active:bg-blue-50 focus:bg-blue-50 dark:hover:bg-slate-400 dark:active:bg-slate-300 dark:focus:bg-slate-300 text-slate-600 dark:text-slate-900 hover:text-slate-500 dark:hover:text-slate-800 border rounded border-slate-300 dark:border-slate-900 font-bold transition-all;
+    @apply m-[3px] mt-0 active:mt-0.5 focus:mt-0.5 relative z-10 px-2.5 flex flex-nowrap whitespace-nowrap gap-x-1 justify-center items-center bg-white dark:bg-slate-500 hover:bg-slate-100 active:bg-blue-50 focus:bg-blue-50 dark:hover:bg-slate-400 dark:active:bg-slate-300 dark:focus:bg-slate-300 text-slate-600 dark:text-slate-900 hover:text-slate-500 dark:hover:text-slate-800 border rounded border-slate-300 dark:border-slate-900 font-bold transition-all;
   }
   .bx-button-group > a:active .bx-button-label,
   .bx-button-group > a:active .bx-button-label {
-    @apply mt-[2px] bg-blue-50 dark:bg-slate-300;
+    @apply mt-0.5 bg-blue-50 dark:bg-slate-300;
   }
   .bx-button-background {
     @apply absolute inset-0 top-[3px] z-0 bg-slate-200 dark:bg-slate-700 border rounded border-slate-300 dark:border-slate-900;
@@ -151,36 +154,36 @@
     @apply fill-yellow-400;
   }
   .bx-nav-item:hover .bx-nav-name {
-    @apply text-blue-600 transform translate-x-1 delay-200;
+    @apply text-blue-600 transform translate-x-1 delay-100;
   }
   .bx-nav-item:hover .bx-nav-desc {
-    @apply text-blue-500 transform translate-x-1 delay-200;
+    @apply text-blue-500 transform translate-x-1 delay-100;
   }
   /* Footer */
   .bx-footer {
-    @apply flex flex-col gap-y-5 px-8 pb-8;
+    @apply flex flex-col gap-y-5 px-8 pb-8 text-slate-300 dark:text-slate-600;
   }
   .bx-footer-logo {
     @apply flex items-center;
   }
   .bx-footer-contact {
-    @apply flex flex-col text-2xs text-slate-400;
+    @apply flex flex-col text-2xs;
   }
   .bx-footer-contact a {
-    @apply text-base font-extrabold
+    @apply text-base font-extrabold;
   }
   .bx-footer-logo .bx-logo-primary,
   .bx-footer-logo .bx-logo-secondary {
-    @apply fill-slate-400;
+    @apply fill-slate-300 dark:fill-slate-600;
   }
   .bx-footer-sns {
     @apply flex items-center gap-x-4;
   }
   .bx-footer-sns a {
-    @apply text-slate-400;
+    @apply text-slate-300 dark:text-slate-600;
   }
   .bx-footer-sns svg {
-    @apply w-4 h-4 fill-slate-400;
+    @apply w-4 h-4 fill-slate-300 dark:fill-slate-600;
   }
 }
 
