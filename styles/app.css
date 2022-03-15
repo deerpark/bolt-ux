@@ -3,6 +3,15 @@
 @tailwind utilities;
 
 @layer utilities {
+  .ease-expo-out {
+    transition-timing-function: cubic-bezier(0,1.25,0,1);
+  }
+  .text-2xs {
+    font-size: 11px;
+  }
+  .w-15 {
+    width: 60px;
+  }
   .min-w-80 {
     min-width: 320px;
   }
@@ -21,15 +30,24 @@
 }
 
 @layer components {
+  /* Layout */
   .bx-container {
     @apply flex flex-col bg-white justify-center dark:bg-slate-800 min-h-screen mx-auto md:flex-row md:items-stretch;
   }
   .bx-section {
-    @apply w-full md:min-w-80 md:max-w-112 flex flex-col gap-y-5 bg-white dark:bg-slate-700 md:border-r md:border-r-slate-100 dark:md:border-r-slate-900 dark:md:border-opacity-70;
+    @apply w-full md:min-w-80 md:max-w-112 flex flex-col gap-y-12 bg-white dark:bg-slate-700 md:border-r md:border-r-slate-100 dark:md:border-r-slate-900 dark:md:border-opacity-70;
   }
   .bx-section:first-of-type {
     @apply md:max-w-80 bg-slate-50 dark:bg-slate-800 md:border-l md:border-l-slate-100 dark:md:border-l-slate-900 dark:md:border-opacity-30;
   }
+  /* Logo */
+  .bx-logo-primary {
+    @apply fill-blue-600 dark:fill-white;
+  }
+  .bx-logo-secondary {
+    @apply fill-slate-400 dark:fill-white dark:opacity-50;
+  }
+  /* Hero */
   .bx-hero {
     @apply flex-none flex flex-col items-center;
   }
@@ -51,6 +69,7 @@
   .bx-hero-links > .bx-button-group .bx-button-label {
     @apply w-full;
   }
+  /* Button */
   .bx-button {
     @apply relative flex items-stretch outline-none;
   }
@@ -64,6 +83,7 @@
   .bx-button-background {
     @apply absolute inset-0 top-[3px] z-0 bg-slate-200 dark:bg-slate-700 border rounded border-slate-300 dark:border-slate-900;
   }
+  /* Button Group */
   .bx-button-group {
     @apply inline-flex relative;
   }
@@ -72,6 +92,95 @@
   }
   .bx-button-group .bx-button .bx-button-background {
     @apply hidden;
+  }
+  /* Icon */
+  .bx-icon-primary {
+    @apply fill-slate-400 transition-all;
+  }
+  .bx-icon-secondary {
+    @apply fill-slate-300 transition-all;
+  }
+  /* Nav */
+  .bx-nav {
+    @apply flex flex-col gap-y-8 px-8;
+  }
+  .bx-nav-category {
+    @apply text-slate-400 text-2xs font-extrabold mb-6;
+  }
+  .bx-nav-children {
+    @apply flex flex-col gap-y-7;
+  }
+  .bx-nav-item {
+    @apply flex gap-x-4 items-center;
+  }
+  .bx-nav-icon {
+    @apply w-8 h-8 relative flex flex-none justify-center items-center;
+  }
+  .bx-nav-icon::after {
+    content: '';
+    @apply w-0 h-0 absolute left-1/2 top-1/2 z-0 transform -translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-50 dark:bg-slate-800 transition-all duration-300;
+  }
+  .bx-nav-icon svg {
+    @apply w-6 h-6 relative z-10 transition-all;
+  }
+  .bx-nav-label {
+    @apply flex flex-col grow gap-y-0.5 justify-center;
+  }
+  .bx-nav-name {
+    @apply text-slate-500 text-sm font-semibold transition-all;
+  }
+  .bx-nav-desc {
+    @apply text-slate-400 text-2xs font-medium transition-all;
+  }
+  .bx-nav-arrow {
+    @apply w-2 h-3 flex-none fill-slate-300 transition-transform;
+  }
+  .bx-nav-item:hover .bx-nav-arrow {
+    @apply fill-blue-600 transform translate-x-2;
+  }
+  .bx-nav-item:hover .bx-nav-icon::after {
+    @apply w-8 h-8 bg-blue-300 dark:bg-blue-900;
+  }
+  .bx-nav-item:hover .bx-nav-icon svg {
+    @apply w-7 h-7;
+  }
+  .bx-nav-item:hover .bx-icon-primary {
+    @apply fill-blue-600;
+  }
+  .bx-nav-item:hover .bx-icon-secondary {
+    @apply fill-yellow-400;
+  }
+  .bx-nav-item:hover .bx-nav-name {
+    @apply text-blue-600 transform translate-x-1 delay-200;
+  }
+  .bx-nav-item:hover .bx-nav-desc {
+    @apply text-blue-500 transform translate-x-1 delay-200;
+  }
+  /* Footer */
+  .bx-footer {
+    @apply flex flex-col gap-y-5 px-8 pb-8;
+  }
+  .bx-footer-logo {
+    @apply flex items-center;
+  }
+  .bx-footer-contact {
+    @apply flex flex-col text-2xs text-slate-400;
+  }
+  .bx-footer-contact a {
+    @apply text-base font-extrabold
+  }
+  .bx-footer-logo .bx-logo-primary,
+  .bx-footer-logo .bx-logo-secondary {
+    @apply fill-slate-400;
+  }
+  .bx-footer-sns {
+    @apply flex items-center gap-x-4;
+  }
+  .bx-footer-sns a {
+    @apply text-slate-400;
+  }
+  .bx-footer-sns svg {
+    @apply w-4 h-4 fill-slate-400;
   }
 }
 
