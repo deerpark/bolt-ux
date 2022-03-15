@@ -263,5 +263,39 @@
   .bx-banner-link .bx-button-background {
     @apply bg-yellow-500 border-yellow-600;
   }
+  .bx-post {
+    @apply mx-8 relative flex flex-col transition-all transform hover:scale-[1.02];
+  }
+  .bx-post-link {
+    @apply m-[3px] mt-0 transform active:translate-y-0.5 focus:translate-y-0.5 relative z-10 overflow-hidden flex flex-col bg-white dark:bg-slate-800 hover:bg-slate-100 active:bg-blue-50 focus:bg-blue-50 dark:hover:bg-slate-900 dark:active:bg-slate-800 dark:focus:bg-slate-800 border rounded-lg border-slate-300 dark:border-slate-800 transition-all;
+  }
+  .bx-post-thumb {
+    @apply h-56;
+  }
+  .bx-post-thumb img {
+    @apply object-cover;
+  }
+  .bx-post-info {
+    @apply h-14 flex-none flex items-center justify-between gap-x-1 px-4;
+  }
+  .bx-post-meta {
+    @apply flex flex-col grow gap-y-1;
+  }
+  .bx-post-title {
+    @apply text-slate-600 dark:text-slate-300 text-sm font-bold;
+  }
+  .bx-post-date {
+    @apply text-slate-400 dark:text-slate-500 text-xs;
+  }
+  .bx-post-avatar {
+    @apply flex-none;
+  }
+  .bx-post-background {
+    @apply absolute transition-all inset-0 top-[3px] z-0 bg-slate-200 dark:bg-slate-700 border rounded-[10px] border-slate-300 dark:border-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800;
+  }
+  .bx-post-link:focus ~ .bx-post-background,
+  .bx-post-link:active ~ .bx-post-background {
+    @apply shadow-md -bottom-0.5;
+  }
 }
 

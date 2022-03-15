@@ -5,13 +5,10 @@ import { datoQuerySubscription } from '~/lib/datocms'
 import { responsiveImageFragment } from '~/lib/fragments'
 import { useNav, Route } from '~/lib/config'
 import { Header } from '~/components/Header'
-import { Avatar, links as avatarLinks } from '~/components/Avatar'
-import { Date, links as dateLinks } from '~/components/Date'
+import { Avatar } from '~/components/Avatar'
+import { Date } from '~/components/Date'
 import { Banner } from '~/components/Banner'
-
-export function links() {
-  return [...avatarLinks(), ...dateLinks()]
-}
+import { Footer } from '~/components/Footer'
 
 export const loader = async ({ request, params }: any) => {
   const querySubscription = await datoQuerySubscription({
@@ -85,31 +82,48 @@ export default function Index() {
         </div> */}
         <Header {...{ title, Icon, desc }} />
         <Banner {...promotion} />
-        <section className='section'>
-          <Image className='grid__image' data={firstPost.coverImage.responsiveImage} />
-          <Link to={`/blog/posts/${firstPost.slug}`}>
-            <h5 className='grid__title'>{firstPost.title}</h5>
+        <section className='bx-post'>
+          <Link className='bx-post-link' to={`/blog/posts/${firstPost.slug}`}>
+            <Image className='bx-post-thumb' data={firstPost.coverImage.responsiveImage} />
+            <div className='bx-post-info'>
+              <div className='bx-post-meta'>
+                <h5 className='bx-post-title'>{firstPost.title}</h5>
+                <div className='bx-post-date'>
+                  <Date dateString={firstPost.date} />
+                </div>
+              </div>
+              <div className='bx-post-avatar'>
+                <Avatar name={firstPost.author.name} picture={firstPost.author.picture} />
+              </div>
+            </div>
           </Link>
-
-          <Date dateString={firstPost.date} />
-          <Avatar name={firstPost.author.name} picture={firstPost.author.picture} />
+          <span className='bx-post-background'></span>
         </section>
-        <section className='section'>
-          <ul className='grid'>
-            {otherPosts.map((post: any) => (
-              <li key={post.slug} className='grid__item'>
-                <Link to={`/blog/posts/${post.slug}`} className='grid__link'>
-                  <div>
-                    <Image className='grid__image' data={post.coverImage.responsiveImage} />
-                    <p className='grid__title'>{post.title}</p>
-                    <Date dateString={post.date} />
-                    <p className='date'>{post.excerpt}</p>
-                    <Avatar name={post.author.name} picture={post.author.picture} />
+        <ul>
+          {otherPosts.map((post: any) => (
+            <li key={post.slug}>
+              <section className='bx-post'>
+                <Link className='bx-post-link' to={`/blog/posts/${post.slug}`}>
+                  <Image className='bx-post-thumb' data={post.coverImage.responsiveImage} />
+                  <div className='bx-post-info'>
+                    <div className='bx-post-meta'>
+                      <h5 className='bx-post-title'>{post.title}</h5>
+                      <div className='bx-post-date'>
+                        <Date dateString={post.date} />
+                      </div>
+                    </div>
+                    <div className='bx-post-avatar'>
+                      <Avatar name={post.author.name} picture={post.author.picture} />
+                    </div>
                   </div>
                 </Link>
-              </li>
-            ))}
-          </ul>
+                <span className='bx-post-background'></span>
+              </section>
+            </li>
+          ))}
+        </ul>
+        <section className='section flex md:hidden'>
+          <Footer />
         </section>
       </div>
       <Outlet />

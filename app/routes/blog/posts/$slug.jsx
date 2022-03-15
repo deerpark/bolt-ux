@@ -2,13 +2,9 @@ import { Link, useLoaderData } from 'remix'
 import invariant from 'tiny-invariant'
 import { datoQuerySubscription } from '~/lib/datocms'
 import { responsiveImageFragment, metaTagsFragment } from '~/lib/fragments'
-import { Avatar, links as avatarLinks } from '~/components/Avatar'
-import { Date, links as dateLinks } from '~/components/Date'
+import { Avatar } from '~/components/Avatar'
+import { Date } from '~/components/Date'
 import { StructuredText, Image, toRemixMeta, useQuerySubscription } from 'react-datocms'
-
-export function links() {
-  return [...avatarLinks(), ...dateLinks()]
-}
 
 export const loader = async ({ request, params }) => {
   invariant(params.slug, 'expected params.slug')

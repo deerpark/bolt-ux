@@ -1,4 +1,5 @@
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from 'remix'
+import { useLocation } from 'react-router-dom'
 import { renderMetaTags, toRemixMeta, useQuerySubscription } from 'react-datocms'
 import { datoQuerySubscription } from '~/lib/datocms'
 import { metaTagsFragment } from '~/lib/fragments'
@@ -49,7 +50,9 @@ export const meta = ({
 }
 
 export default function App() {
+  const { pathname } = useLocation()
   const { datoQuerySubscription } = useLoaderData()
+  const isRoot = pathname === '/'
 
   const {
     data: { site },
@@ -73,7 +76,7 @@ export default function App() {
       </head>
       <body>
         <div className='bx-container'>
-          <div className='bx-section'>
+          <div className={`bx-section ${isRoot ? '' : 'hidden md:flex'}`}>
             <Hero
               heroString={[
                 ['홈페이지 제작', '부터'],
@@ -89,7 +92,9 @@ export default function App() {
               ]}
             />
             <Nav nav={nav} />
-            <Footer />
+            <div className={`${isRoot ? 'hidden md:flex' : ''}`}>
+              <Footer />
+            </div>
           </div>
           <Outlet />
         </div>
