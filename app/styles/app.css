@@ -634,6 +634,8 @@ body {
 
 .bx-hero-links > .bx-button-group > a {
   width: 100%;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 .bx-hero-links > .bx-button-group .bx-button-label {
@@ -644,6 +646,8 @@ body {
   position: relative;
   display: flex;
   align-items: stretch;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 .bx-button-label {
@@ -674,12 +678,23 @@ body {
   transition-duration: 150ms;
 }
 
+.bx-button-label:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(100 116 139 / var(--tw-text-opacity));
+}
+
 .bx-button-label:focus {
   margin-top: 2px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 246 255 / var(--tw-bg-opacity));
 }
 
 .bx-button-label:active {
   margin-top: 2px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 246 255 / var(--tw-bg-opacity));
 }
 
 @media (prefers-color-scheme: dark) {
@@ -696,6 +711,39 @@ body {
   .bx-button-label {
     --tw-text-opacity: 1;
     color: rgb(15 23 42 / var(--tw-text-opacity));
+  }
+
+  .bx-button-label:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(148 163 184 / var(--tw-bg-opacity));
+  }
+
+  .bx-button-label:hover {
+    --tw-text-opacity: 1;
+    color: rgb(30 41 59 / var(--tw-text-opacity));
+  }
+
+  .bx-button-label:focus {
+    --tw-bg-opacity: 1;
+    background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+  }
+
+  .bx-button-label:active {
+    --tw-bg-opacity: 1;
+    background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+  }
+}
+
+.bx-button-group > a:active .bx-button-label, .bx-button-group > a:active .bx-button-label {
+  margin-top: 2px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 246 255 / var(--tw-bg-opacity));
+}
+
+@media (prefers-color-scheme: dark) {
+  .bx-button-group > a:active .bx-button-label, .bx-button-group > a:active .bx-button-label {
+    --tw-bg-opacity: 1;
+    background-color: rgb(203 213 225 / var(--tw-bg-opacity));
   }
 }
 
@@ -727,9 +775,16 @@ body {
 }
 
 .bx-button-group {
+  position: relative;
   display: inline-flex;
-  -moz-column-gap: 0.125rem;
-       column-gap: 0.125rem;
+}
+
+.bx-button-group > * + *:not(.bx-button-background) {
+  margin-left: -0.25rem;
+}
+
+.bx-button-group .bx-button .bx-button-background {
+  display: none;
 }
 
 .mt-3 {

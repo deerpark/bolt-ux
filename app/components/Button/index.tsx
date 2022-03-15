@@ -60,5 +60,10 @@ export function Button({ type = 'button', size = 'default', href, onClick, icon,
 }
 
 export function ButtonGroup({ children, className }: ButtonGroupProps) {
-  return <div className={`bx-button-group ${className}`}>{children}</div>
+  return (
+    <div className={`bx-button-group ${className}`}>
+      {children}
+      <span className='bx-button-background'></span>
+    </div>
+  )
 }
