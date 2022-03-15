@@ -30,6 +30,13 @@
 }
 
 @layer components {
+  /* Icon */
+  .bx-icon-primary {
+    @apply fill-slate-400 dark:fill-slate-600 transition-all;
+  }
+  .bx-icon-secondary {
+    @apply fill-slate-300 dark:fill-slate-400 transition-all;
+  }
   /* Layout */
   .bx-container {
     @apply flex flex-col bg-white justify-center dark:bg-slate-800 min-h-screen mx-auto md:flex-row md:items-stretch;
@@ -43,19 +50,53 @@
   .bx-section:first-of-type {
     @apply md:max-w-80 bg-slate-50 dark:bg-slate-800 md:border-l md:border-l-slate-100 dark:md:border-l-slate-900 dark:md:border-opacity-30;
   }
+  /* Page Header */
+  .bx-header {
+    @apply flex items-center justify-between pt-12 pb-0 px-8;
+  }
+  .bx-header-meta {
+    @apply flex flex-col gap-y-0.5;
+  }
+  .bx-header-title {
+    @apply text-2xl font-extrabold text-slate-700 dark:text-white;
+  }
+  .bx-header-desc {
+    @apply text-2xs text-slate-400;
+  }
+  .bx-header-icon {
+    @apply w-12 h-12 flex justify-center items-center rounded-2xl bg-slate-100 dark:bg-slate-600;
+  }
+  .bx-header-icon svg {
+    @apply w-7 h-7 flex items-center justify-between;
+  }
+  .bx-header-icon .bx-icon-primary {
+    @apply fill-slate-500 dark:fill-slate-300;
+  }
+  .bx-header-icon .bx-icon-secondary {
+    @apply fill-slate-400 dark:fill-slate-400;
+  }
   /* Logo */
   .bx-logo-primary {
-    @apply fill-blue-600 dark:fill-white;
+    @apply fill-blue-600 dark:fill-white transition-colors;
   }
   .bx-logo-secondary {
-    @apply fill-slate-400 dark:fill-white dark:opacity-50;
+    @apply fill-slate-400 dark:fill-white dark:opacity-50 transition-colors;
   }
   /* Hero */
   .bx-hero {
     @apply flex-none flex flex-col items-center;
   }
   .bx-hero-logo {
-    @apply w-full py-12 flex items-center justify-center;
+    @apply w-full pt-8 pb-8 flex items-center justify-center;
+  }
+  .bx-hero-logo a {
+    @apply inline p-4 transition-all hover:transform hover:scale-110 focus:scale-100 active:scale-100;
+  }
+  .bx-hero-logo a:hover .bx-logo-primary {
+    @apply fill-yellow-400;
+  }
+  .bx-hero-logo a:hover .bx-logo-secondary {
+    @apply fill-blue-600 opacity-100;
   }
   .bx-hero-links {
     @apply w-full px-8 mt-14;
@@ -96,25 +137,18 @@
   .bx-button-group .bx-button .bx-button-background {
     @apply hidden;
   }
-  /* Icon */
-  .bx-icon-primary {
-    @apply fill-slate-400 transition-all;
-  }
-  .bx-icon-secondary {
-    @apply fill-slate-300 transition-all;
-  }
   /* Nav */
   .bx-nav {
-    @apply flex flex-col gap-y-8 px-8;
+    @apply flex flex-col gap-y-8;
   }
   .bx-nav-category {
-    @apply text-slate-400 text-2xs font-extrabold mb-6;
+    @apply text-slate-400 text-2xs font-extrabold mb-2.5 px-8;
   }
   .bx-nav-children {
-    @apply flex flex-col gap-y-7;
+    @apply flex flex-col;
   }
   .bx-nav-item {
-    @apply flex gap-x-4 items-center;
+    @apply flex gap-x-4 items-center px-8 py-3.5;
   }
   .bx-nav-icon {
     @apply w-8 h-8 relative flex flex-none justify-center items-center;
@@ -139,7 +173,7 @@
     @apply w-2 h-3 flex-none fill-slate-300 transition-transform;
   }
   .bx-nav-item:hover .bx-nav-arrow {
-    @apply fill-blue-600 transform translate-x-2;
+    @apply fill-blue-600 dark:fill-blue-500 transform translate-x-2;
   }
   .bx-nav-item:hover .bx-nav-icon::after {
     @apply w-8 h-8 bg-blue-300 dark:bg-blue-900;
@@ -154,10 +188,10 @@
     @apply fill-yellow-400;
   }
   .bx-nav-item:hover .bx-nav-name {
-    @apply text-blue-600 transform translate-x-1 delay-100;
+    @apply text-blue-600 dark:text-blue-500 transform translate-x-1 delay-100;
   }
   .bx-nav-item:hover .bx-nav-desc {
-    @apply text-blue-500 transform translate-x-1 delay-100;
+    @apply text-blue-500 dark:text-blue-500 transform translate-x-1 delay-100;
   }
   /* Footer */
   .bx-footer {
@@ -172,9 +206,18 @@
   .bx-footer-contact a {
     @apply text-base font-extrabold;
   }
+  .bx-footer-logo a {
+    @apply transition-all hover:transform hover:scale-110 active:scale-100 focus:scale-100;
+  }
   .bx-footer-logo .bx-logo-primary,
   .bx-footer-logo .bx-logo-secondary {
     @apply fill-slate-300 dark:fill-slate-600;
+  }
+  .bx-footer-logo a:hover .bx-logo-primary {
+    @apply fill-yellow-400;
+  }
+  .bx-footer-logo a:hover .bx-logo-secondary {
+    @apply fill-blue-600;
   }
   .bx-footer-sns {
     @apply flex items-center gap-x-4;
@@ -184,6 +227,41 @@
   }
   .bx-footer-sns svg {
     @apply w-4 h-4 fill-slate-300 dark:fill-slate-600;
+  }
+  /* Promotion Index */
+  .bx-promotions {
+    @apply p-8 flex flex-col gap-y-8;
+  }
+  .bx-promotion-image {
+    @apply shadow-lg rounded-lg;
+  }
+  /* Page Banner */
+  .bx-banner {
+    @apply flex items-center shadow-lg rounded-lg py-2 pl-4 pr-3 mx-8 gap-x-3;
+  }
+  .bx-banner-icon {
+    @apply flex flex-none justify-center items-center;
+  }
+  .bx-banner-icon svg {
+    @apply w-4 h-4;
+  }
+  .bx-banner-icon .bx-icon-primary {
+    @apply fill-yellow-800;
+  }
+  .bx-banner-icon .bx-icon-secondary {
+    @apply fill-yellow-600;
+  }
+  .bx-banner-title {
+    @apply flex grow shrink items-center truncate overflow-hidden break-words text-xs font-bold text-yellow-700;
+  }
+  .bx-banner-link {
+    @apply flex flex-none items-center;
+  }
+  .bx-banner-link .bx-button-label {
+    @apply bg-white hover:bg-yellow-50 active:bg-white focus:bg-white text-yellow-600 hover:text-yellow-700 border-yellow-600;
+  }
+  .bx-banner-link .bx-button-background {
+    @apply bg-yellow-500 border-yellow-600;
   }
 }
 

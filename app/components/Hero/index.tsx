@@ -11,9 +11,11 @@ type HeroProps = {
 export function Hero({ heroString = [['', '']], desc, links }: HeroProps) {
   return (
     <div className='bx-hero'>
-      <Link className='bx-hero-logo' to='/'>
-        <Icon.Logo />
-      </Link>
+      <div className='bx-hero-logo'>
+        <Link to='/'>
+          <Icon.Logo />
+        </Link>
+      </div>
       <div className='flex flex-col items-center'>
         {heroString.map(heading => (
           <div

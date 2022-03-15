@@ -2,68 +2,13 @@ import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderD
 import { renderMetaTags, toRemixMeta, useQuerySubscription } from 'react-datocms'
 import { datoQuerySubscription } from '~/lib/datocms'
 import { metaTagsFragment } from '~/lib/fragments'
+import { nav } from '~/lib/config'
 import { Hero } from '~/components/Hero'
-import { Nav, Routes } from '~/components/Nav'
+import { Nav } from '~/components/Nav'
 import { Footer } from '~/components/Footer'
-import * as Icon from '~/components/Icon'
 
 import appStyles from './styles/app.css'
 import blogStyles from './styles/blog.css'
-
-const nav: Routes[] = [
-  {
-    name: '블로그',
-    children: [
-      {
-        route: '/blog',
-        name: '공지사항',
-        desc: '알려드립니다.',
-        icon: Icon.notice,
-      },
-      {
-        route: '/blog/news',
-        name: '새소식',
-        desc: '새로운 소식',
-        icon: Icon.news,
-      },
-    ],
-  },
-  {
-    name: '서비스',
-    children: [
-      {
-        route: '/service/homaepage',
-        name: '홈페이지 제작',
-        desc: '홍보를 위한 웹사이트 구축',
-        icon: Icon.homepage,
-      },
-      {
-        route: '/service/singlepage',
-        name: '싱글 페이지 제작',
-        desc: '이벤트, 랜딩 단일 페이지 구축',
-        icon: Icon.singlepage,
-      },
-      {
-        route: '/service/publishing',
-        name: '퍼블리싱 개발',
-        desc: '마크업 개발',
-        icon: Icon.publishing,
-      },
-      {
-        route: '/service/appdesign',
-        name: '앱 디자인',
-        desc: '모바일 어플리케이션 디자인',
-        icon: Icon.appdesign,
-      },
-      {
-        route: '/service/consulting',
-        name: '디자인 컨설팅',
-        desc: '로고 명함 간판 메뉴판 템플릿 컨설팅',
-        icon: Icon.consulting,
-      },
-    ],
-  },
-]
 
 export function links() {
   return [

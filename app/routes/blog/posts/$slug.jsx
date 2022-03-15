@@ -100,34 +100,34 @@ export default function PostSlug() {
   return (
     <div className='bx-section'>
       <section className='section'>
-        <h1 className='title'>{post.title}</h1>
-      </section>
-      <section className='section'>
         <Avatar name={post.author.name} picture={post.author.picture} />
       </section>
-      <Image className='grid__image' data={post.coverImage.responsiveImage} />
-      <section className='section--narrow'>
-        <Date dateString={post.date} />
-      </section>
-      <section className='section--narrow'>
-        <div className='prose prose-lg prose-blue'>
-          <StructuredText
-            data={post.content}
-            renderBlock={({ record }) => {
-              if (record.__typename === 'ImageBlockRecord') {
-                return <Image className='grid__image' data={record.image.responsiveImage} />
-              }
-
-              return (
-                <>
-                  <p>Don't know how to render a block!</p>
-                  <pre>{JSON.stringify(record, null, 2)}</pre>
-                </>
-              )
-            }}
-          />
+      <div className='bx-post'>
+        <div className='bx-post-header'>
+          <h1 className='bx-post-title'>{post.title}</h1>
+          <Image className='bx-post-image' data={post.coverImage.responsiveImage} />
+          <Date dateString={post.date} />
         </div>
-      </section>
+        <div className='bx-post-body'>
+          <div className='prose prose-lg prose-blue'>
+            <StructuredText
+              data={post.content}
+              renderBlock={({ record }) => {
+                if (record.__typename === 'ImageBlockRecord') {
+                  return <Image className='grid__image' data={record.image.responsiveImage} />
+                }
+
+                return (
+                  <>
+                    <p>Don't know how to render a block!</p>
+                    <pre>{JSON.stringify(record, null, 2)}</pre>
+                  </>
+                )
+              }}
+            />
+          </div>
+        </div>
+      </div>
       <section className='section'>
         <div className='section__title'>More posts</div>
         <ul className='grid'>

@@ -10,7 +10,7 @@ export const links = () => [{ rel: 'stylesheet', href: styles }]
 export function Date({ dateString }: DateProps) {
   const date = parseISO(dateString)
   return (
-    <time className='date' dateTime={dateString}>
+    <time className='bx-post-image' dateTime={dateString}>
       {format(date, 'LLLL	d, yyyy')}
     </time>
   )

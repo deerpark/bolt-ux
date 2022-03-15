@@ -1,16 +1,6 @@
 import { Link } from 'remix'
+import { Routes } from '~/lib/config'
 import * as Icon from '~/components/Icon'
-
-export type Route = {
-  route?: string,
-  name: string,
-  desc?: string,
-  icon?: () => JSX.Element,
-}
-
-export type Routes = Route & {
-  children?: Route[],
-}
 
 type NavProps = {
   nav?: Routes[],
@@ -22,22 +12,22 @@ export function Nav({ nav }: NavProps) {
       {nav ? (
         nav.map(navItem => {
           return (
-            <li key={navItem.name}>
-              <h3 className='bx-nav-category'>{navItem.name}</h3>
+            <li key={navItem.title}>
+              <h3 className='bx-nav-category'>{navItem.title}</h3>
               {navItem?.children && (
                 <ul className='bx-nav-children'>
                   {navItem.children.map(navSubItem => {
                     return (
-                      <li key={navSubItem.name}>
-                        {navSubItem.route ? (
-                          <Link className='bx-nav-item' to={navSubItem.route}>
-                            {navSubItem?.icon && (
+                      <li key={navSubItem.title}>
+                        {navSubItem.pathname ? (
+                          <Link className='bx-nav-item' to={navSubItem.pathname}>
+                            {navSubItem?.Icon && (
                               <span className='bx-nav-icon'>
-                                <navSubItem.icon />
+                                <navSubItem.Icon />
                               </span>
                             )}
                             <span className='bx-nav-label'>
-                              <span className='bx-nav-name'>{navSubItem.name}</span>
+                              <span className='bx-nav-name'>{navSubItem.title}</span>
                               {navSubItem?.desc && <span className='bx-nav-desc'>{navSubItem.desc}</span>}
                             </span>
                             <span className='bx-nav-arrow'>
@@ -46,13 +36,13 @@ export function Nav({ nav }: NavProps) {
                           </Link>
                         ) : (
                           <span className='bx-nav-item'>
-                            {navSubItem?.icon && (
+                            {navSubItem?.Icon && (
                               <span className='bx-nav-icon'>
-                                <navSubItem.icon />
+                                <navSubItem.Icon />
                               </span>
                             )}
                             <span className='bx-nav-label'>
-                              <span className='bx-nav-name'>{navSubItem.name}</span>
+                              <span className='bx-nav-name'>{navSubItem.title}</span>
                               {navSubItem?.desc && <span className='bx-nav-desc'>{navSubItem.desc}</span>}
                             </span>
                           </span>

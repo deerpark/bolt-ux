@@ -1,16 +1,20 @@
-import { Link, Form, useLoaderData, Outlet } from 'remix'
-import { datoQuerySubscription } from '~/lib/datocms'
+import { useLocation } from 'react-router-dom'
+import { Link, useLoaderData, Outlet } from 'remix'
 import { Image, useQuerySubscription } from 'react-datocms'
+import { datoQuerySubscription } from '~/lib/datocms'
 import { responsiveImageFragment } from '~/lib/fragments'
+import { useNav, Route } from '~/lib/config'
+import { Header } from '~/components/Header'
 import { Avatar, links as avatarLinks } from '~/components/Avatar'
 import { Date, links as dateLinks } from '~/components/Date'
+import { Banner } from '~/components/Banner'
 
 export function links() {
   return [...avatarLinks(), ...dateLinks()]
 }
 
-export const loader = ({ request }: any) => {
-  return datoQuerySubscription({
+export const loader = async ({ request, params }: any) => {
+  const querySubscription = await datoQuerySubscription({
     request,
     query: `
       {
@@ -31,28 +35,45 @@ export const loader = ({ request }: any) => {
             }
           }
         }
+        promotion: promotion(orderBy: expiredat_ASC, locale: ko_KR) {
+          title(locale: ko_KR)
+          url
+          color {
+            red
+            green
+            blue
+          }
+          textcolor {
+            hex
+          }
+          label(locale: ko_KR)
+        }
       }
       ${responsiveImageFragment}
     `,
   })
+  return {
+    ...querySubscription,
+  }
 }
 
 export default function Index() {
+  const { pathname } = useLocation()
   const { datoQuerySubscription } = useLoaderData()
-
-  const previewEnabled = datoQuerySubscription.enabled === undefined || datoQuerySubscription.enabled === true
+  const { title, Icon, desc }: Route = useNav(pathname)
 
   const {
     data: {
       posts: [firstPost, ...otherPosts],
+      promotion,
     },
   } = useQuerySubscription(datoQuerySubscription)
 
   return (
     <>
       <div className='bx-section'>
-        <div className='preview'>
-          {/* {previewEnabled ? (
+        {/* <div className='preview'>
+          {previewEnabled ? (
             <Form method='post' action='/blog/preview/stop'>
               This is page is showing draft content. <button>Click here</button> to exit preview mode.
             </Form>
@@ -60,8 +81,10 @@ export default function Index() {
             <Form method='post' action='/blog/preview/start'>
               This is page is showing published content. <button>Click here</button> to enter preview mode!
             </Form>
-          )} */}
-        </div>
+          )}
+        </div> */}
+        <Header {...{ title, Icon, desc }} />
+        <Banner {...promotion} />
         <section className='section'>
           <Image className='grid__image' data={firstPost.coverImage.responsiveImage} />
           <Link to={`/blog/posts/${firstPost.slug}`}>

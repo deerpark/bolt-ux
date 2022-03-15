@@ -1,4 +1,4 @@
-import { Link, Form, useLoaderData, Outlet } from 'remix'
+import { Link, useLoaderData, Outlet } from 'remix'
 import { datoQuerySubscription } from '~/lib/datocms'
 import { Image, useQuerySubscription } from 'react-datocms'
 import { responsiveImageFragment } from '~/lib/fragments'
@@ -8,10 +8,12 @@ export const loader = ({ request }: any) => {
     request,
     query: `
       {
-        promotions: allPromotions(orderBy: expiredat_DESC, first: 20) {
+        promotions: allPromotions(orderBy: expiredat_ASC, first: 20) {
           title
           color {
-            hex
+            blue
+            green
+            red
           }
           url
           expiredat
@@ -30,8 +32,6 @@ export const loader = ({ request }: any) => {
 export default function Index() {
   const { datoQuerySubscription } = useLoaderData()
 
-  const previewEnabled = datoQuerySubscription.enabled === undefined || datoQuerySubscription.enabled === true
-
   const {
     data: { promotions },
   } = useQuerySubscription(datoQuerySubscription)
@@ -39,22 +39,20 @@ export default function Index() {
   return (
     <>
       <div className='bx-section'>
-        {/* {previewEnabled ? (
-          <Form method='post' action='/preview/stop'>
-            This is page is showing draft content. <button>Click here</button> to exit preview mode.
-          </Form>
-        ) : (
-          <Form method='post' action='/preview/start'>
-            This is page is showing published content. <button>Click here</button> to enter preview mode!
-          </Form>
-        )} */}
         <section className='bx-section-row'>
-          <ul className='promotions'>
+          <ul className='bx-promotions'>
             {promotions.map((promotion: any) => (
-              <li key={promotion.title} className='promotion_item'>
-                <Link to={promotion.url || './'} className='promotion_link'>
+              <li key={promotion.title} className='bx-promotion-item'>
+                <Link to={promotion.url || './'} className='bx-promotion-link'>
                   <div>
-                    <Image className='promotion_image' data={promotion.banner.responsiveImage} />
+                    <Image
+                      className='bx-promotion_image'
+                      data={promotion.banner.responsiveImage}
+                      style={{
+                        '--tw-shadow-color': `rgba(${promotion.color.red}, ${promotion.color.green}, ${promotion.color.blue}, .5)`,
+                        '--tw-shadow': 'var(--tw-shadow-colored)',
+                      } as React.CSSProperties}
+                    />
                   </div>
                 </Link>
               </li>
