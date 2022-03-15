@@ -47,7 +47,7 @@ export default function Index() {
                 <Link to={promotion.url || './'} className='bx-promotion-link'>
                   <div>
                     <Image
-                      className='bx-promotion_image'
+                      className='bx-promotion-image'
                       data={promotion.banner.responsiveImage}
                       style={{
                         '--tw-shadow-color': `rgba(${promotion.color.red}, ${promotion.color.green}, ${promotion.color.blue}, .5)`,
