@@ -2,9 +2,9 @@ import { ReactElement } from 'react'
 import { Link } from 'remix'
 
 type ButtonProps = {
-  icon?: string,
+  icon?: ReactElement | Element | string,
   href?: string,
-  children: ReactElement[] | string,
+  children?: ReactElement | ReactElement[] | Element | Element[] | string,
   size?: 'small' | 'default' | 'large',
   type?: 'submit' | 'button',
   onClick?: () => void,
@@ -26,10 +26,20 @@ const sizes = {
     default: 'h-8',
     large: 'h-10',
   },
+  iconSize: {
+    small: 'w-3 h-3',
+    default: 'w-4 h-4',
+    large: 'w-6 h-6',
+  },
   fontSize: {
     small: 'text-xs',
     default: 'text-sm',
     large: 'text-base',
+  },
+  gap: {
+    small: 'gap-x-1',
+    default: 'gap-x-2',
+    large: 'gap-x-3',
   },
 }
 
@@ -37,23 +47,27 @@ export function Button({ type = 'button', size = 'default', href, onClick, icon,
   return href ? (
     <Link key={href} to={href}>
       <button type={type} className={`bx-button ${sizes.height[size]} ${sizes.minWidth[size]}}`}>
-        <span className={`bx-button-label ${sizes.fontSize[size]}`}>
-          {icon && <span className='bx-button-icon'>{icon}</span>}
-          <span>{children}</span>
+        <span className={`bx-button-label ${sizes.fontSize[size]} ${sizes.gap[size]}`}>
+          {icon && <span className={`bx-button-icon ${sizes.iconSize[size]}`}>{icon}</span>}
+          {children && <span className='bx-button-text'>{children}</span>}
         </span>
         <span className='bx-button-background'></span>
       </button>
     </Link>
   ) : onClick ? (
-    <button type={type} className='bx-button' onClick={onClick}>
-      {icon && <span className='bx-button-icon'>{icon}</span>}
-      <span className={`bx-button-label ${sizes.fontSize[size]}`}>{children}</span>
+    <button type={type} className={`bx-button ${sizes.height[size]} ${sizes.minWidth[size]}}`} onClick={onClick}>
+      <span className={`bx-button-label ${sizes.fontSize[size]} ${sizes.gap[size]}`}>
+        {icon && <span className={`bx-button-icon ${sizes.iconSize[size]}`}>{icon}</span>}
+        {children && <span className='bx-button-text'>{children}</span>}
+      </span>
       <span className='bx-button-background'></span>
     </button>
   ) : (
-    <button type={type} className='bx-button'>
-      {icon && <span className='bx-button-icon'>{icon}</span>}
-      <span className={`bx-button-label ${sizes.fontSize[size]}`}>{children}</span>
+    <button type={type} className={`bx-button ${sizes.height[size]} ${sizes.minWidth[size]}}`}>
+      <span className={`bx-button-label ${sizes.fontSize[size]} ${sizes.gap[size]}`}>
+        {icon && <span className={`bx-button-icon ${sizes.iconSize[size]}`}>{icon}</span>}
+        {children && <span className='bx-button-text'>{children}</span>}
+      </span>
       <span className='bx-button-background'></span>
     </button>
   )

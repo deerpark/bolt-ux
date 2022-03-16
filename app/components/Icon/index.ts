@@ -1,5 +1,6 @@
 export * from './Settings'
 export * from './Home'
+export * from './ArrowLeft'
 
 export * from './Logo'
 
@@ -12,6 +13,7 @@ export * from './Consulting'
 export * from './News'
 export * from './Notice'
 export * from './Banner'
+export * from './NotFound'
 
 export * from './Youtube'
 export * from './Twitter'

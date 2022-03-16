@@ -1,10 +1,11 @@
 import { Link } from 'remix'
 import { Route } from '~/lib/config'
 import * as Icons from '~/components/Icon'
+import { Button } from '~/components/Button'
 
-export function Header({ title, Icon, desc }: Route) {
+export function Header({ title, Icon, desc, prevRoute }: Route & { prevRoute: string | undefined }) {
   return (
-    <div>
+    <div className='bx-header'>
       <div className='bx-mobile-nav'>
         <div className='bx-mobile-home'>
           <Link to='/'>
@@ -20,12 +21,21 @@ export function Header({ title, Icon, desc }: Route) {
           </Link>
         </div>
       </div>
-      <div className='bx-header'>
-        <div className='bx-header-meta'>
-          <div className='bx-header-title'>{title}</div>
-          <div className='bx-header-desc'>{desc}</div>
+      <div className='bx-header-section'>
+        {prevRoute && prevRoute !== '/' && (
+          <div className='bx-header-history-back'>
+            <Button href={prevRoute} icon={<Icons.ArrowLeft />}></Button>
+          </div>
+        )}
+        <div className='bx-header-content'>
+          <div className='bx-header-meta'>
+            <div className='bx-header-title'>
+              <span>{title}</span>
+            </div>
+            <div className='bx-header-desc'>{desc}</div>
+          </div>
+          <div className='bx-header-icon'>{Icon && <Icon />}</div>
         </div>
-        <div className='bx-header-icon'>{Icon && <Icon />}</div>
       </div>
     </div>
   )

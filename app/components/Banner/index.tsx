@@ -1,7 +1,7 @@
 import * as Icon from '~/components/Icon'
 import { Button } from '~/components/Button'
 
-type Promotion = {
+export type Promotion = {
   title: string,
   url?: string,
   label?: string,

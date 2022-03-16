@@ -1,12 +1,15 @@
 import { Link, useLoaderData } from 'remix'
+import { useLocation } from 'react-router-dom'
 import invariant from 'tiny-invariant'
+import { StructuredText, Image, toRemixMeta, useQuerySubscription } from 'react-datocms'
 import { datoQuerySubscription } from '~/lib/datocms'
 import { responsiveImageFragment, metaTagsFragment } from '~/lib/fragments'
+import { useNav, usePrevRoute, Route } from '~/lib/config'
 import { Avatar } from '~/components/Avatar'
 import { Date } from '~/components/Date'
-import { StructuredText, Image, toRemixMeta, useQuerySubscription } from 'react-datocms'
+import { Layout } from '~/components/Layout'
 
-export const loader = async ({ request, params }) => {
+export const loader = async ({ request, params }: any) => {
   invariant(params.slug, 'expected params.slug')
 
   return datoQuerySubscription({
@@ -18,6 +21,7 @@ export const loader = async ({ request, params }) => {
             ...metaTagsFragment
           }
           title
+          excerpt
           slug
           content {
             value
@@ -66,6 +70,19 @@ export const loader = async ({ request, params }) => {
             }
           }
         }
+        promotion: promotion(orderBy: expiredat_ASC, locale: ko_KR) {
+          title(locale: ko_KR)
+          url
+          color {
+            red
+            green
+            blue
+          }
+          textcolor {
+            hex
+          }
+          label(locale: ko_KR)
+        }
       }
       ${responsiveImageFragment}
       ${metaTagsFragment}
@@ -82,19 +99,22 @@ export const meta = ({
       initialData: { post },
     },
   },
-}) => {
+}: any) => {
   return toRemixMeta(post.seo)
 }
 
 export default function PostSlug() {
+  const { pathname } = useLocation()
   const { datoQuerySubscription } = useLoaderData()
+  const { title, Icon, desc }: Route = useNav(pathname)
+  const prevRoute = usePrevRoute(pathname)
 
   const {
-    data: { post, morePosts },
+    data: { post, morePosts, promotion },
   } = useQuerySubscription(datoQuerySubscription)
 
   return (
-    <div className='bx-section'>
+    <Layout {...{ title: post?.title || title, Icon, desc: post?.excerpt || desc, promotion, prevRoute }}>
       <section className='section'>
         <Avatar name={post.author.name} picture={post.author.picture} />
       </section>
@@ -108,7 +128,7 @@ export default function PostSlug() {
           <div className='prose prose-lg prose-blue'>
             <StructuredText
               data={post.content}
-              renderBlock={({ record }) => {
+              renderBlock={({ record }: any) => {
                 if (record.__typename === 'ImageBlockRecord') {
                   return <Image className='grid__image' data={record.image.responsiveImage} />
                 }
@@ -127,7 +147,7 @@ export default function PostSlug() {
       <section className='section'>
         <div className='section__title'>More posts</div>
         <ul className='grid'>
-          {morePosts.map(post => (
+          {morePosts.map((post: any) => (
             <li key={post.slug} className='grid__item'>
               <Link to={`/posts/${post.slug}`} className='grid__link'>
                 <div>
@@ -142,6 +162,6 @@ export default function PostSlug() {
           ))}
         </ul>
       </section>
-    </div>
+    </Layout>
   )
 }

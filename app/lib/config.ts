@@ -67,7 +67,24 @@ export const nav: Routes[] = [
   },
 ]
 
+const exceptRoute = ['posts']
+
 export function useNav(pathname?: string): Route {
   const matchedRoute = nav.reduce<Route[]>((acc, cur) => acc.concat(cur.children), []).find(route => route.pathname === pathname)
   return matchedRoute || nav[0].children[0]
 }
+
+export function usePrevRoute(pathname : string): string {
+  if (!pathname) return '/'
+  const paths = pathname.split('/')
+  paths.pop()
+  const prevRoute = paths.filter(p => !exceptRoute.includes(p)).join('/')
+  return !prevRoute || prevRoute === '' ? '/' : prevRoute
+}
+
+export type HeroString = [string, string][]
+
+export const heroString: HeroString = [
+  ['홈페이지 제작', '부터'],
+  ['디자인 컨설팅', '까지'],
+]

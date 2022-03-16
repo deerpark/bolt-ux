@@ -1,9 +1,10 @@
 import { Link } from 'remix'
 import { Button, ButtonGroup } from '~/components/Button'
+import { HeroString } from '~/lib/config'
 import * as Icon from '~/components/Icon'
 
 type HeroProps = {
-  heroString: [string, string][],
+  heroString: HeroString,
   desc?: string,
   links?: { url?: string, label: string, handler?: () => void | undefined }[],
 }
