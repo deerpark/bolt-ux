@@ -82,7 +82,7 @@ export default function Index() {
         </div> */}
         <Header {...{ title, Icon, desc }} />
         <Banner {...promotion} />
-        <section className='bx-post'>
+        <section className='bx-post aspect-video'>
           <Link className='bx-post-link' to={`/blog/posts/${firstPost.slug}`}>
             <Image className='bx-post-thumb' data={firstPost.coverImage.responsiveImage} />
             <div className='bx-post-info'>
@@ -102,7 +102,7 @@ export default function Index() {
         <ul>
           {otherPosts.map((post: any) => (
             <li key={post.slug}>
-              <section className='bx-post'>
+              <section className='bx-post aspect-video'>
                 <Link className='bx-post-link' to={`/blog/posts/${post.slug}`}>
                   <Image className='bx-post-thumb' data={post.coverImage.responsiveImage} />
                   <div className='bx-post-info'>
