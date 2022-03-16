@@ -459,6 +459,10 @@ body {
   }
 }
 
+code {
+  overflow-wrap: break-word;
+}
+
 *, ::before, ::after {
   --tw-translate-x: 0;
   --tw-translate-y: 0;
@@ -1147,10 +1151,12 @@ body {
 /* Layout */
 
 .bx-container {
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   min-height: 100vh;
+  max-width: 100%;
   flex-direction: column;
   justify-content: center;
 }

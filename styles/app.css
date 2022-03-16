@@ -40,6 +40,9 @@
   body {
     @apply min-h-screen text-slate-400 dark:text-slate-500 bg-white md:bg-slate-50 dark:bg-slate-700 dark:md:bg-slate-800;
   }
+  code {
+    @apply break-words;
+  }
 }
 
 @layer components {
@@ -85,7 +88,7 @@
   }
   /* Layout */
   .bx-container {
-    @apply flex flex-col justify-center min-h-screen mx-auto md:flex-row md:items-stretch;
+    @apply max-w-full relative flex flex-col justify-center min-h-screen mx-auto md:flex-row md:items-stretch;
   }
   .bx-section {
     @apply w-full grow md:min-w-80 md:max-w-162 flex flex-col gap-y-5 md:pb-12 md:gap-y-8 bg-white dark:bg-slate-700 md:border-r md:border-r-slate-100 dark:md:border-r-slate-900 dark:md:border-opacity-70;
