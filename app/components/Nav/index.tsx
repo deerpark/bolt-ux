@@ -23,7 +23,7 @@ export function Nav({ nav }: NavProps) {
                           <Link className='bx-nav-item' to={navSubItem.pathname}>
                             {navSubItem?.Icon && (
                               <span className='bx-nav-icon'>
-                                <navSubItem.Icon />
+                                {typeof navSubItem.Icon === 'function' && <navSubItem.Icon />}
                               </span>
                             )}
                             <span className='bx-nav-label'>
@@ -38,7 +38,7 @@ export function Nav({ nav }: NavProps) {
                           <span className='bx-nav-item'>
                             {navSubItem?.Icon && (
                               <span className='bx-nav-icon'>
-                                <navSubItem.Icon />
+                                {typeof navSubItem.Icon === 'function' && <navSubItem.Icon />}
                               </span>
                             )}
                             <span className='bx-nav-label'>

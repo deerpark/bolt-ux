@@ -7,7 +7,6 @@ import { useNav, usePrevRoute, Route } from '~/lib/config'
 import { Layout } from '~/components/Layout'
 import { Avatar } from '~/components/Avatar'
 import { Date } from '~/components/Date'
-import { Footer } from '~/components/Footer'
 
 export const loader = async ({ request }: any) => {
   const querySubscription = await datoQuerySubscription({
@@ -59,17 +58,14 @@ export default function Index() {
   const { title, Icon, desc }: Route = useNav(pathname)
   const prevRoute = usePrevRoute(pathname)
 
-  console.log(prevRoute)
-
   const {
     data: {
       posts: [firstPost, ...otherPosts],
-      promotion,
     },
   } = useQuerySubscription(datoQuerySubscription)
 
   return (
-    <Layout {...{ title, Icon, desc, promotion, prevRoute }}>
+    <Layout {...{ title, Icon, desc, prevRoute }}>
       <section className='bx-post aspect-video'>
         <Link className='bx-post-link' to={`/blog/posts/${firstPost.slug}`}>
           <Image className='bx-post-thumb' data={firstPost.coverImage.responsiveImage} />
@@ -87,7 +83,7 @@ export default function Index() {
         </Link>
         <span className='bx-post-background'></span>
       </section>
-      <ul>
+      <ul className='bx-other-posts'>
         {otherPosts.map((post: any) => (
           <li key={post.slug}>
             <section className='bx-post aspect-video'>

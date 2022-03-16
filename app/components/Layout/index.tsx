@@ -10,6 +10,8 @@ type LayoutProps = Route & {
   children: ReactElement | ReactElement[],
   promotion?: Promotion,
   prevRoute?: string,
+  cover?: JSX.Element,
+  date?: JSX.Element,
 }
 
 type RootLayoutProps = {
@@ -33,7 +35,7 @@ export function SiteMeta() {
   )
 }
 
-export function Layout({ children, title, Icon, desc, promotion, prevRoute }: LayoutProps) {
+export function Layout({ children, title, Icon, desc, promotion, prevRoute, cover, date }: LayoutProps) {
   return (
     <div className='bx-section'>
       {/* <div className='preview'>
@@ -47,7 +49,7 @@ export function Layout({ children, title, Icon, desc, promotion, prevRoute }: La
             </Form>
           )}
         </div> */}
-      <Header {...{ title, Icon, desc, prevRoute }} />
+      <Header {...{ title, Icon, desc, prevRoute, cover, date }} />
       {promotion && <Banner {...promotion} />}
       {children}
       <section className='section flex md:hidden'>
@@ -65,15 +67,15 @@ export function RootLayout({ isRoot, children }: RootLayoutProps) {
           heroString={heroString}
           desc='더 나은 사용자 경험을 생각하며 꼼꼼하게 만들어 드려요.'
           links={[
-            { url: '/blog', label: '무료 상담' },
+            { url: '/contact', label: '무료 상담' },
             {
-              handler: () => {},
+              url: '/plan',
               label: '요금표 확인',
             },
           ]}
         />
         <Nav nav={nav} />
-        <div className={`${isRoot ? 'hidden md:flex' : ''}`}>
+        <div className={`${isRoot ? 'px-3 md:px-0' : ''}`}>
           <Footer />
         </div>
       </div>

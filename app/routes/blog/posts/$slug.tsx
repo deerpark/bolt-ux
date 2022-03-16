@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from 'remix'
+import { /* Link, */ useLoaderData } from 'remix'
 import { useLocation } from 'react-router-dom'
 import invariant from 'tiny-invariant'
 import { StructuredText, Image, toRemixMeta, useQuerySubscription } from 'react-datocms'
@@ -106,31 +106,33 @@ export const meta = ({
 export default function PostSlug() {
   const { pathname } = useLocation()
   const { datoQuerySubscription } = useLoaderData()
-  const { title, Icon, desc }: Route = useNav(pathname)
+  const { title, desc }: Route = useNav(pathname)
   const prevRoute = usePrevRoute(pathname)
 
   const {
-    data: { post, morePosts, promotion },
+    data: { post, /* morePosts, */ promotion },
   } = useQuerySubscription(datoQuerySubscription)
 
   return (
-    <Layout {...{ title: post?.title || title, Icon, desc: post?.excerpt || desc, promotion, prevRoute }}>
-      <section className='section'>
-        <Avatar name={post.author.name} picture={post.author.picture} />
-      </section>
-      <div className='bx-post'>
-        <div className='bx-post-header'>
-          <h1 className='bx-post-title'>{post.title}</h1>
-          <Image className='bx-post-image' data={post.coverImage.responsiveImage} />
-          <Date dateString={post.date} />
-        </div>
-        <div className='bx-post-body'>
-          <div className='prose prose-lg prose-blue'>
+    <Layout
+      {...{
+        title: post?.title || title,
+        Icon: <Avatar name={post.author.name} picture={post.author.picture} />,
+        desc: post?.excerpt || desc,
+        promotion,
+        prevRoute,
+        cover: <Image data={post.coverImage.responsiveImage} />,
+        date: <Date dateString={post.date} />,
+      }}
+    >
+      <div className='bx-article'>
+        <div className='bx-article-body'>
+          <div className='prose prose-slate dark:prose-invert'>
             <StructuredText
               data={post.content}
               renderBlock={({ record }: any) => {
                 if (record.__typename === 'ImageBlockRecord') {
-                  return <Image className='grid__image' data={record.image.responsiveImage} />
+                  return <Image className='bx-article-image' data={record.image.responsiveImage} />
                 }
 
                 return (
@@ -144,7 +146,7 @@ export default function PostSlug() {
           </div>
         </div>
       </div>
-      <section className='section'>
+      {/* <section className='section'>
         <div className='section__title'>More posts</div>
         <ul className='grid'>
           {morePosts.map((post: any) => (
@@ -161,7 +163,7 @@ export default function PostSlug() {
             </li>
           ))}
         </ul>
-      </section>
+      </section> */}
     </Layout>
   )
 }

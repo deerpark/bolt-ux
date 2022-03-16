@@ -4,7 +4,7 @@ export type Route = {
   pathname?: string,
   title: string,
   desc?: string,
-  Icon?: () => JSX.Element,
+  Icon?: JSX.Element | (() => JSX.Element),
 }
 
 export type Routes = {
