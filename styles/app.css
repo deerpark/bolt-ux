@@ -93,7 +93,7 @@
     @apply max-w-full relative flex flex-col justify-center min-h-screen mx-auto md:flex-row md:items-stretch;
   }
   .bx-section {
-    @apply w-full grow md:min-w-80 md:max-w-162 flex flex-col gap-y-5 md:pb-12 md:gap-y-8 bg-white dark:bg-slate-700 md:border-r md:border-r-slate-100 dark:md:border-r-slate-900 dark:md:border-opacity-70;
+    @apply w-full grow md:min-w-80 md:max-w-162 flex flex-col gap-y-5 md:pb-12 md:gap-y-8 bg-white dark:bg-slate-900 md:border-r md:border-r-slate-100 dark:md:border-r-slate-900 dark:md:border-opacity-70;
   }
   .bx-section-row {
     @apply flex flex-col items-center gap-y-10;
@@ -167,7 +167,7 @@
     @apply pl-1.5 md:pl-0 text-2xs text-slate-400;
   }
   .bx-header-icon {
-    @apply w-12 h-12 hidden flex-none md:flex justify-center items-center rounded-2xl bg-slate-100 dark:bg-slate-600;
+    @apply w-12 h-12 hidden flex-none md:flex justify-center items-center rounded-2xl bg-slate-100 dark:bg-slate-800;
   }
   .bx-cover ~ .bx-header-content .bx-header-icon {
     @apply flex;
@@ -193,7 +193,7 @@
     @apply flex-none flex flex-col items-center;
   }
   .bx-hero-logo {
-    @apply w-full pt-8 pb-8 flex items-center justify-center;
+    @apply w-full py-16 md:py-8 flex items-center justify-center;
   }
   .bx-hero-logo a {
     @apply inline p-4 transition-all hover:transform hover:scale-110 focus:scale-100 active:scale-100;
@@ -212,7 +212,7 @@
     @apply fill-blue-600 dark:fill-slate-300;
   }
   .bx-hero-links {
-    @apply w-full px-8 mt-14;
+    @apply w-full px-8 mt-10 mb-8;
   }
   .bx-hero-links > .bx-button-group > * {
     @apply flex-1;
@@ -265,9 +265,15 @@
   .bx-nav-item:hover .bx-nav-arrow {
     @apply fill-blue-600 dark:fill-blue-500 transform translate-x-2;
   }
+  .bx-nav-item-active .bx-nav-arrow {
+    @apply translate-x-0;
+  }
   .bx-nav-item-active .bx-nav-icon::after,
   .bx-nav-item:hover .bx-nav-icon::after {
-    @apply w-8 h-8 bg-blue-300 dark:bg-blue-900;
+    @apply w-10 h-10 bg-blue-300 dark:bg-blue-900;
+  }
+  .bx-nav-item-active .bx-nav-icon::after {
+    @apply w-0 h-0;
   }
   .bx-nav-item-active .bx-nav-icon svg,
   .bx-nav-item:hover .bx-nav-icon svg {
@@ -372,13 +378,19 @@
     @apply mx-5 md:mx-8 relative flex flex-col transition-all transform;
   }
   .bx-post-link {
-    @apply m-[3px] mt-0 transform active:translate-y-0.5 focus:translate-y-0.5 relative z-10 overflow-hidden flex flex-col bg-white dark:bg-slate-800 hover:bg-slate-100 active:bg-blue-50 focus:bg-blue-50 dark:hover:bg-slate-900 dark:active:bg-slate-800 dark:focus:bg-slate-800 border rounded-lg border-slate-300 dark:border-slate-800 hover:border-blue-700 transition-all;
+    @apply transform active:translate-y-0.5 focus:translate-y-0.5 relative z-10 overflow-hidden flex flex-col rounded-lg transition-all;
+  }
+  .bx-post-thumb {
+    @apply relative z-0 transform transition-all duration-[20000ms] ease-expo-out;
+  }
+  .bx-post-link:hover .bx-post-thumb {
+    @apply scale-125;
   }
   .bx-post-thumb img {
     @apply object-cover;
   }
   .bx-post-info {
-    @apply h-14 flex-none flex items-center justify-between gap-x-1 px-4;
+    @apply relative z-10 flex-none flex items-center justify-between gap-x-1 px-4 py-4 bg-slate-50 dark:bg-slate-800;
   }
   .bx-post-meta {
     @apply flex flex-col grow gap-y-1;
@@ -393,11 +405,7 @@
     @apply flex-none;
   }
   .bx-post-background {
-    @apply absolute transition-all inset-0 top-[3px] z-0 bg-slate-200 dark:bg-slate-700 border rounded-[10px] border-slate-300 dark:border-slate-800 shadow-lg shadow-slate-200 dark:shadow-slate-800;
-  }
-  .bx-post-link:hover ~ .bx-post-background,
-  .bx-post-link:hover ~ .bx-post-background {
-    @apply bg-blue-600 border-blue-600;
+    @apply absolute transition-all inset-0 top-[3px] z-0 rounded-[10px] shadow-lg shadow-slate-200 dark:shadow-black/10;
   }
   .bx-post-link:focus ~ .bx-post-background,
   .bx-post-link:active ~ .bx-post-background {
