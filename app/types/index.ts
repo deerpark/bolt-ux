@@ -22,6 +22,7 @@ export type Post = {
   title: string,
   slug: string,
   excerpt: string,
+  content: any,
   date: string,
   coverImage: {
     responsiveImage: CoverImage,
@@ -32,4 +33,5 @@ export type Post = {
 export type PostsProps = {
   firstPost: Post,
   otherPosts: Post[],
+  category?: string,
 }

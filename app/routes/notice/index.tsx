@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom'
-import { useLoaderData, Outlet } from 'remix'
+import { useLoaderData } from 'remix'
 import { useQuerySubscription } from 'react-datocms'
 import { datoQuerySubscription } from '~/lib/datocms'
 import { notice as query } from '~/queries'
@@ -31,8 +31,7 @@ export default function Index() {
 
   return (
     <Layout {...{ title, Icon, desc, prevRoute }}>
-      <Posts {...{ firstPost, otherPosts }} />
-      <Outlet />
+      <Posts {...{ firstPost, otherPosts, category: 'notice' }} />
     </Layout>
   )
 }

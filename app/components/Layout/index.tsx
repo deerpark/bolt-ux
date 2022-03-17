@@ -10,13 +10,17 @@ type LayoutProps = Route & {
   children: ReactElement | ReactElement[],
   promotion?: Promotion,
   prevRoute?: string,
+  pathname?: string,
   cover?: JSX.Element,
   date?: JSX.Element,
+  categoryId?: string,
 }
 
 type RootLayoutProps = {
   children: ReactElement | ReactElement[],
+  pathname?: string,
   isRoot: boolean,
+  categoryId?: string,
 }
 
 export function SiteMeta() {
@@ -45,11 +49,11 @@ export function Layout({ children, title, Icon, desc, promotion, prevRoute, cove
     <div className='bx-section'>
       {/* <div className='preview'>
           {previewEnabled ? (
-            <Form method='post' action='/blog/preview/stop'>
+            <Form method='post' action='/posts/preview/stop'>
               This is page is showing draft content. <button>Click here</button> to exit preview mode.
             </Form>
           ) : (
-            <Form method='post' action='/blog/preview/start'>
+            <Form method='post' action='/posts/preview/start'>
               This is page is showing published content. <button>Click here</button> to enter preview mode!
             </Form>
           )}
@@ -64,7 +68,7 @@ export function Layout({ children, title, Icon, desc, promotion, prevRoute, cove
   )
 }
 
-export function RootLayout({ isRoot, children }: RootLayoutProps) {
+export function RootLayout({ isRoot, children, pathname }: RootLayoutProps) {
   return (
     <div className='bx-container'>
       <div className={`bx-section ${isRoot ? '' : 'hidden md:flex'}`}>
@@ -79,7 +83,7 @@ export function RootLayout({ isRoot, children }: RootLayoutProps) {
             },
           ]}
         />
-        <Nav nav={nav} />
+        <Nav {...{ nav, pathname }} />
         <div className={`${isRoot ? 'px-3 md:px-0' : ''}`}>
           <Footer />
         </div>

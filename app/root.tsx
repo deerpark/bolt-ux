@@ -10,7 +10,6 @@ import { RootLayout, Layout, SiteMeta } from '~/components/Layout'
 import * as Icon from '~/components/Icon'
 
 import appStyles from './styles/app.css'
-import blogStyles from './styles/blog.css'
 
 export function links() {
   return [
@@ -19,7 +18,6 @@ export function links() {
       href: 'https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css',
     },
     { rel: 'stylesheet', href: appStyles },
-    { rel: 'stylesheet', href: blogStyles },
   ]
 }
 
@@ -72,8 +70,8 @@ export function CatchBoundary() {
         <Links />
       </head>
       <body>
-        <RootLayout {...{ isRoot }}>
-          <Layout {...{ title: status.toString(), Icon: Icon.NotFound, desc: statusText, prevRoute }}>
+        <RootLayout {...{ isRoot, pathname }}>
+          <Layout {...{ title: status.toString(), Icon: Icon.NotFound, desc: statusText, prevRoute, pathname }}>
             <div className='bx-error'>
               <h1>페이지를 찾을 수 없습니다.</h1>
               <p>이전으로 돌아 가시거나 다시 시도해 주세요.</p>
@@ -110,7 +108,7 @@ export default function App() {
         {renderMetaTags([...site.favicon])}
       </head>
       <body>
-        <RootLayout {...{ isRoot }}>
+        <RootLayout {...{ isRoot, pathname }}>
           <Outlet />
         </RootLayout>
         <ScrollRestoration />

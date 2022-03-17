@@ -14,6 +14,8 @@ export * from './News'
 export * from './Notice'
 export * from './Banner'
 export * from './Privacy'
+export * from './Contact'
+export * from './Price'
 export * from './NotFound'
 
 export * from './Youtube'

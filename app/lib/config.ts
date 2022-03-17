@@ -84,6 +84,20 @@ export const nav: Routes[] = [
     display: false,
     children: [
       {
+        pathname: '/contact',
+        title: '무료 상담',
+        display: true,
+        desc: '무엇이든 알려드립니다.',
+        Icon: Icon.Contact,
+      },
+      {
+        pathname: '/plan',
+        title: '서비스 요금표',
+        display: true,
+        desc: '서비스 별 가격을 안내해 드려요.',
+        Icon: Icon.Price,
+      },
+      {
         pathname: '/privacy',
         title: '개인정보 보호정책',
         display: true,
