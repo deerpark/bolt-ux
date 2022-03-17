@@ -1,9 +1,11 @@
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData, useCatch } from 'remix'
+import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData, useCatch } from 'remix'
 import { renderMetaTags, toRemixMeta, useQuerySubscription } from 'react-datocms'
 import { datoQuerySubscription } from '~/lib/datocms'
 import { metaTagsFragment } from '~/lib/fragments'
 import { usePrevRoute } from '~/lib/config'
+import { GA } from '~/lib/ga'
 import { RootLayout, Layout, SiteMeta } from '~/components/Layout'
 import * as Icon from '~/components/Icon'
 
@@ -54,9 +56,15 @@ export const meta = ({
 
 export function CatchBoundary() {
   const { pathname } = useLocation()
-  const caught = useCatch()
+  const { status, statusText } = useCatch()
   const prevRoute = usePrevRoute(pathname)
   const isRoot = pathname === '/'
+
+  useEffect(() => {
+    GA.trackPageView({ path: pathname })
+    GA.trackErrorEvent({ action: status.toString() })
+  }, [pathname, status])
+
   return (
     <html>
       <head>
@@ -65,7 +73,7 @@ export function CatchBoundary() {
       </head>
       <body>
         <RootLayout {...{ isRoot }}>
-          <Layout {...{ title: caught.status.toString(), Icon: Icon.NotFound, desc: caught.statusText, prevRoute }}>
+          <Layout {...{ title: status.toString(), Icon: Icon.NotFound, desc: statusText, prevRoute }}>
             <div className='bx-error'>
               <h1>페이지를 찾을 수 없습니다.</h1>
               <p>이전으로 돌아 가시거나 다시 시도해 주세요.</p>
@@ -88,6 +96,10 @@ export default function App() {
   const {
     data: { site },
   } = useQuerySubscription(datoQuerySubscription)
+
+  useEffect(() => {
+    GA.trackPageView({ path: pathname })
+  }, [pathname])
 
   return (
     <html lang='en'>

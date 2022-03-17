@@ -399,5 +399,9 @@
   .bx-article-image img {
     @apply my-0;
   }
+  /* Privacy */
+  .bx-privacy {
+    @apply mx-5 md:mx-8 break-words;
+  }
 }
 
