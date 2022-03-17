@@ -43,7 +43,7 @@ export const nav: Routes[] = [
     display: true,
     children: [
       {
-        pathname: '/services/homaepage',
+        pathname: '/services/homepage',
         title: '홈페이지 제작',
         display: true,
         desc: '홍보를 위한 웹사이트 구축',

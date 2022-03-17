@@ -458,7 +458,7 @@ body {
   @media (min-width: 768px) {
     body {
       --tw-bg-opacity: 1;
-      background-color: rgb(30 41 59 / var(--tw-bg-opacity));
+      background-color: rgb(24 36 54 / var(--tw-bg-opacity));
     }
   }
 }

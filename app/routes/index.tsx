@@ -1,7 +1,7 @@
 import { Link, useLoaderData, Outlet } from 'remix'
 import { datoQuerySubscription } from '~/lib/datocms'
 import { Image, useQuerySubscription } from 'react-datocms'
-import { promotion as query } from '~/queries'
+import { promotions as query } from '~/queries'
 
 export const loader = ({ request }: any) => {
   return datoQuerySubscription({

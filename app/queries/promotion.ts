@@ -1,22 +1,32 @@
-import { responsiveImageFragment } from '~/lib/fragments'
-
 export const promotion = `
-  {
-    promotions: allPromotions(orderBy: expiredat_ASC, first: 20) {
-      title
-      color {
-        blue
-        green
-        red
-      }
+  query Promotion {
+    promotion {
+      title(locale: ko_KR)
       url
-      expiredat
+      color {
+        red
+        green
+        blue
+      }
+      textcolor {
+        hex
+      }
+      label(locale: ko_KR)
       banner {
-        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 776, h: 726 }) {
-          ...responsiveImageFragment
+        responsiveImage {
+          srcSet
+          webpSrcSet
+          title
+          alt
+          base64
+          aspectRatio
+          bgColor
+          sizes
+          src
+          height
+          width
         }
       }
     }
   }
-  ${responsiveImageFragment}
 `
