@@ -3,6 +3,7 @@ import * as Icon from '~/components/Icon'
 export type Route = {
   pathname?: string,
   title: string,
+  id?: string,
   display?: boolean,
   desc?: string,
   Icon?: JSX.Element | (() => JSX.Element),
@@ -20,15 +21,17 @@ export const nav: Routes[] = [
     display: true,
     children: [
       {
-        pathname: '/blog',
+        pathname: '/notice',
         title: '공지사항',
+        id: '116676845',
         display: true,
         desc: '알려드립니다.',
         Icon: Icon.notice,
       },
       {
-        pathname: '/blog/news',
+        pathname: '/news',
         title: '새소식',
+        id: '116679079',
         display: true,
         desc: '새로운 소식',
         Icon: Icon.news,

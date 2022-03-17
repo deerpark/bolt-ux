@@ -1,31 +1,12 @@
 import { Link, useLoaderData, Outlet } from 'remix'
 import { datoQuerySubscription } from '~/lib/datocms'
 import { Image, useQuerySubscription } from 'react-datocms'
-import { responsiveImageFragment } from '~/lib/fragments'
+import { promotion as query } from '~/queries'
 
 export const loader = ({ request }: any) => {
   return datoQuerySubscription({
     request,
-    query: `
-      {
-        promotions: allPromotions(orderBy: expiredat_ASC, first: 20) {
-          title
-          color {
-            blue
-            green
-            red
-          }
-          url
-          expiredat
-          banner {
-            responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 776, h: 726 }) {
-              ...responsiveImageFragment
-            }
-          }
-        }
-      }
-      ${responsiveImageFragment}
-    `,
+    query,
   })
 }
 

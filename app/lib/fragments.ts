@@ -22,3 +22,16 @@ export const metaTagsFragment: string = `
     tag
   }
 `
+
+export const coverImage = `coverImage {
+  responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
+    ...responsiveImageFragment
+  }
+}`
+
+export const author = `author {
+  name
+  picture {
+    url(imgixParams: {fm: jpg, fit: crop, w: 100, h: 100, sat: -100})
+  }
+}`
