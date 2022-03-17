@@ -14,7 +14,7 @@ export function links() {
   return [
     {
       rel: 'stylesheet',
-      href: 'https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css',
+      href: 'https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css',
     },
     { rel: 'stylesheet', href: appStyles },
     { rel: 'stylesheet', href: blogStyles },

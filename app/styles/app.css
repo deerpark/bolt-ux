@@ -1,5 +1,5 @@
 * {
-  font-family: ‘SUIT Variable’, sans-serif;
+  font-family: SUIT, sans-serif;
 }
 
 /*
@@ -1459,7 +1459,7 @@ code {
   padding-left: 0.25rem;
   font-size: 1.5rem;
   line-height: 2rem;
-  font-weight: 800;
+  font-weight: 900;
   --tw-text-opacity: 1;
   color: rgb(51 65 85 / var(--tw-text-opacity));
 }
@@ -1523,7 +1523,7 @@ code {
   padding-left: 0.25rem;
   font-size: 1.5rem;
   line-height: 2rem;
-  font-weight: 800;
+  font-weight: 900;
   --tw-text-opacity: 1;
   color: rgb(51 65 85 / var(--tw-text-opacity));
 }
@@ -1737,7 +1737,7 @@ code {
   margin-bottom: 0.625rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  font-weight: 800;
+  font-weight: 900;
   --tw-text-opacity: 1;
   color: rgb(148 163 184 / var(--tw-text-opacity));
   font-size: 11px;
@@ -1982,7 +1982,7 @@ code {
 .bx-footer-contact a {
   font-size: 1rem;
   line-height: 1.5rem;
-  font-weight: 800;
+  font-weight: 900;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
