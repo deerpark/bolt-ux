@@ -21,7 +21,7 @@ export const nav: Routes[] = [
     display: true,
     children: [
       {
-        pathname: '/notice',
+        pathname: '/notices',
         title: '공지사항',
         id: '116676845',
         display: true,

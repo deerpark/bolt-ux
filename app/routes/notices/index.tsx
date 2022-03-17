@@ -31,7 +31,7 @@ export default function Index() {
 
   return (
     <Layout {...{ title, Icon, desc, prevRoute }}>
-      <Posts {...{ firstPost, otherPosts, category: 'notice' }} />
+      <Posts {...{ firstPost, otherPosts, category: 'notices' }} />
     </Layout>
   )
 }
