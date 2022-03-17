@@ -21,7 +21,7 @@ export function Hero({ heroString = [['', '']], desc, links }: HeroProps) {
         {heroString.map(heading => (
           <div
             key={heading[0]}
-            className='inline-flex gap-x-0.5 text-2xl leading-tight text-slate-700 dark:text-slate-200 even:ml-5'
+            className='inline-flex gap-x-0.5 text-2xl leading-tight text-slate-600 dark:text-slate-300 even:ml-5'
           >
             <span className='font-black'>{heading[0]}</span>
             <span className='font-thin'>{heading[1]}</span>

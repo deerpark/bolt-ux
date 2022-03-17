@@ -83,7 +83,6 @@ export default function App() {
 
   useEffect(() => {
     GA.trackPageView({ path: pathname })
-    console.log(pathname)
   }, [pathname])
 
   return (
