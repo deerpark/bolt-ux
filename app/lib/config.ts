@@ -121,7 +121,7 @@ export const nav: Routes[] = [
   },
 ]
 
-const exceptRoute = ['posts']
+const exceptRoute = ['posts', 'service']
 
 export function useNav(pathname?: string): Route {
   const matchedRoute = nav.reduce<Route[]>((acc, cur) => acc.concat(cur.children), []).find(route => route.pathname === pathname)

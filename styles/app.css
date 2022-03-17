@@ -107,10 +107,10 @@
   }
   /* Cover Image */
   .bx-cover {
-    @apply -mx-[16px] -mt-4 md:mx-0 md:mt-10 mb-auto;
+    @apply md:mt-[74px] mb-auto;
   }
   .bx-cover img {
-    @apply md:rounded-lg;
+    @apply rounded-lg;
   }
   /* Page Header */
   .bx-header {
@@ -140,16 +140,16 @@
   }
   /* Page Header Bar */
   .bx-header-section {
-    @apply flex flex-col justify-start gap-y-3 md:gap-y-12 md:justify-between pt-4 md:pt-14 pb-0 px-4 md:px-8;
+    @apply flex flex-col justify-start gap-y-3 md:gap-y-12 md:justify-between pt-5 md:pt-14 pb-0 px-5 md:px-8;
   }
   .bx-header-history-back {
     @apply flex-none text-2xl pl-1 md:pl-0 font-black text-slate-700 dark:text-white;
   }
   .bx-cover + .bx-header-history-back {
-    @apply fixed top-4 md:top-8 z-50;
+    @apply fixed md:absolute top-4 md:top-14 z-50;
   }
   .bx-header-content {
-    @apply flex items-center gap-x-3 pt-4 md:pt-0;
+    @apply flex items-center gap-x-3 pt-4 md:pt-0 md:-mb-3;
   }
   .bx-header-history-back + .bx-header-content {
     @apply pt-0;
@@ -198,11 +198,18 @@
   .bx-hero-logo a {
     @apply inline p-4 transition-all hover:transform hover:scale-110 focus:scale-100 active:scale-100;
   }
+  .bx-hero-logo .bx-logo-primary {
+    @apply fill-blue-600 dark:fill-yellow-400;
+  }
+  .bx-hero-logo .bx-logo-secondary {
+    @apply fill-slate-400 dark:fill-blue-600 dark:opacity-100;
+  }
   .bx-hero-logo a:hover .bx-logo-primary {
-    @apply fill-yellow-400;
+    fill: #F8BF0F;
+    @apply dark:fill-slate-300;
   }
   .bx-hero-logo a:hover .bx-logo-secondary {
-    @apply fill-blue-600 opacity-100;
+    @apply fill-blue-600 dark:fill-slate-300;
   }
   .bx-hero-links {
     @apply w-full px-8 mt-14;
@@ -312,7 +319,7 @@
     @apply fill-slate-400 dark:fill-slate-500;
   }
   .bx-footer-logo a:hover .bx-logo-primary {
-    @apply fill-yellow-400;
+    fill: #F8BF0F;
   }
   .bx-footer-logo a:hover .bx-logo-secondary {
     @apply fill-blue-600;
@@ -362,10 +369,10 @@
     @apply bg-yellow-500 border-yellow-600;
   }
   .bx-post {
-    @apply mx-5 md:mx-8 relative flex flex-col transition-all transform hover:scale-[1.02];
+    @apply mx-5 md:mx-8 relative flex flex-col transition-all transform;
   }
   .bx-post-link {
-    @apply m-[3px] mt-0 transform active:translate-y-0.5 focus:translate-y-0.5 relative z-10 overflow-hidden flex flex-col bg-white dark:bg-slate-800 hover:bg-slate-100 active:bg-blue-50 focus:bg-blue-50 dark:hover:bg-slate-900 dark:active:bg-slate-800 dark:focus:bg-slate-800 border rounded-lg border-slate-300 dark:border-slate-800 transition-all;
+    @apply m-[3px] mt-0 transform active:translate-y-0.5 focus:translate-y-0.5 relative z-10 overflow-hidden flex flex-col bg-white dark:bg-slate-800 hover:bg-slate-100 active:bg-blue-50 focus:bg-blue-50 dark:hover:bg-slate-900 dark:active:bg-slate-800 dark:focus:bg-slate-800 border rounded-lg border-slate-300 dark:border-slate-800 hover:border-blue-700 transition-all;
   }
   .bx-post-thumb img {
     @apply object-cover;
@@ -387,6 +394,10 @@
   }
   .bx-post-background {
     @apply absolute transition-all inset-0 top-[3px] z-0 bg-slate-200 dark:bg-slate-700 border rounded-[10px] border-slate-300 dark:border-slate-800 shadow-lg shadow-slate-200 dark:shadow-slate-800;
+  }
+  .bx-post-link:hover ~ .bx-post-background,
+  .bx-post-link:hover ~ .bx-post-background {
+    @apply bg-blue-600 border-blue-600;
   }
   .bx-post-link:focus ~ .bx-post-background,
   .bx-post-link:active ~ .bx-post-background {
