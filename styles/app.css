@@ -105,6 +105,21 @@
   .bx-contents {
     @apply grow flex flex-col pb-10 md:pb-16 gap-y-5 md:gap-y-8;
   }
+  .bx-contents img {
+    @apply object-cover;
+  }
+  .bx-contents-row {
+    @apply px-5 md:px-8 pb-5 md:pb-8;
+  }
+  .bx-contents-row-bg {
+    @apply bg-slate-100 dark:bg-gray-900 dark:bg-opacity-50;
+  }
+  .bx-contents-row-extend {
+    @apply px-0;
+  }
+  .bx-contents-h2 {
+    @apply pt-5 md:pt-8 text-xs font-bold text-slate-600 dark:text-slate-400;
+  }
   /* Cover Image */
   .bx-cover {
     @apply md:mt-[74px] mb-auto;
@@ -383,7 +398,7 @@
   .bx-post-thumb {
     @apply relative z-0 transform transition-all duration-[20000ms] ease-expo-out;
   }
-  .bx-post-link:hover .bx-post-thumb {
+  .bx-post-thumb .bx-post-thumb {
     @apply scale-125;
   }
   .bx-post-thumb img {
@@ -432,9 +447,50 @@
   .bx-article-image img {
     @apply my-0;
   }
+  /* List */
+  .bx-list {
+    @apply grid grid-cols-1 mx-4 md:mx-8 divide-y divide-slate-200 dark:divide-gray-900 divide-dashed;
+  }
+  .bx-list-extend {
+    @apply mx-0;
+  }
   /* Privacy */
   .bx-privacy {
     @apply mx-5 md:mx-8 break-words;
+  }
+  /* Service Page */
+  .bx-contents-card {
+    @apply flex items-center rounded-lg py-5 gap-x-5;
+  }
+  .bx-list-extend .bx-contents-card {
+    @apply px-5 md:px-8 rounded-none;
+  }
+  .bx-list-even .bx-contents-card:nth-of-type(even) {
+    @apply bg-slate-50 dark:bg-gray-900 dark:bg-opacity-50;
+  }
+  .bx-list-odd .bx-contents-card:nth-of-type(odd) {
+    @apply bg-slate-50 dark:bg-gray-900 dark:bg-opacity-50;
+  }
+  .bx-contents-card-thumbnail {
+    @apply w-1/5 flex-none;
+  }
+  .bx-contents-card-reverse .bx-contents-card-thumbnail {
+    @apply order-2;
+  }
+  .bx-contents-card-thumbnail > div {
+    @apply aspect-square rounded-2xl;
+  }
+  .bx-contents-card-body {
+    @apply grow flex flex-col gap-y-2 pr-5 md:pr-8;
+  }
+  .bx-contents-card-reverse .bx-contents-card-body {
+    @apply order-1 text-right pr-0 pl-5 md:pl-8;
+  }
+  .bx-contents-card-title {
+    @apply text-sm font-bold leading-tight text-slate-500 dark:text-slate-400;
+  }
+  .bx-contents-card-desc {
+    @apply text-xs;
   }
 }
 
