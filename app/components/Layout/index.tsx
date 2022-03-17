@@ -31,6 +31,11 @@ export function SiteMeta() {
       <meta name='application-name' content='BOLT UX' />
       <meta name='msapplication-TileColor' content='#2563eb' />
       <meta name='theme-color' content='#f8fafc' />
+      <script
+        async
+        src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1315238860718549'
+        crossOrigin='anonymous'
+      ></script>
     </>
   )
 }
