@@ -43,35 +43,35 @@ export const nav: Routes[] = [
     display: true,
     children: [
       {
-        pathname: '/service/homaepage',
+        pathname: '/services/homaepage',
         title: '홈페이지 제작',
         display: true,
         desc: '홍보를 위한 웹사이트 구축',
         Icon: Icon.homepage,
       },
       {
-        pathname: '/service/singlepage',
+        pathname: '/services/singlepage',
         title: '싱글 페이지 제작',
         display: true,
         desc: '이벤트, 랜딩 단일 페이지 구축',
         Icon: Icon.singlepage,
       },
       {
-        pathname: '/service/publishing',
+        pathname: '/services/publishing',
         title: '퍼블리싱 개발',
         display: true,
         desc: '마크업 개발',
         Icon: Icon.publishing,
       },
       {
-        pathname: '/service/appdesign',
+        pathname: '/services/appdesign',
         title: '앱 디자인',
         display: true,
         desc: '모바일 어플리케이션 디자인',
         Icon: Icon.appdesign,
       },
       {
-        pathname: '/service/consulting',
+        pathname: '/services/consulting',
         title: '디자인 컨설팅',
         display: true,
         desc: '로고 명함 간판 메뉴판 템플릿 컨설팅',
@@ -121,7 +121,7 @@ export const nav: Routes[] = [
   },
 ]
 
-const exceptRoute = ['post', 'service', 'event']
+const exceptRoute = ['posts', 'services', 'events']
 
 export function useNav(pathname?: string): Route {
   const matchedRoute = nav.reduce<Route[]>((acc, cur) => acc.concat(cur.children), []).find(route => route.pathname === pathname)

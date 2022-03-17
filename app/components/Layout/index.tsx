@@ -49,11 +49,11 @@ export function Layout({ children, title, Icon, desc, promotion, prevRoute, cove
     <div className='bx-section'>
       {/* <div className='preview'>
           {previewEnabled ? (
-            <Form method='post' action='/post/preview/stop'>
+            <Form method='post' action='/posts/preview/stop'>
               This is page is showing draft content. <button>Click here</button> to exit preview mode.
             </Form>
           ) : (
-            <Form method='post' action='/post/preview/start'>
+            <Form method='post' action='/posts/preview/start'>
               This is page is showing published content. <button>Click here</button> to enter preview mode!
             </Form>
           )}
