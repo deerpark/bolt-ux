@@ -103,9 +103,22 @@ export const nav: Routes[] = [
         display: true,
         desc: '개인정보 처리방침을 수립·공개합니다.',
         Icon: Icon.Privacy,
-      }
+      },
     ]
-  }
+  },
+  {
+    title: '설정',
+    display: true,
+    children: [
+      {
+        pathname: '/settings',
+        title: '환경설정',
+        display: true,
+        desc: '개인화 설정을 변경하실 수 있습니다.',
+        Icon: Icon.Settings,
+      }
+    ],
+  },
 ]
 
 const exceptRoute = ['posts']

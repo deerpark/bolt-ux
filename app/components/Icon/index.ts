@@ -1,6 +1,6 @@
-export * from './Settings'
-export * from './Home'
-export * from './ArrowLeft'
+export * from './SettingsLight'
+export * from './HomeLight'
+export * from './ArrowLeftLight'
 
 export * from './Logo'
 
@@ -16,6 +16,7 @@ export * from './Banner'
 export * from './Privacy'
 export * from './Contact'
 export * from './Price'
+export * from './Settings'
 export * from './NotFound'
 
 export * from './Youtube'

@@ -9,7 +9,6 @@ type NavProps = {
 }
 
 export function Nav({ nav, pathname, categoryId }: NavProps) {
-  console.log(pathname)
   return (
     <ul className='bx-nav'>
       {nav ? (

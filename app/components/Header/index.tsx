@@ -16,7 +16,7 @@ export function Header({
       <div className='bx-mobile-nav'>
         <div className='bx-mobile-home'>
           <Link to='/'>
-            <Icons.Home />
+            <Icons.HomeLight />
           </Link>
         </div>
         <div className='bx-mobile-logo'>
@@ -26,7 +26,7 @@ export function Header({
         </div>
         <div className='bx-mobile-settings'>
           <Link to='/settings'>
-            <Icons.Settings />
+            <Icons.SettingsLight />
           </Link>
         </div>
       </div>
@@ -34,7 +34,7 @@ export function Header({
         {cover && <div className='bx-cover'>{cover}</div>}
         {prevRoute && prevRoute !== '/' && (
           <div className='bx-header-history-back'>
-            <Button href={prevRoute} icon={<Icons.ArrowLeft />}></Button>
+            <Button href={prevRoute} icon={<Icons.ArrowLeftLight />}></Button>
           </div>
         )}
         <div className='bx-header-content'>

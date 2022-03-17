@@ -99,7 +99,11 @@
     @apply flex flex-col items-center gap-y-10;
   }
   .bx-section:first-of-type {
-    @apply md:max-w-80 bg-slate-50 dark:bg-slate-800 md:border-l md:border-l-slate-100 dark:md:border-l-slate-900 dark:md:border-opacity-30;
+    @apply md:max-w-80 bg-slate-50 dark:bg-slate-800 md:pb-0 md:border-l md:border-l-slate-100 dark:md:border-l-slate-900 dark:md:border-opacity-30;
+  }
+  /* Contents */
+  .bx-contents {
+    @apply grow flex flex-col pb-10 md:pb-16 gap-y-5 md:gap-y-8;
   }
   /* Cover Image */
   .bx-cover {
@@ -142,7 +146,7 @@
     @apply flex-none text-2xl pl-1 md:pl-0 font-black text-slate-700 dark:text-white;
   }
   .bx-cover + .bx-header-history-back {
-    @apply absolute top-4 md:top-8 z-50;
+    @apply fixed top-4 md:top-8 z-50;
   }
   .bx-header-content {
     @apply flex items-center gap-x-3 pt-4 md:pt-0;
@@ -217,7 +221,7 @@
   }
   /* Nav */
   .bx-nav {
-    @apply flex flex-col gap-y-8;
+    @apply flex grow flex-col gap-y-8;
   }
   .bx-nav-category {
     @apply text-slate-400 text-2xs font-black mb-2.5 px-8;
@@ -286,16 +290,16 @@
     @apply flex items-center;
   }
   .bx-footer-contact {
-    @apply flex flex-col text-2xs;
+    @apply text-2xs;
   }
   .bx-footer-contact a {
-    @apply text-base font-black transition-all;
+    @apply text-base font-black transition-all transform hover:text-slate-500 hover:dark:text-slate-400;
   }
-  .bx-footer-contact a:hover {
-    @apply text-slate-500 dark:text-slate-400;
+  .bx-footer-contact-desc {
+    @apply block;
   }
   .bx-footer-logo a {
-    @apply transition-all hover:transform hover:scale-110 active:scale-100 focus:scale-100;
+    @apply transition-all transform hover:scale-110 active:scale-100 focus:scale-100;
   }
   .bx-footer-logo .bx-logo-primary,
   .bx-footer-logo .bx-logo-secondary {

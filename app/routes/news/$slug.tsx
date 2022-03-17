@@ -41,7 +41,6 @@ export default function PostSlug() {
   const {
     data: { post, /* morePosts, */ promotion },
   } = useQuerySubscription(datoQuerySubscription)
-  console.log(post)
 
   return (
     <Layout

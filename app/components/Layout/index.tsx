@@ -60,7 +60,7 @@ export function Layout({ children, title, Icon, desc, promotion, prevRoute, cove
         </div> */}
       <Header {...{ title, Icon, desc, prevRoute, cover, date }} />
       {promotion && <Banner {...promotion} />}
-      {children}
+      <div className='bx-contents'>{children}</div>
       <section className='section flex md:hidden'>
         <Footer />
       </section>

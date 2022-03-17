@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData, useCatch } from 'remix'
 import { renderMetaTags, toRemixMeta, useQuerySubscription } from 'react-datocms'
 import { datoQuerySubscription } from '~/lib/datocms'
-import { metaTagsFragment } from '~/lib/fragments'
+import { root as query } from '~/queries'
 import { usePrevRoute } from '~/lib/config'
 import { GA } from '~/lib/ga'
 import { RootLayout, Layout, SiteMeta } from '~/components/Layout'
@@ -24,21 +24,7 @@ export function links() {
 export const loader = async ({ request }: any) => {
   return datoQuerySubscription({
     request,
-    query: `
-        {
-          site: _site {
-            favicon: faviconMetaTags(variants: [icon, msApplication, appleTouchIcon]) {
-              ...metaTagsFragment
-            }
-          }
-          blog {
-            seo: _seoMetaTags {
-              ...metaTagsFragment
-            }
-          }
-        }
-        ${metaTagsFragment}
-      `,
+    query,
   })
 }
 
@@ -97,6 +83,7 @@ export default function App() {
 
   useEffect(() => {
     GA.trackPageView({ path: pathname })
+    console.log(pathname)
   }, [pathname])
 
   return (
