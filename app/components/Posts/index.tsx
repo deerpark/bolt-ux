@@ -10,7 +10,7 @@ export function Posts({ firstPost, otherPosts, category }: PostsProps) {
   return (
     <>
       <section className='bx-post aspect-video'>
-        <Link className='bx-post-link' to={`/${category || 'posts'}/${firstPost.slug}`}>
+        <Link className='bx-post-link' to={`/${category || 'post'}/${firstPost.slug}`}>
           <Image className='bx-post-thumb' data={firstPost.coverImage.responsiveImage} />
           <div className='bx-post-info'>
             <div className='bx-post-meta'>
@@ -30,7 +30,7 @@ export function Posts({ firstPost, otherPosts, category }: PostsProps) {
         {otherPosts.map((post: any) => (
           <li key={post.slug}>
             <section className='bx-post aspect-video'>
-              <Link className='bx-post-link' to={`/${category || 'posts'}/${post.slug}`}>
+              <Link className='bx-post-link' to={`/${category || 'post'}/${post.slug}`}>
                 <Image className='bx-post-thumb' data={post.coverImage.responsiveImage} />
                 <div className='bx-post-info'>
                   <div className='bx-post-meta'>

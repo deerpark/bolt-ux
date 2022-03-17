@@ -36,7 +36,7 @@ export function Post({ post /* , morePosts  */ }: PostProps) {
         <ul className='grid'>
           {morePosts.map((post: any) => (
             <li key={post.slug} className='grid__item'>
-              <Link to={`/posts/${post.slug}`} className='grid__link'>
+              <Link to={`/post/${post.slug}`} className='grid__link'>
                 <div>
                   <Image className='grid__image' data={post.coverImage.responsiveImage} />
                   <p className='grid__title'>{post.title}</p>
