@@ -1,5 +1,5 @@
 import { json, useLoaderData } from 'remix'
-import { useEffect } from 'react'
+import { useEffect, useCallback } from 'react'
 import { useLocation } from 'react-router-dom'
 import Lottie from 'lottie-react'
 import { useNav, usePrevRoute, Route } from '~/lib/config'
@@ -22,26 +22,31 @@ export async function loader() {
   });
 }
 
-
 export default function Contact() {
-  const data = useLoaderData()
+  const {env : {KAKAO_APP_KEY}} = useLoaderData()
   const { pathname } = useLocation()
   const { title, Icon, desc }: Route = useNav(pathname)
   const prevRoute = usePrevRoute(pathname)
-  const handleClickChatChannel = () => {
+  const checkInstallKakaoSDK = useCallback(() => {
+    if (!window.Kakao || window?.Kakao?.Channel || !KAKAO_APP_KEY) return
+    window.Kakao.init(KAKAO_APP_KEY)
+  }, [KAKAO_APP_KEY])
+  const handleClickChatChannel = useCallback(() => {
+    checkInstallKakaoSDK()
     window.Kakao.Channel.chat({
       channelPublicId: '_qwsxeb',
     })
-  }
-  const handleClickAddChannel = () => {
+  }, [checkInstallKakaoSDK])
+  const handleClickAddChannel = useCallback(() => {
+    checkInstallKakaoSDK()
     window.Kakao.Channel.addChannel({
       channelPublicId: '_qwsxeb',
     })
-  }
+  }, [checkInstallKakaoSDK])
   useEffect(() => {
     if (!window.Kakao || window?.Kakao?.Channel) return
-    window.Kakao.init(data.env.KAKAO_APP_KEY)
-  }, [data])
+    window.Kakao.init(KAKAO_APP_KEY)
+  }, [KAKAO_APP_KEY])
   return (
     <>
       <Layout {...{ title, Icon, desc, prevRoute }}>
