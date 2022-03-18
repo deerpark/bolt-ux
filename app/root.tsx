@@ -1,11 +1,9 @@
-import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData, useCatch } from 'remix'
 import { renderMetaTags, toRemixMeta, useQuerySubscription } from 'react-datocms'
 import { datoQuerySubscription } from '~/lib/datocms'
 import { root as query } from '~/queries'
 import { usePrevRoute } from '~/lib/config'
-import { GA } from '~/lib/ga'
 import { RootLayout, Layout, SiteMeta } from '~/components/Layout'
 import * as Icon from '~/components/Icon'
 
@@ -44,11 +42,6 @@ export function CatchBoundary() {
   const prevRoute = usePrevRoute(pathname)
   const isRoot = pathname === '/'
 
-  useEffect(() => {
-    GA.trackPageView({ path: pathname })
-    GA.trackErrorEvent({ action: status.toString() })
-  }, [pathname, status])
-
   return (
     <html>
       <head>
@@ -80,10 +73,6 @@ export default function App() {
   const {
     data: { site },
   } = useQuerySubscription(datoQuerySubscription)
-
-  useEffect(() => {
-    GA.trackPageView({ path: pathname })
-  }, [pathname])
 
   return (
     <html lang='en'>

@@ -40,6 +40,19 @@ export function SiteMeta() {
         src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1315238860718549'
         crossOrigin='anonymous'
       ></script>
+      {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+      <script async src='https://www.googletagmanager.com/gtag/js?id=G-NTZDCTHDX5'></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-NTZDCTHDX5');
+      `,
+        }}
+      ></script>
     </>
   )
 }
