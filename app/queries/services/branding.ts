@@ -1,5 +1,5 @@
-export const consulting = `
-  query Consulting {
+export const branding = `
+  query Branding {
     promotion {
       title(locale: ko_KR)
       url
@@ -42,7 +42,7 @@ export const consulting = `
           width
         }
       }
-      consulting {
+      branding {
         responsiveImage {
           aspectRatio
           base64

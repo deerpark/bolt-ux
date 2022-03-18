@@ -34,7 +34,7 @@ export default function Plan() {
         'PC, 모바일 반응형으로 제작',
         '검색엔진 최적화 대응',
         '1년간 도메인 / 호스팅 무료 제공',
-        '5페이지까지 무료 (페이지 추가시 요금 별도)',
+        '5페이지 초과시 요금 별도',
       ],
       extra: (
         <span className='bx-shadow-card-badge'>
@@ -46,12 +46,7 @@ export default function Plan() {
       title: '싱글페이지 제작',
       icon: <Icons.Singlepage />,
       photo: photo.plan[1],
-      contents: [
-        'PC, 모바일 반응형으로 제작',
-        '검색엔진 최적화 대응',
-        '1년간 도메인 / 호스팅 무료 제공',
-        '5페이지까지 무료 (페이지 추가시 요금 별도)',
-      ],
+      contents: ['PC, 모바일 반응형으로 제작', '검색엔진 최적화 대응', '1년간 도메인 / 호스팅 무료 제공'],
       extra: (
         <span className='bx-shadow-card-badge'>
           <span>20만원</span>
@@ -71,6 +66,28 @@ export default function Plan() {
       extra: (
         <span className='bx-shadow-card-badge'>
           <span>50만원</span>
+        </span>
+      ),
+    },
+    {
+      title: '앱 디자인',
+      icon: <Icons.Appdesign />,
+      photo: photo.plan[3],
+      contents: ['UX 가이드라인 준수', '유니버셜 디자인', '디자인 시스템 구축', '5페이지 초과시 요금 별도'],
+      extra: (
+        <span className='bx-shadow-card-badge'>
+          <span>50만원</span>
+        </span>
+      ),
+    },
+    {
+      title: '브랜드 가이드',
+      icon: <Icons.Branding />,
+      photo: photo.plan[4],
+      contents: ['브랜딩 전략 수립 및 컨설팅', '로고, 컬러, 타이포, 앱 디지털 디자인', '명함, 메뉴판 오프라인 디자인'],
+      extra: (
+        <span className='bx-shadow-card-badge'>
+          <span>100만원</span>
         </span>
       ),
     },

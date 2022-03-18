@@ -40,7 +40,7 @@ export default function Homepage() {
     {
       thumb: <Image data={photo.homepage[2].responsiveImage} />,
       title: '식당 사장님',
-      contents: ['새로운 가게 또는 법인을 시작하기 전 간판, 로고, 메뉴판등의 브랜딩 디자인 컨설팅 서비스를 제공'],
+      contents: ['새로운 가게 또는 법인을 시작하기 전 간판, 로고, 메뉴판등의 브랜딩 브랜드 가이드 서비스를 제공'],
     },
   ]
   const techList: ListItem[] = [

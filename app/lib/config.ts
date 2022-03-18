@@ -68,14 +68,14 @@ export const nav: Routes[] = [
         title: '앱 디자인',
         display: true,
         desc: '모바일 어플리케이션 디자인',
-        Icon: Icon.appdesign,
+        Icon: Icon.Appdesign,
       },
       {
-        pathname: '/services/consulting',
-        title: '디자인 컨설팅',
+        pathname: '/services/branding',
+        title: '브랜드 가이드',
         display: true,
-        desc: '로고 명함 간판 메뉴판 템플릿 컨설팅',
-        Icon: Icon.consulting,
+        desc: '온, 오프라인 디자인 컨설팅',
+        Icon: Icon.Branding,
       },
     ],
   },
@@ -140,5 +140,5 @@ export type HeroString = [string, string][]
 
 export const heroString: HeroString = [
   ['홈페이지 제작', '부터'],
-  ['디자인 컨설팅', '까지'],
+  ['브랜드 가이드', '까지'],
 ]

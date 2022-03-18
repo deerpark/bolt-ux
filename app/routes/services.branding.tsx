@@ -1,7 +1,7 @@
 import { useLoaderData } from 'remix'
 import { useLocation } from 'react-router-dom'
 import { useQuerySubscription } from 'react-datocms'
-import { consulting as query } from '~/queries'
+import { branding as query } from '~/queries'
 import { datoQuerySubscription } from '~/lib/datocms'
 import { useNav, usePrevRoute, Route } from '~/lib/config'
 import { Layout } from '~/components/Layout'
@@ -15,7 +15,7 @@ export const loader = async ({ request }: any) => {
   })
 }
 
-export default function Consulting() {
+export default function Branding() {
   const { pathname } = useLocation()
   const { datoQuerySubscription } = useLoaderData()
   const { title, Icon, desc }: Route = useNav(pathname)
