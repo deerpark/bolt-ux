@@ -1568,11 +1568,10 @@ code {
   padding-left: 0.125rem;
   padding-right: 0.125rem;
   padding-top: 1.25rem;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  font-weight: 700;
+  font-weight: 900;
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity));
+  font-size: 11px;
 }
 
 @media (min-width: 768px) {
@@ -3176,11 +3175,6 @@ code {
 
 .max-w-\[200px\] {
   max-width: 200px;
-}
-
-.-translate-y-px {
-  --tw-translate-y: -1px;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .transform {
