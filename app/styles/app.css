@@ -3099,7 +3099,7 @@ code {
 }
 
 .bx-contents-card-list li::before {
-  content: '🌕';
+  content: '•';
   font-size: 11px;
 }
 

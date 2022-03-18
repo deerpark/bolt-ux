@@ -110,4 +110,4 @@ dist
 /build/
 /public/build
 /api/index.js
-/app/styles/tailwind.css
+/app/styles/app.css

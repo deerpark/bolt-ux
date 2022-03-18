@@ -508,7 +508,7 @@
     @apply flex items-center gap-x-2.5;
   }
   .bx-contents-card-list li::before {
-    content: '🌕';
+    content: '•';
     @apply text-2xs;
   }
 }
