@@ -50,16 +50,16 @@ export default function Contact() {
             <Lottie loop autoplay animationData={cowboyHatFace} />
           </div>
           <div className='flex flex-col items-center'>
-            <span className='text-5xl md:text-7xl font-thin mb-5 text-slate-600 dark:text-slate-200'>1588-9999</span>
+            <a href='tel:1588-9999' className='text-5xl md:text-7xl font-thin mb-5 text-slate-600 hover:text-slate-800 dark:text-slate-200 dark:hover:text-slate-200'>1588-9999</a>
             <span className='text-sm md:text-base opacity-80'>평일 10:00 - 18:00</span>
             <span className='text-xs md:text-sm opacity-50'>(점심시간 13:00 - 14:00 제외 · 주말/공휴일 제외)</span>
           </div>
           <div className='flex items-center justify-center gap-x-2'>
             <div>
-              <Button icon={<Icons.Kakao />} onClick={handleClickAddChannel}>카카오톡 채널 추가</Button>
+              <Button icon={<Icons.Kakao />} onClick={handleClickAddChannel}>채널톡 추가</Button>
             </div>
             <div>
-              <Button icon={<Icons.Kakao />} onClick={handleClickChatChannel}>카카오톡 채팅 시작</Button>
+              <Button icon={<Icons.Kakao />} onClick={handleClickChatChannel}>카톡 채팅</Button>
             </div>
           </div>
         </div>

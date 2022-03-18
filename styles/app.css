@@ -96,7 +96,7 @@
     @apply w-full grow md:min-w-80 md:max-w-162 flex flex-col gap-y-5 md:pb-12 md:gap-y-8 bg-white dark:bg-[#182436] md:border-r md:border-r-slate-100 dark:md:border-r-slate-900 dark:md:border-opacity-70;
   }
   .bx-section-row {
-    @apply flex flex-col items-center gap-y-10;
+    @apply flex flex-col items-center gap-y-16 md:gap-y-10;
   }
   .bx-section:first-of-type {
     @apply md:max-w-80 bg-slate-50 dark:bg-slate-800 md:pb-0 md:border-l md:border-l-slate-100 dark:md:border-l-slate-900 dark:md:border-opacity-30;
