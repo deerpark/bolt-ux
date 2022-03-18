@@ -1,0 +1,5 @@
+export * from '~/queries/services/homepage'
+export * from '~/queries/services/singlepage'
+export * from '~/queries/services/publishing'
+export * from '~/queries/services/appdesign'
+export * from '~/queries/services/consulting'

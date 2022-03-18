@@ -1,5 +1,5 @@
-export const homepage = `
-  query Homepage {
+export const appdesign = `
+  query Appdesign {
     promotion {
       title(locale: ko_KR)
       url
@@ -42,7 +42,7 @@ export const homepage = `
           width
         }
       }
-      homepage {
+      appdesign {
         responsiveImage {
           aspectRatio
           base64

@@ -1,13 +1,14 @@
 import { useLoaderData } from 'remix'
 import { useLocation } from 'react-router-dom'
 import { useQuerySubscription } from 'react-datocms'
-import { promotion as query } from '~/queries'
+import { appdesign as query } from '~/queries'
 import { datoQuerySubscription } from '~/lib/datocms'
 import { useNav, usePrevRoute, Route } from '~/lib/config'
 import { Layout } from '~/components/Layout'
 import { Banner } from '~/components/Banner'
+import { Flow, Crews, FAQ, Refund } from '~/components/Services'
 
-export const loader = async ({ request, params }: any) => {
+export const loader = async ({ request }: any) => {
   return datoQuerySubscription({
     request,
     query,
@@ -21,13 +22,19 @@ export default function Appdesign() {
   const prevRoute = usePrevRoute(pathname)
 
   const {
-    data: { promotion },
+    data: { promotion, photo },
   } = useQuerySubscription(datoQuerySubscription)
 
   return (
     <Layout {...{ title, Icon, desc, prevRoute }}>
       <Banner {...promotion} />
-      <div className='bx-section-row'></div>
+      <Flow />
+      <Crews
+        className='bx-contents-row-bg'
+        photos={[photo.common[3].responsiveImage, photo.common[4].responsiveImage, photo.common[5].responsiveImage]}
+      />
+      <FAQ />
+      <Refund />
     </Layout>
   )
 }
