@@ -23,7 +23,7 @@ export function Refund({ className }: RefundProps) {
       title: '의뢰인 책임 사유',
       contents: [
         '서비스 진행 도중 의뢰인의 귀책사유로 인해 환불을 요청할 경우, 사용 금액을 아래와 같이 계산 후 총 금액의 10%를 공제하여 환불합니다.',
-        <ul key='service-refund-2' className='bx-contents-card-list'>
+        <ul key='service-refund-2' className='bx-list-items'>
           <li>총 작업량의 1/3 경과 전 : 이미 납부한 요금의 2/3해당액</li>
           <li>총 작업량의 1/2 경과 전 : 이미 납부한 요금의 1/2해당액</li>
           <li>총 작업량의 1/2 경과 후 : 반환하지 않음</li>

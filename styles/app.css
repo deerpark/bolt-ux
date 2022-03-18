@@ -401,7 +401,7 @@
   .bx-post-thumb {
     @apply relative z-0 transform transition-all duration-[20000ms] ease-expo-out;
   }
-  .bx-post-thumb .bx-post-thumb {
+  .bx-post-link:hover .bx-post-thumb {
     @apply scale-125;
   }
   .bx-post-thumb img {
@@ -501,15 +501,68 @@
   .bx-contents-card-desc {
     @apply text-xs;
   }
-  .bx-contents-card-list {
+  /* List Items */
+  .bx-list-items {
     @apply flex flex-col gap-y-1 py-1 md:py-2 md:gap-y-2 ml-1.5 text-xs;
   }
-  .bx-contents-card-list li {
-    @apply flex items-center gap-x-2.5;
+  .bx-list-items li {
+    @apply flex gap-x-2.5;
   }
-  .bx-contents-card-list li::before {
+  .bx-list-items li::before {
     content: '•';
     @apply text-2xs;
+  }
+  /* Shadow Card */
+  .bx-shadow-card {
+    @apply w-full;
+  }
+  .bx-shadow-card-container {
+    @apply mx-5 md:mx-8 relative;
+  }
+  .bx-shadow-card-body {
+    @apply flex items-stretch gap-x-4 p-4 relative z-20 rounded-xl border border-slate-100 bg-white dark:border-slate-800 dark:bg-slate-900;
+  }
+  .bx-shadow-card-shadow1 {
+    @apply absolute inset-4 -bottom-1 z-10 rounded-xl bg-slate-100 dark:bg-slate-900 opacity-50;
+  }
+  .bx-shadow-card-shadow1 {
+    @apply absolute inset-8 -bottom-2 z-0 rounded-xl bg-slate-100 dark:bg-slate-900 opacity-30;
+  }
+  .bx-shadow-card-thumb {
+    @apply flex flex-col flex-none w-1/3 md:w-1/4 gap-y-2;
+  }
+  .bx-shadow-card-thumb-cover {
+    @apply w-full aspect-square md:h-full flex items-stretch rounded-lg overflow-hidden;
+  }
+  .bx-shadow-card-thumb-img {
+    @apply relative z-0 transform transition-all duration-[20000ms] ease-expo-out;
+  }
+  .bx-shadow-card:hover .bx-shadow-card-thumb-img {
+    @apply scale-125;
+  }
+  .bx-shadow-card-thumb img {
+    @apply object-cover;
+  }
+  .bx-shadow-card-contents {
+    @apply flex grow flex-col justify-center py-0 md:py-1 gap-y-1;
+  }
+  .bx-shadow-card-title {
+    @apply flex items-center gap-x-1 text-base font-extrabold text-slate-600 dark:text-slate-400;
+  }
+  .bx-shadow-card-title svg {
+    @apply w-5 h-3 ml-px;
+  }
+  .bx-shadow-card-desc {
+    @apply text-xs text-slate-400 dark:text-slate-600;
+  }
+  .bx-shadow-card-extra {
+    @apply hidden md:flex flex-col flex-none items-center justify-center pr-4;
+  }
+  .bx-shadow-card-badge {
+    @apply text-base text-center font-black py-1 px-2 rounded-md text-slate-50 dark:text-slate-900 bg-blue-600;
+  }
+  .bx-shadow-card-desc-extra {
+    @apply flex md:hidden pl-6 md:pl-0 pt-1 md:pt-0;
   }
 }
 
