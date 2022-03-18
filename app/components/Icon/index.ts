@@ -1,3 +1,5 @@
+export * from './BulletSolid'
+
 export * from './SettingsLight'
 export * from './HomeLight'
 export * from './ArrowLeftLight'

@@ -112,13 +112,16 @@
     @apply px-5 md:px-8 pb-5 md:pb-8;
   }
   .bx-contents-row-bg {
-    @apply bg-slate-100 dark:bg-gray-900 dark:bg-opacity-50;
+    @apply bg-slate-50 dark:bg-gray-900 bg-opacity-50;
   }
   .bx-contents-row-extend {
     @apply px-0;
   }
   .bx-contents-h2 {
-    @apply pt-5 md:pt-8 text-xs font-bold text-slate-600 dark:text-slate-400;
+    @apply flex items-center gap-x-1 md:gap-x-2 pt-5 md:pt-8 px-0.5 md:px-1 text-xs font-bold text-blue-500;
+  }
+  .bx-contents-h2 svg {
+    @apply w-3 h-2 md:w-5 md:h-4 fill-blue-500;
   }
   /* Cover Image */
   .bx-cover {
@@ -451,7 +454,7 @@
   .bx-list {
     @apply grid grid-cols-1 mx-4 md:mx-8 divide-y divide-slate-200 dark:divide-gray-900 divide-dashed;
   }
-  .bx-list-extend {
+  .bx-contents-row-extend .bx-list {
     @apply mx-0;
   }
   /* Privacy */
@@ -462,7 +465,7 @@
   .bx-contents-card {
     @apply flex items-center rounded-lg py-5 gap-x-5;
   }
-  .bx-list-extend .bx-contents-card {
+  .bx-contents-row-extend .bx-list .bx-contents-card {
     @apply px-5 md:px-8 rounded-none;
   }
   .bx-list-even .bx-contents-card:nth-of-type(even) {
@@ -481,7 +484,7 @@
     @apply aspect-square rounded-2xl;
   }
   .bx-contents-card-icon {
-    @apply aspect-square w-full flex items-center justify-center rounded-2xl bg-slate-50 dark:bg-gray-900 dark:bg-opacity-50;
+    @apply aspect-square w-full flex items-center justify-center rounded-2xl bg-slate-50 dark:bg-gray-900 dark:bg-opacity-50 font-thin text-5xl;
   }
   .bx-contents-card-icon > svg {
     @apply aspect-square w-3/5;
@@ -497,6 +500,16 @@
   }
   .bx-contents-card-desc {
     @apply text-xs;
+  }
+  .bx-contents-card-list {
+    @apply flex flex-col gap-y-1 py-1 md:py-2 md:gap-y-2 ml-1.5 text-xs;
+  }
+  .bx-contents-card-list li {
+    @apply flex items-center gap-x-2.5;
+  }
+  .bx-contents-card-list li::before {
+    content: '🌕';
+    @apply text-2xs;
   }
 }
 
