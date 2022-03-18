@@ -9,7 +9,7 @@ export { Post } from '~/components/Posts/Post'
 export function Posts({ firstPost, otherPosts, category }: PostsProps) {
   return (
     <>
-      <section className='bx-post aspect-video'>
+      <section className='bx-post'>
         <Link className='bx-post-link' to={`/${category || 'posts'}/${firstPost.slug}`}>
           <Image className='bx-post-thumb' data={firstPost.coverImage.responsiveImage} />
           <div className='bx-post-info'>
@@ -29,7 +29,7 @@ export function Posts({ firstPost, otherPosts, category }: PostsProps) {
       <ul className='bx-other-posts'>
         {otherPosts.map((post: any) => (
           <li key={post.slug}>
-            <section className='bx-post aspect-video'>
+            <section className='bx-post'>
               <Link className='bx-post-link' to={`/${category || 'posts'}/${post.slug}`}>
                 <Image className='bx-post-thumb' data={post.coverImage.responsiveImage} />
                 <div className='bx-post-info'>

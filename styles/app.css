@@ -393,7 +393,7 @@
     @apply mx-5 md:mx-8 relative flex flex-col transition-all transform;
   }
   .bx-post-link {
-    @apply transform active:translate-y-0.5 focus:translate-y-0.5 relative z-10 overflow-hidden flex flex-col rounded-lg transition-all;
+    @apply aspect-video transform active:translate-y-0.5 focus:translate-y-0.5 relative z-10 overflow-hidden flex flex-col rounded-lg transition-all;
   }
   .bx-post-thumb {
     @apply relative z-0 transform transition-all duration-[20000ms] ease-expo-out;
@@ -472,13 +472,19 @@
     @apply bg-slate-50 dark:bg-gray-900 dark:bg-opacity-50;
   }
   .bx-contents-card-thumbnail {
-    @apply w-1/5 flex-none;
+    @apply w-1/5 flex-none flex items-center justify-center;
   }
   .bx-contents-card-reverse .bx-contents-card-thumbnail {
     @apply order-2;
   }
   .bx-contents-card-thumbnail > div {
     @apply aspect-square rounded-2xl;
+  }
+  .bx-contents-card-icon {
+    @apply aspect-square w-full flex items-center justify-center rounded-2xl bg-slate-50 dark:bg-gray-900 dark:bg-opacity-50;
+  }
+  .bx-contents-card-icon > svg {
+    @apply aspect-square w-3/5;
   }
   .bx-contents-card-body {
     @apply grow flex flex-col gap-y-2 pr-5 md:pr-8;

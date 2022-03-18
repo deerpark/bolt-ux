@@ -6,6 +6,7 @@ import { datoQuerySubscription } from '~/lib/datocms'
 import { useNav, usePrevRoute, Route } from '~/lib/config'
 import { Layout } from '~/components/Layout'
 import { Banner } from '~/components/Banner'
+import * as Icons from '~/components/Icon'
 
 export const loader = async ({ request, params }: any) => {
   return datoQuerySubscription({
@@ -137,6 +138,105 @@ export default function Homepage() {
             <div className='bx-contents-card-body'>
               <div className='bx-contents-card-title'>데이터/인프라 개발 "명자"</div>
               <div className='bx-contents-card-desc'>현재 대기업 재직중</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className='bx-contents-row bx-contents-row-extend bx-contents-row-bg'>
+        <div className='bx-contents-row pb-1 md:4'>
+          <h2 className='bx-contents-h2'>서비스 제공은 다음과 같이 이뤄져요.</h2>
+        </div>
+        <div className='bx-list bx-list-extend'>
+          <div className='bx-contents-card'>
+            <p className='bx-contents-card-thumbnail'>
+              <span className='bx-contents-card-icon'>
+                <Icons.Contact />
+              </span>
+            </p>
+            <div className='bx-contents-card-body'>
+              <div className='bx-contents-card-title'>계약금 10% 입금</div>
+              <div className='bx-contents-card-desc'>프로젝트가 시작되기 전 미리 계약금을 받고 시작해요.</div>
+            </div>
+          </div>
+          <div className='bx-contents-card'>
+            <p className='bx-contents-card-thumbnail'>
+              <span className='bx-contents-card-icon'>
+                <Icons.Price />
+              </span>
+            </p>
+            <div className='bx-contents-card-body'>
+              <div className='bx-contents-card-title'>기초 상담</div>
+              <div className='bx-contents-card-desc'>
+                홈페이지 컨셉, 원하는 기능들을 고객님들과 함께 사전에 주고 받아요.
+              </div>
+            </div>
+          </div>
+          <div className='bx-contents-card'>
+            <p className='bx-contents-card-thumbnail'>
+              <span className='bx-contents-card-icon'>
+                <Icons.Price />
+              </span>
+            </p>
+            <div className='bx-contents-card-body'>
+              <div className='bx-contents-card-title'>의뢰에 관련된 자료 수신</div>
+              <div className='bx-contents-card-desc'>
+                홈페이지 구축 전 필요한 자료들을 넘겨받아요. (로고, 아이디어, 제품 정보관련 사진)
+              </div>
+            </div>
+          </div>
+          <div className='bx-contents-card'>
+            <p className='bx-contents-card-thumbnail'>
+              <span className='bx-contents-card-icon'>
+                <Icons.Price />
+              </span>
+            </p>
+            <div className='bx-contents-card-body'>
+              <div className='bx-contents-card-title'>디자인 시안 검토</div>
+              <div className='bx-contents-card-desc'>디자인 컨셉의 시안을 미리 고객님들과 협의해요.</div>
+            </div>
+          </div>
+          <div className='bx-contents-card'>
+            <p className='bx-contents-card-thumbnail'>
+              <span className='bx-contents-card-icon'>
+                <Icons.Price />
+              </span>
+            </p>
+            <div className='bx-contents-card-body'>
+              <div className='bx-contents-card-title'>수정사항 반영 및 개발 진행</div>
+              <div className='bx-contents-card-desc'>빠르게 개발 해 드립니다.</div>
+            </div>
+          </div>
+          <div className='bx-contents-card'>
+            <p className='bx-contents-card-thumbnail'>
+              <span className='bx-contents-card-icon'>
+                <Icons.Price />
+              </span>
+            </p>
+            <div className='bx-contents-card-body'>
+              <div className='bx-contents-card-title'>데모</div>
+              <div className='bx-contents-card-desc'>첫 시연 후 수정사항 반영</div>
+            </div>
+          </div>
+          <div className='bx-contents-card'>
+            <p className='bx-contents-card-thumbnail'>
+              <span className='bx-contents-card-icon'>
+                <Icons.Price />
+              </span>
+            </p>
+            <div className='bx-contents-card-body'>
+              <div className='bx-contents-card-title'>최종 서비스 오픈</div>
+              <div className='bx-contents-card-desc'>오픈 후 모니터링</div>
+            </div>
+          </div>
+          <div className='bx-contents-card'>
+            <p className='bx-contents-card-thumbnail'>
+              <span className='bx-contents-card-icon'>
+                <Icons.Price />
+              </span>
+            </p>
+            <div className='bx-contents-card-body'>
+              <div className='bx-contents-card-title'>잔금 90% 입금</div>
+              <div className='bx-contents-card-desc'>프로젝트 완료</div>
             </div>
           </div>
         </div>
