@@ -1541,13 +1541,17 @@ code {
 
 .bx-contents-row-bg {
   background-color: rgb(248 250 252 / var(--tw-bg-opacity));
-  --tw-bg-opacity: 0.5;
+  --tw-bg-opacity: 0.6;
 }
 
 @media (prefers-color-scheme: dark) {
   .bx-contents-row-bg {
     --tw-bg-opacity: 1;
     background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+  }
+
+  .bx-contents-row-bg {
+    --tw-bg-opacity: 0.3;
   }
 }
 
@@ -1559,8 +1563,8 @@ code {
 .bx-contents-h2 {
   display: flex;
   align-items: center;
-  -moz-column-gap: 0.25rem;
-       column-gap: 0.25rem;
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
   padding-top: 1.25rem;
@@ -1573,11 +1577,6 @@ code {
 
 @media (min-width: 768px) {
   .bx-contents-h2 {
-    -moz-column-gap: 0.5rem;
-         column-gap: 0.5rem;
-  }
-
-  .bx-contents-h2 {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
   }
@@ -1588,14 +1587,14 @@ code {
 }
 
 .bx-contents-h2 svg {
-  height: 0.5rem;
+  height: 0.75rem;
   width: 0.75rem;
   fill: #3b82f6;
 }
 
 @media (min-width: 768px) {
   .bx-contents-h2 svg {
-    height: 1rem;
+    height: 1.25rem;
   }
 
   .bx-contents-h2 svg {

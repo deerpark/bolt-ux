@@ -31,7 +31,7 @@ export default function Homepage() {
       <div className='bx-contents-row bx-contents-row-extend'>
         <div className='bx-contents-row pb-1 md:pb-4'>
           <h2 className='bx-contents-h2'>
-            <span className='transform -translate-y-px'>
+            <span>
               <Icons.BulletSolid />
             </span>
             <span>이런분께 추천 드려요!</span>
@@ -74,7 +74,7 @@ export default function Homepage() {
       <div className='bx-contents-row bx-contents-row-extend bx-contents-row-bg'>
         <div className='bx-contents-row pb-1 md:pb-4'>
           <h2 className='bx-contents-h2'>
-            <span className='transform -translate-y-px'>
+            <span>
               <Icons.BulletSolid />
             </span>
             <span>항상 최신의 기술을 선도해요.</span>
@@ -121,7 +121,7 @@ export default function Homepage() {
       <div className='bx-contents-row bx-contents-row-extend'>
         <div className='bx-contents-row pb-1 md:pb-4'>
           <h2 className='bx-contents-h2'>
-            <span className='transform -translate-y-px'>
+            <span>
               <Icons.BulletSolid />
             </span>
             <span>서비스 제공은 다음과 같이 이뤄져요.</span>
@@ -209,7 +209,7 @@ export default function Homepage() {
       <div className='bx-contents-row bx-contents-row-extend bx-contents-row-bg'>
         <div className='bx-contents-row pb-1 md:pb-4'>
           <h2 className='bx-contents-h2'>
-            <span className='transform -translate-y-px'>
+            <span>
               <Icons.BulletSolid />
             </span>
             <span>저희 팀은 전문가들로 구성 되어있어요.</span>
@@ -248,7 +248,7 @@ export default function Homepage() {
       <div className='bx-contents-row bx-contents-row-extend'>
         <div className='bx-contents-row pb-1 md:pb-4'>
           <h2 className='bx-contents-h2'>
-            <span className='transform -translate-y-px'>
+            <span>
               <Icons.BulletSolid />
             </span>
             <span>취소 및 환불규정을 알려드릴게요.</span>
@@ -296,7 +296,7 @@ export default function Homepage() {
       <div className='bx-contents-row bx-contents-row-extend'>
         <div className='bx-contents-row pb-1 md:pb-4'>
           <h2 className='bx-contents-h2'>
-            <span className='transform -translate-y-px'>
+            <span>
               <Icons.BulletSolid />
             </span>
             <span>자주있는 질문들이예요.</span>
