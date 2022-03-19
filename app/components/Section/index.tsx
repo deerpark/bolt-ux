@@ -39,7 +39,9 @@ export function Section({ item }: SectionProps) {
             !!photos.length &&
             photos.map(({ responsiveImage }) => (
               <li key={responsiveImage.title} className='bx-card-sqaure'>
-                <Image className='bx-thumbnail' data={responsiveImage} />
+                <div className='bx-card-thumb'>
+                  <Image className='bx-thumbnail' data={responsiveImage} />
+                </div>
                 <div className='bx-card-sqaure-info'>{responsiveImage.title}</div>
               </li>
             ))}
@@ -65,28 +67,6 @@ export function Section({ item }: SectionProps) {
           </Button>
         </div>
       )}
-      {/* <div className='bx-shadow-card-container'>
-        <div className='bx-shadow-card-body'>
-          <div className='bx-shadow-card-thumb'>
-            <div className='bx-shadow-card-thumb-cover'>
-              <Image className='bx-shadow-card-thumb-img' data={photo.responsiveImage} />
-            </div>
-          </div>
-          <div className='bx-shadow-card-contents'>
-            {tags && (
-              <ul className='bx-list-items'>
-                {tags.map((tag, index) => (
-                  <li key={index.toString()}>{tag}</li>
-                ))}
-              </ul>
-            )}
-            <div className='bx-shadow-card-desc-extra'>{extra}</div>
-          </div>
-          <div className='bx-shadow-card-extra'>{extra}</div>
-        </div>
-        <div className='bx-shadow-card-shadow1'></div>
-        <div className='bx-shadow-card-shadow2'></div>
-      </div> */}
     </div>
   )
 }

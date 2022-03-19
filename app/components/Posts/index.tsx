@@ -9,46 +9,49 @@ export { Post } from '~/components/Posts/Post'
 export function Posts({ firstPost, otherPosts, category }: PostsProps) {
   return (
     <>
-      <section className='bx-post'>
-        <Link className='bx-post-link' to={`/${category || 'posts'}/${firstPost.slug}`}>
-          <Image className='bx-post-thumb' data={firstPost.coverImage.responsiveImage} />
-          <div className='bx-post-info'>
-            <div className='bx-post-meta'>
-              <h5 className='bx-post-title'>{firstPost.title}</h5>
-              <div className='bx-post-date'>
-                <Date dateString={firstPost.date} />
+      <div className='bx-section'>
+        <section className='bx-post'>
+          <Link className='bx-post-link' to={`/${category || 'posts'}/${firstPost.slug}`}>
+            <div className='bx-post-thumb'>
+              <Image className='bx-thumbnail' data={firstPost.coverImage.responsiveImage} />
+            </div>
+            <div className='bx-post-info'>
+              <div className='bx-post-meta'>
+                <h5 className='bx-post-title'>{firstPost.title}</h5>
+                <div className='bx-post-desc'>{firstPost.excerpt}</div>
+                <div className='bx-post-desc'>
+                  <Date dateString={firstPost.date} />
+                </div>
+              </div>
+              <div className='bx-post-avatar'>
+                <Avatar name={firstPost.author.name} picture={firstPost.author.picture} />
               </div>
             </div>
-            <div className='bx-post-avatar'>
-              <Avatar name={firstPost.author.name} picture={firstPost.author.picture} />
-            </div>
-          </div>
-        </Link>
-        <span className='bx-post-background'></span>
-      </section>
-      <ul className='bx-other-posts'>
-        {otherPosts.map((post: any) => (
-          <li key={post.slug}>
-            <section className='bx-post'>
+          </Link>
+        </section>
+      </div>
+      <div className='bx-section'>
+        <ul className='bx-other-posts'>
+          {otherPosts.map((post: any) => (
+            <li key={post.slug} className='bx-post'>
               <Link className='bx-post-link' to={`/${category || 'posts'}/${post.slug}`}>
-                <Image className='bx-post-thumb' data={post.coverImage.responsiveImage} />
+                <div className='bx-post-thumb'>
+                  <Image className='bx-thumbnail' data={post.coverImage.responsiveImage} />
+                </div>
                 <div className='bx-post-info'>
                   <div className='bx-post-meta'>
                     <h5 className='bx-post-title'>{post.title}</h5>
-                    <div className='bx-post-date'>
+                    <div className='bx-post-desc'>{post.excerpt}</div>
+                    <div className='bx-post-desc'>
                       <Date dateString={post.date} />
                     </div>
                   </div>
-                  <div className='bx-post-avatar'>
-                    <Avatar name={post.author.name} picture={post.author.picture} />
-                  </div>
                 </div>
               </Link>
-              <span className='bx-post-background'></span>
-            </section>
-          </li>
-        ))}
-      </ul>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   )
 }

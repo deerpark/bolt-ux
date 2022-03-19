@@ -392,49 +392,43 @@
   .bx-banner-link .bx-button-background {
     @apply bg-yellow-500 border-yellow-600;
   }
+  /* Thumbnail */
+  .bx-thumbnail {
+    @apply transform transition-all duration-[20000ms] ease-expo-out;
+  }
+  /* Post */
   .bx-post {
-    @apply mx-5 md:mx-8 relative flex flex-col transition-all transform;
+    @apply mx-5 md:mx-8 relative;
   }
   .bx-post-link {
-    @apply transform active:translate-y-0.5 focus:translate-y-0.5 relative z-10 overflow-hidden flex flex-col rounded-lg transition-all;
+    @apply aspect-video flex flex-col gap-y-4 gap-x-4;
   }
   .bx-post-thumb {
-    @apply aspect-video relative z-0 transform transition-all duration-[20000ms] ease-expo-out;
+    @apply  overflow-hidden rounded-lg;
   }
-  .bx-post-link:hover .bx-post-thumb {
-    @apply scale-125;
-  }
-  .bx-post-thumb img {
-    @apply object-cover;
+  .bx-post-link:hover .bx-thumbnail {
+    @apply h-full scale-125;
   }
   .bx-post-info {
-    @apply relative z-10 flex-none flex items-center justify-between gap-x-1 px-4 py-4 bg-slate-50 dark:bg-gray-900;
+    @apply flex-none flex items-center justify-between gap-x-1;
   }
   .bx-post-meta {
-    @apply flex flex-col grow;
+    @apply flex flex-col grow gap-y-1;
   }
   .bx-post-title {
     @apply text-slate-600 dark:text-slate-400 text-base font-bold;
   }
-  .bx-post-date {
-    @apply text-slate-400 dark:text-slate-600 text-xs;
+  .bx-post-desc {
+    @apply text-slate-400 dark:text-slate-600 text-xs break-words;
   }
   .bx-post-avatar {
     @apply flex-none;
   }
-  .bx-post-background {
-    @apply absolute transition-all inset-0 top-[3px] z-0 rounded-[10px] shadow-lg shadow-slate-200 dark:shadow-black/10;
-  }
-  .bx-post-link:focus ~ .bx-post-background,
-  .bx-post-link:active ~ .bx-post-background {
-    @apply shadow-md -bottom-0.5;
-  }
-  /* Other Posts */
   .bx-other-posts {
-    @apply mx-5 md:mx-8 grid grid-cols-1 gap-5 md:gap-8 md:grid-cols-2;
+    @apply flex flex-col;
   }
-  .bx-other-posts .bx-post {
-    @apply mx-auto;
+  .bx-other-post {
+    @apply flex items-center;
   }
   /* Error */
   .bx-error {
@@ -559,58 +553,6 @@
     content: '•';
     @apply text-2xs;
   }
-  /* Shadow Card */
-  .bx-shadow-card {
-    @apply w-full;
-  }
-  .bx-shadow-card-container {
-    @apply mx-5 md:mx-8 relative;
-  }
-  .bx-shadow-card-body {
-    @apply flex items-stretch gap-x-4 md:p-4 relative z-20 rounded-xl md:border md:border-slate-100 md:bg-white dark:md:border-slate-800 dark:md:bg-[#1A2638];
-  }
-  .bx-shadow-card-shadow1 {
-    @apply hidden md:block absolute inset-4 -bottom-1 z-10 rounded-xl bg-slate-100 dark:bg-slate-900 opacity-50;
-  }
-  .bx-shadow-card-shadow2 {
-    @apply hidden md:block absolute inset-8 -bottom-2 z-0 rounded-xl bg-slate-100 dark:bg-slate-900 opacity-30;
-  }
-  .bx-shadow-card-thumb {
-    @apply flex flex-col flex-none w-1/3 md:w-1/4 gap-y-2;
-  }
-  .bx-shadow-card-thumb-cover {
-    @apply w-full aspect-square md:h-full flex items-stretch rounded-lg overflow-hidden;
-  }
-  .bx-shadow-card-thumb-img {
-    @apply relative z-0 transform transition-all duration-[20000ms] ease-expo-out;
-  }
-  .bx-shadow-card:hover .bx-shadow-card-thumb-img {
-    @apply scale-125;
-  }
-  .bx-shadow-card-thumb img {
-    @apply object-cover;
-  }
-  .bx-shadow-card-contents {
-    @apply flex grow flex-col justify-center py-0 md:py-1 gap-y-1;
-  }
-  .bx-shadow-card-title {
-    @apply flex items-center gap-x-1 text-base font-extrabold text-slate-600 dark:text-slate-400;
-  }
-  .bx-shadow-card-title svg {
-    @apply w-5 h-3 ml-px;
-  }
-  .bx-shadow-card-desc {
-    @apply text-xs text-slate-400 dark:text-slate-600;
-  }
-  .bx-shadow-card-extra {
-    @apply hidden md:flex flex-col flex-none items-center justify-center pr-4;
-  }
-  .bx-shadow-card-badge {
-    @apply text-sm md:text-base text-center font-bold py-0.5 md:py-1 px-1 md:px-2 rounded-md text-slate-50 bg-blue-600;
-  }
-  .bx-shadow-card-desc-extra {
-    @apply flex md:hidden pl-6 md:pl-0 pt-1 md:pt-0;
-  }
   /* Carousel */
   .bx-carousel {
     @apply flex pt-5 pb-2.5 px-5 md:px-8 items-stretch overflow-x-auto border-b border-dashed border-slate-100 dark:border-slate-900 dark:border-opacity-50;
@@ -622,11 +564,11 @@
   .bx-card-sqaure {
     @apply flex-none flex flex-col;
   }
-  .bx-card-sqaure .bx-thumbnail {
+  .bx-card-sqaure .bx-card-thumb {
     @apply w-24 h-24 aspect-square rounded-lg overflow-hidden;
   }
-  .bx-thumbnail {
-    @apply relative z-0 transform transition-all duration-[20000ms] ease-expo-out;
+  .bx-card-sqaure .bx-thumbnail {
+    @apply h-full;
   }
   .bx-card-sqaure:hover .bx-thumbnail {
     @apply scale-125;
