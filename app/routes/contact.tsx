@@ -50,7 +50,7 @@ export default function Contact() {
   return (
     <>
       <Layout {...{ title, Icon, desc, prevRoute }}>
-        <div className='bx-section-row pb-20'>
+        <div className='bx-page-row pb-20'>
           <div className='w-40 pt-20'>
             <Lottie loop autoplay animationData={cowboyHatFace} />
           </div>

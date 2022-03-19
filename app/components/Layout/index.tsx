@@ -103,7 +103,7 @@ export function SiteMeta() {
 
 export function Layout({ children, title, Icon, desc, promotion, prevRoute, cover, date }: LayoutProps) {
   return (
-    <div className='bx-section'>
+    <div className='bx-page'>
       {/* <div className='preview'>
           {previewEnabled ? (
             <Form method='post' action='/posts/preview/stop'>
@@ -128,7 +128,7 @@ export function Layout({ children, title, Icon, desc, promotion, prevRoute, cove
 export function RootLayout({ isRoot, children, pathname }: RootLayoutProps) {
   return (
     <div className='bx-container'>
-      <div className={`bx-section ${isRoot ? '' : 'hidden md:flex'}`}>
+      <div className={`bx-page ${isRoot ? '' : 'hidden md:flex'}`}>
         <Hero
           heroString={heroString}
           desc='더 나은 사용자 경험을 생각하며 꼼꼼하게 만들어 드려요.'

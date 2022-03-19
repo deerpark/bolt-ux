@@ -4,9 +4,8 @@ import { useQuerySubscription } from 'react-datocms'
 import { datoQuerySubscription } from '~/lib/datocms'
 import { useNav, usePrevRoute, Route } from '~/lib/config'
 import { Layout } from '~/components/Layout'
-import { ShadowCard, ShadowCardItem } from '~/components/Card'
+import { Section, SectionItem } from '~/components/Section'
 import { plan as query } from '~/queries'
-import * as Icons from '~/components/Icon'
 
 export const loader = ({ request }: any) => {
   return datoQuerySubscription({
@@ -25,79 +24,110 @@ export default function Plan() {
     data: { photo },
   } = useQuerySubscription(datoQuerySubscription)
 
-  const list: ShadowCardItem[] = [
+  const list: SectionItem[] = [
     {
       title: '홈페이지 제작',
-      icon: <Icons.Homepage />,
-      photo: photo.plan[0],
-      contents: [
-        'PC, 모바일 반응형으로 제작',
-        '검색엔진 최적화 대응',
-        '1년간 도메인 / 호스팅 무료 제공',
-        '5페이지 초과시 요금 별도',
+      badge: <span className='bx-badge'>BASIC</span>,
+      link: '/services/homepage',
+      label: '자세히 보기',
+      photos: photo.homepagebasic,
+      metas: [
+        { label: '작업일', value: '7일' },
+        { label: '최대 페이지', value: '5개' },
+        { label: '스타일 가이드', value: '포함' },
+        { label: 'A/S', value: '1년' },
+        { label: '반응형 웹', value: '포함' },
+        { label: '다크 모드', value: '미포함' },
+        { label: '검색엔진 최적화', value: '포함' },
+        { label: '도메인 (1년)', value: '무료' },
+        { label: '호스팅 (1년)', value: '무료' },
+        { label: '구글 워크스페이스', value: '미포함' },
+        { label: '구글 애널리틱스', value: '미포함' },
+        { label: '카카오톡 채널', value: '미포함' },
+        { label: '채널톡', value: '포함' },
+        { label: '관리자 도구', value: '미지원' },
       ],
-      extra: (
-        <span className='bx-shadow-card-badge'>
-          <span>50만원</span>
-        </span>
-      ),
+      extra: <span>50만원</span>,
     },
     {
       title: '싱글페이지 제작',
-      icon: <Icons.Singlepage />,
-      photo: photo.plan[1],
-      contents: ['PC, 모바일 반응형으로 제작', '검색엔진 최적화 대응', '1년간 도메인 / 호스팅 무료 제공'],
-      extra: (
-        <span className='bx-shadow-card-badge'>
-          <span>20만원</span>
-        </span>
-      ),
+      badge: <span className='bx-badge'>BASIC</span>,
+      link: '/services/singlepage',
+      label: '자세히 보기',
+      photos: photo.singlepagebasic,
+      metas: [
+        { label: '작업일', value: '3일' },
+        { label: '최대 페이지', value: '1개' },
+        { label: '스타일 가이드', value: '미포함' },
+        { label: 'A/S', value: '1년' },
+        { label: '반응형 웹', value: '포함' },
+        { label: '인터렉티브', value: '미포함' },
+        { label: '다크 모드', value: '미포함' },
+        { label: '검색엔진 최적화', value: '포함' },
+        { label: '도메인 (1년)', value: '무료' },
+        { label: '호스팅 (1년)', value: '무료' },
+        { label: '관리자 도구', value: '미지원' },
+      ],
+      extra: <span>20만원</span>,
     },
     {
       title: '퍼블리싱 개발',
-      icon: <Icons.Publishing />,
-      photo: photo.plan[2],
-      contents: [
-        'PC, 모바일 반응형으로 개발',
-        '웹 접근성 준수',
-        '10페이지 이상 요금 별도',
-        '웹 접근성 인증 마크 획득 가능 (요금 별도)',
+      badge: <span className='bx-badge'>BASIC</span>,
+      link: '/services/publishing',
+      label: '자세히 보기',
+      photos: photo.publishingbasic,
+      metas: [
+        { label: '작업일', value: '2일' },
+        { label: '최대 페이지', value: '10개' },
+        { label: '스타일 가이드', value: '포함' },
+        { label: 'A/S', value: '1개월' },
+        { label: '반응형 웹', value: '포함' },
+        { label: '다크 모드', value: '미포함' },
+        { label: '웹 접근성', value: '지원' },
+        { label: '웹 접근성 인증 마크', value: '미지원' },
       ],
-      extra: (
-        <span className='bx-shadow-card-badge'>
-          <span>50만원</span>
-        </span>
-      ),
+      extra: <span>50만원</span>,
     },
     {
       title: '앱 디자인',
-      icon: <Icons.Appdesign />,
-      photo: photo.plan[3],
-      contents: ['UX 가이드라인 준수', '유니버셜 디자인', '디자인 시스템 구축', '5페이지 초과시 요금 별도'],
-      extra: (
-        <span className='bx-shadow-card-badge'>
-          <span>50만원</span>
-        </span>
-      ),
+      badge: <span className='bx-badge'>BASIC</span>,
+      link: '/services/appdesign',
+      label: '자세히 보기',
+      photos: photo.appdesignbasic,
+      metas: [
+        { label: '작업일', value: '3일' },
+        { label: '최대 페이지', value: '5개' },
+        { label: '디자인 시스템', value: '포함' },
+        { label: 'A/S', value: '3개월' },
+        { label: '다크 모드', value: '미포함' },
+        { label: '웹 접근성', value: '지원' },
+        { label: '웹 접근성 인증 마크', value: '미지원' },
+      ],
+      extra: <span>50만원</span>,
     },
     {
       title: '브랜드 가이드',
-      icon: <Icons.Branding />,
-      photo: photo.plan[4],
-      contents: ['브랜딩 전략 수립 및 컨설팅', '로고, 컬러, 타이포, 앱 디지털 디자인', '명함, 메뉴판 오프라인 디자인'],
-      extra: (
-        <span className='bx-shadow-card-badge'>
-          <span>100만원</span>
-        </span>
-      ),
+      badge: <span className='bx-badge'>BASIC</span>,
+      link: '/services/branding',
+      label: '자세히 보기',
+      photos: photo.brandingbasic,
+      metas: [
+        { label: '작업일', value: '14일' },
+        { label: '로고', value: '포함' },
+        { label: '명함', value: '포함' },
+        { label: '문서/이메일 템플릿', value: '포함' },
+        { label: '디자인 시스템', value: '포함' },
+        { label: 'A/S', value: '1년' },
+      ],
+      extra: <span>100만원</span>,
     },
   ]
 
   return (
     <Layout {...{ title, Icon, desc, prevRoute }}>
-      <div className='bx-section-row pt-3'>
+      <div className='bx-sections'>
         {list.map(listItem => (
-          <ShadowCard key={listItem.title} item={listItem} />
+          <Section key={listItem.title} item={listItem} />
         ))}
       </div>
     </Layout>

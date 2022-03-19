@@ -8,7 +8,7 @@ export default function Settings() {
   const prevRoute = usePrevRoute(pathname)
   return (
     <Layout {...{ title, Icon, desc, prevRoute }}>
-      <div className='bx-section-row'></div>
+      <div className='bx-page-row'></div>
     </Layout>
   )
 }

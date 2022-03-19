@@ -19,8 +19,8 @@ export default function Index() {
 
   return (
     <>
-      <div className='bx-section max-w-112'>
-        <section className='bx-section-row hidden md:flex'>
+      <div className='bx-page max-w-112'>
+        <section className='bx-page-row hidden md:flex'>
           <ul className='bx-promotions'>
             {promotions.map((promotion: any) => (
               <li key={promotion.title} className='bx-promotion-item'>

@@ -20,6 +20,7 @@ export * from './Contact'
 export * from './Price'
 export * from './Settings'
 export * from './NotFound'
+export * from './Date'
 
 export * from './Youtube'
 export * from './Twitter'

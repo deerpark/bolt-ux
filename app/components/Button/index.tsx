@@ -8,6 +8,7 @@ type ButtonProps = {
   size?: 'small' | 'default' | 'large',
   type?: 'submit' | 'button',
   onClick?: () => void,
+  block?: boolean,
 }
 
 type ButtonGroupProps = {
@@ -43,11 +44,22 @@ const sizes = {
   },
 }
 
-export function Button({ type = 'button', size = 'default', href, onClick, icon, children }: ButtonProps) {
+export function Button({
+  type = 'button',
+  size = 'default',
+  href,
+  onClick,
+  icon,
+  block = false,
+  children,
+}: ButtonProps) {
   return href ? (
     <Link key={href} to={href}>
-      <button type={type} className={`bx-button ${sizes.height[size]} ${sizes.minWidth[size]}}`}>
-        <span className={`bx-button-label ${sizes.fontSize[size]} ${sizes.gap[size]}`}>
+      <button
+        type={type}
+        className={`bx-button ${sizes.height[size]} ${sizes.minWidth[size]}} ${block ? 'w-full' : ''}`}
+      >
+        <span className={`bx-button-label ${sizes.fontSize[size]} ${sizes.gap[size]} ${block ? 'w-full' : ''}`}>
           {icon && <span className={`bx-button-icon ${sizes.iconSize[size]}`}>{icon}</span>}
           {children && <span className='bx-button-text'>{children}</span>}
         </span>
@@ -55,16 +67,20 @@ export function Button({ type = 'button', size = 'default', href, onClick, icon,
       </button>
     </Link>
   ) : onClick ? (
-    <button type={type} className={`bx-button ${sizes.height[size]} ${sizes.minWidth[size]}}`} onClick={onClick}>
-      <span className={`bx-button-label ${sizes.fontSize[size]} ${sizes.gap[size]}`}>
+    <button
+      type={type}
+      className={`bx-button ${sizes.height[size]} ${sizes.minWidth[size]}} ${block ? 'w-full' : ''}`}
+      onClick={onClick}
+    >
+      <span className={`bx-button-label ${sizes.fontSize[size]} ${sizes.gap[size]} ${block ? 'w-full' : ''}`}>
         {icon && <span className={`bx-button-icon ${sizes.iconSize[size]}`}>{icon}</span>}
         {children && <span className='bx-button-text'>{children}</span>}
       </span>
       <span className='bx-button-background'></span>
     </button>
   ) : (
-    <button type={type} className={`bx-button ${sizes.height[size]} ${sizes.minWidth[size]}}`}>
-      <span className={`bx-button-label ${sizes.fontSize[size]} ${sizes.gap[size]}`}>
+    <button type={type} className={`bx-button ${sizes.height[size]} ${sizes.minWidth[size]}} ${block ? 'w-full' : ''}`}>
+      <span className={`bx-button-label ${sizes.fontSize[size]} ${sizes.gap[size]} ${block ? 'w-full' : ''}`}>
         {icon && <span className={`bx-button-icon ${sizes.iconSize[size]}`}>{icon}</span>}
         {children && <span className='bx-button-text'>{children}</span>}
       </span>

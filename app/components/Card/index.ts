@@ -1,1 +1,1 @@
-export * from '~/components/Card/ShadowCard'
+export * from '~/components/Card/Section'
