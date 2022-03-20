@@ -130,6 +130,7 @@ export function RootLayout({ isRoot, children, pathname }: RootLayoutProps) {
     <div className='bx-container'>
       <div className={`bx-page ${isRoot ? '' : 'hidden md:flex'}`}>
         <Hero
+          isRoot={isRoot}
           heroString={heroString}
           desc='더 나은 사용자 경험을 생각하며 꼼꼼하게 만들어 드려요.'
           links={[

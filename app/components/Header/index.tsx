@@ -1,7 +1,6 @@
 import { Link } from 'remix'
 import { Route } from '~/lib/config'
 import * as Icons from '~/components/Icon'
-import { Button } from '~/components/Button'
 
 export function Header({
   title,
@@ -15,9 +14,15 @@ export function Header({
     <div className='bx-header'>
       <div className='bx-mobile-nav'>
         <div className='bx-mobile-home'>
-          <Link to='/'>
-            <Icons.HomeLight />
-          </Link>
+          {prevRoute && prevRoute !== '/' ? (
+            <Link to={prevRoute}>
+              <Icons.ArrowLeftLight />
+            </Link>
+          ) : (
+            <Link to='/'>
+              <Icons.HomeLight />
+            </Link>
+          )}
         </div>
         <div className='bx-mobile-logo'>
           <Link to='/'>
@@ -32,11 +37,6 @@ export function Header({
       </div>
       <div className='bx-header-section'>
         {cover && <div className='bx-cover'>{cover}</div>}
-        {prevRoute && prevRoute !== '/' && (
-          <div className='bx-header-history-back'>
-            <Button href={prevRoute} icon={<Icons.ArrowLeftLight />}></Button>
-          </div>
-        )}
         <div className='bx-header-content'>
           <div className='bx-header-meta'>
             <div className='bx-header-title'>

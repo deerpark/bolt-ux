@@ -59,19 +59,6 @@ export const post = `
         }
       }
     }
-    promotion: promotion(orderBy: expiredat_ASC, locale: ko_KR) {
-      title(locale: ko_KR)
-      url
-      color {
-        red
-        green
-        blue
-      }
-      textcolor {
-        hex
-      }
-      label(locale: ko_KR)
-    }
   }
   ${responsiveImageFragment}
   ${metaTagsFragment}

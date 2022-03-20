@@ -13,7 +13,7 @@ export function links() {
   return [
     {
       rel: 'stylesheet',
-      href: 'https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css',
+      href: 'https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css',
     },
     { rel: 'stylesheet', href: appStyles },
   ]

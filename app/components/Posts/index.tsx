@@ -31,9 +31,9 @@ export function Posts({ firstPost, otherPosts, category }: PostsProps) {
         </section>
       </div>
       <div className='bx-section'>
-        <ul className='bx-other-posts'>
+        <ul>
           {otherPosts.map((post: any) => (
-            <li key={post.slug} className='bx-post'>
+            <li className='bx-post bx-other-post' key={post.slug}>
               <Link className='bx-post-link' to={`/${category || 'posts'}/${post.slug}`}>
                 <div className='bx-post-thumb'>
                   <Image className='bx-thumbnail' data={post.coverImage.responsiveImage} />

@@ -12,7 +12,7 @@ export function Post({ post /* , morePosts  */ }: PostProps) {
     <>
       <div className='bx-article'>
         <div className='bx-article-body'>
-          <div className='prose prose-slate dark:prose-invert'>
+          <div className='prose-sm prose-slate dark:prose-invert'>
             <StructuredText
               data={post.content}
               renderBlock={({ record }: any) => {

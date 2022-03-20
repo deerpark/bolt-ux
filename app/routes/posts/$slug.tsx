@@ -1,4 +1,4 @@
-import { /* Link, */ useLoaderData } from 'remix'
+import { useLoaderData } from 'remix'
 import { useLocation } from 'react-router-dom'
 import invariant from 'tiny-invariant'
 import { Image, toRemixMeta, useQuerySubscription } from 'react-datocms'
@@ -39,7 +39,7 @@ export default function PostSlug() {
   const prevRoute = usePrevRoute(pathname)
 
   const {
-    data: { post, /* morePosts, */ promotion },
+    data: { post },
   } = useQuerySubscription(datoQuerySubscription)
 
   return (
@@ -48,7 +48,6 @@ export default function PostSlug() {
         title: post?.title || title,
         Icon: <Avatar name={post.author.name} picture={post.author.picture} />,
         desc: post?.excerpt || desc,
-        promotion,
         prevRoute,
         cover: <Image data={post.coverImage.responsiveImage} />,
         date: <Date dateString={post.date} />,
