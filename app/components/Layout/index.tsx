@@ -97,6 +97,7 @@ export function SiteMeta() {
         }}
       ></script>
       {/* <!-- End Channel Plugin --> */}
+      <script async src='https://developers.kakao.com/sdk/js/kakao.min.js'></script>
     </>
   )
 }

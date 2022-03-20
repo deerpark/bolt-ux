@@ -1,4 +1,5 @@
 import { Link } from 'remix'
+import { handleClickChatChannel } from '~/lib/kakao'
 import * as Icon from '~/components/Icon'
 
 export function Footer() {
@@ -10,7 +11,7 @@ export function Footer() {
         </Link>
       </div>
       <div className='bx-footer-contact'>
-        <a href='tel:15889999'>1588-9999</a>
+        <button onClick={handleClickChatChannel}>카카오톡 채팅 문의</button>
         <div className='bx-footer-contact-desc'>
           평일 10:00 - 18:00
           <br />

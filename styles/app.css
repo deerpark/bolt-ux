@@ -311,8 +311,8 @@
   .bx-footer-contact {
     @apply text-2xs;
   }
-  .bx-footer-contact a {
-    @apply text-base font-black transition-all transform hover:text-slate-500 hover:dark:text-slate-400;
+  .bx-footer-contact button {
+    @apply text-base border-0 bg-transparent font-black transition-all transform hover:text-slate-500 hover:dark:text-slate-400 cursor-pointer;
   }
   .bx-footer-contact-desc {
     @apply block;
