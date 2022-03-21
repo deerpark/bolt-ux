@@ -1166,7 +1166,6 @@ code {
        column-gap: 0.5rem;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  padding-top: 1.25rem;
   font-weight: 900;
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity));
@@ -1177,10 +1176,6 @@ code {
   .bx-contents-h2 {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
-  }
-
-  .bx-contents-h2 {
-    padding-top: 2rem;
   }
 }
 
@@ -1203,7 +1198,13 @@ code {
 /* Cover Image */
 
 .bx-cover {
-  margin-bottom: auto;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .bx-cover {
+    margin-bottom: 2rem;
+  }
 }
 
 .bx-cover img {
@@ -2342,17 +2343,12 @@ code {
 .bx-article {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
-  padding-top: 1.25rem;
 }
 
 @media (min-width: 768px) {
   .bx-article {
     margin-left: 2rem;
     margin-right: 2rem;
-  }
-
-  .bx-article {
-    padding-top: 2rem;
   }
 }
 
@@ -2946,6 +2942,11 @@ code {
   }
 }
 
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
 .mb-5 {
   margin-bottom: 1.25rem;
 }
@@ -3121,6 +3122,10 @@ code {
   padding-top: 0.5rem;
 }
 
+.pt-5 {
+  padding-top: 1.25rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -3229,6 +3234,11 @@ code {
 }
 
 @media (min-width: 768px) {
+  .md\:mx-8 {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
   .md\:flex {
     display: flex;
   }
@@ -3266,6 +3276,14 @@ code {
 
   .md\:pb-4 {
     padding-bottom: 1rem;
+  }
+
+  .md\:pb-5 {
+    padding-bottom: 1.25rem;
+  }
+
+  .md\:pt-8 {
+    padding-top: 2rem;
   }
 
   .md\:text-7xl {

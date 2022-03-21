@@ -42,7 +42,7 @@ export const post = `
         }
       }
     }
-    morePosts: allPosts(orderBy: date_DESC, first: 2, filter: {slug: {neq: $slug}}) {
+    morePosts: allPosts(orderBy: date_DESC, first: 4, filter: {slug: {neq: $slug}}) {
       title
       slug
       excerpt

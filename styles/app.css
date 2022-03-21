@@ -127,14 +127,14 @@
     @apply px-0;
   }
   .bx-contents-h2 {
-    @apply flex items-center gap-x-2 pt-5 md:pt-8 px-0.5 md:px-1 text-2xs font-black text-blue-500;
+    @apply flex items-center gap-x-2 px-0.5 md:px-1 text-2xs font-black text-blue-500;
   }
   .bx-contents-h2 svg {
     @apply w-3 h-3 md:w-5 md:h-5 fill-blue-500;
   }
   /* Cover Image */
   .bx-cover {
-    @apply mb-auto;
+    @apply mb-5 md:mb-8;
   }
   .bx-cover img {
     @apply rounded-lg;
@@ -445,7 +445,7 @@
   }
   /* Article */
   .bx-article {
-    @apply mx-5 md:mx-8 pt-5 md:pt-8;
+    @apply mx-5 md:mx-8;
   }
   .bx-article-image {
     @apply rounded-lg my-8;

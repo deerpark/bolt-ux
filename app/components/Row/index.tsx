@@ -11,7 +11,7 @@ type RowProps = {
 export function Row({ icon, title, list, className }: RowProps) {
   return (
     <div className={`bx-contents-row bx-contents-row-extend ${className}`}>
-      <div className='bx-contents-row pb-1 md:pb-4'>
+      <div className='bx-contents-row pb-1 md:pb-5 pt-5 md:pt-8'>
         <h2 className='bx-contents-h2'>
           <span>{(icon && icon) || <Icon.BulletSolid />}</span>
           <span>{title}</span>

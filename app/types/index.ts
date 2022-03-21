@@ -28,10 +28,14 @@ export type Post = {
     responsiveImage: CoverImage,
   },
   author: Author,
+  category?: {
+    id?: string,
+    name: string,
+  },
 }
 
 export type PostsProps = {
-  firstPost: Post,
-  otherPosts: Post[],
+  firstPost?: Post,
+  otherPosts?: Post[],
   category?: string,
 }
