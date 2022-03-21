@@ -9,11 +9,11 @@ import cowboyHatFace from '~/lotties/cowboy-hat-face.json'
 
 export default function Contact() {
   const { pathname } = useLocation()
-  const { title, Icon, desc }: Route = useNav(pathname)
+  const { title, Icon, desc, sidebar }: Route = useNav(pathname)
   const prevRoute = usePrevRoute(pathname)
   return (
     <>
-      <Layout {...{ title, Icon, desc, prevRoute }}>
+      <Layout {...{ title, Icon, desc, sidebar, prevRoute }}>
         <div className='bx-page-row pb-20'>
           <div className='w-40 pt-20'>
             <Lottie loop autoplay animationData={cowboyHatFace} />

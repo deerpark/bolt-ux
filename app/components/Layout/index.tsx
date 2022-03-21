@@ -14,12 +14,14 @@ type LayoutProps = Route & {
   cover?: JSX.Element,
   date?: JSX.Element,
   categoryId?: string,
+  isWide?: boolean,
 }
 
 type RootLayoutProps = {
   children: ReactElement | ReactElement[],
   pathname?: string,
   isRoot: boolean,
+  sidebar: boolean,
   categoryId?: string,
 }
 
@@ -102,9 +104,20 @@ export function SiteMeta() {
   )
 }
 
-export function Layout({ children, title, Icon, desc, promotion, prevRoute, cover, date }: LayoutProps) {
+export function Layout({
+  children,
+  title,
+  Icon,
+  desc,
+  promotion,
+  prevRoute,
+  cover,
+  date,
+  isWide,
+  sidebar,
+}: LayoutProps) {
   return (
-    <div className='bx-page'>
+    <div className={`bx-page ${isWide ? 'bx-page-wide' : ''}`}>
       {/* <div className='preview'>
           {previewEnabled ? (
             <Form method='post' action='/posts/preview/stop'>
@@ -116,7 +129,7 @@ export function Layout({ children, title, Icon, desc, promotion, prevRoute, cove
             </Form>
           )}
         </div> */}
-      <Header {...{ title, Icon, desc, prevRoute, cover, date }} />
+      <Header {...{ title, Icon, desc, prevRoute, cover, date, isWide, sidebar }} />
       {promotion && <Banner {...promotion} />}
       <div className='bx-contents'>{children}</div>
       <section className='section flex md:hidden'>
@@ -126,27 +139,29 @@ export function Layout({ children, title, Icon, desc, promotion, prevRoute, cove
   )
 }
 
-export function RootLayout({ isRoot, children, pathname }: RootLayoutProps) {
+export function RootLayout({ isRoot, children, pathname, sidebar }: RootLayoutProps) {
   return (
     <div className='bx-container'>
-      <div className={`bx-page ${isRoot ? '' : 'hidden md:flex'}`}>
-        <Hero
-          isRoot={isRoot}
-          heroString={heroString}
-          desc='더 나은 사용자 경험을 생각하며 꼼꼼하게 만들어 드려요.'
-          links={[
-            { url: '/contact', label: '무료 상담' },
-            {
-              url: '/plan',
-              label: '요금표 확인',
-            },
-          ]}
-        />
-        <Nav {...{ nav, pathname }} />
-        <div className={`${isRoot ? 'px-3 md:px-0' : ''}`}>
-          <Footer />
+      {sidebar && (
+        <div className={`bx-page bx-page-root ${isRoot ? '' : 'hidden md:flex'}`}>
+          <Hero
+            isRoot={isRoot}
+            heroString={heroString}
+            desc='더 나은 사용자 경험을 생각하며 꼼꼼하게 만들어 드려요.'
+            links={[
+              { url: '/contact', label: '무료 상담' },
+              {
+                url: '/plan',
+                label: '요금표 확인',
+              },
+            ]}
+          />
+          <Nav {...{ nav, pathname }} />
+          <div className={`${isRoot ? 'px-3 md:px-0' : ''}`}>
+            <Footer />
+          </div>
         </div>
-      </div>
+      )}
       {children}
     </div>
   )

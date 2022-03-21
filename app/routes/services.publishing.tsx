@@ -19,7 +19,7 @@ export const loader = async ({ request }: any) => {
 export default function Publishing() {
   const { pathname } = useLocation()
   const { datoQuerySubscription } = useLoaderData()
-  const { title, Icon, desc }: Route = useNav(pathname)
+  const { title, Icon, desc, sidebar }: Route = useNav(pathname)
   const prevRoute = usePrevRoute(pathname)
 
   const {
@@ -64,7 +64,7 @@ export default function Publishing() {
   ]
 
   return (
-    <Layout {...{ title, Icon, desc, prevRoute }}>
+    <Layout {...{ title, Icon, desc, sidebar, prevRoute }}>
       <Banner {...promotion} />
       <Recommend list={recommendList} />
       <Tech className='bx-contents-row-bg' list={techList} />

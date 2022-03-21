@@ -35,7 +35,7 @@ export const meta = ({
 export default function PostSlug() {
   const { pathname } = useLocation()
   const { datoQuerySubscription } = useLoaderData()
-  const { title, desc }: Route = useNav(pathname)
+  const { title, desc, sidebar }: Route = useNav(pathname)
   const prevRoute = usePrevRoute(pathname)
 
   const {
@@ -52,6 +52,7 @@ export default function PostSlug() {
         cover: <Image data={post.coverImage.responsiveImage} />,
         date: <Date dateString={post.date} />,
         categoryId: post?.category?.id,
+        sidebar,
       }}
     >
       <Post {...{ post }} />

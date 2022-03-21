@@ -2,16 +2,32 @@ import { Link } from 'remix'
 import { Route } from '~/lib/config'
 import * as Icons from '~/components/Icon'
 
-export function Header({
-  title,
-  Icon,
-  desc,
-  prevRoute,
-  cover,
-  date,
-}: Route & { prevRoute: string | undefined, cover?: JSX.Element, date?: JSX.Element }) {
+type HeaderProps = Route & {
+  prevRoute: string | undefined,
+  cover?: JSX.Element,
+  date?: JSX.Element,
+  sidebar?: boolean,
+  isWide?: boolean,
+}
+
+export function Header({ title, Icon, desc, prevRoute, cover, date, sidebar, isWide }: HeaderProps) {
   return (
     <div className='bx-header'>
+      {(isWide || !sidebar) && (
+        <div className='bx-pc-nav'>
+          <div className='bx-mobile-home'>
+            {prevRoute && prevRoute !== '/' ? (
+              <Link to={prevRoute}>
+                <Icons.ArrowLeftLight />
+              </Link>
+            ) : (
+              <Link to='/'>
+                <Icons.HomeLight />
+              </Link>
+            )}
+          </div>
+        </div>
+      )}
       <div className='bx-mobile-nav'>
         <div className='bx-mobile-home'>
           {prevRoute && prevRoute !== '/' ? (

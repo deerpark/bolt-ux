@@ -3,9 +3,9 @@ import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderD
 import { renderMetaTags, toRemixMeta, useQuerySubscription } from 'react-datocms'
 import { datoQuerySubscription } from '~/lib/datocms'
 import { root as query } from '~/queries'
-import { usePrevRoute } from '~/lib/config'
+import { usePrevRoute, useNav, Route } from '~/lib/config'
 import { RootLayout, Layout, SiteMeta } from '~/components/Layout'
-import * as Icon from '~/components/Icon'
+import * as Icons from '~/components/Icon'
 
 import appStyles from './styles/app.css'
 
@@ -40,6 +40,7 @@ export function CatchBoundary() {
   const { pathname } = useLocation()
   const { status, statusText } = useCatch()
   const prevRoute = usePrevRoute(pathname)
+  const { sidebar = true }: Route = useNav(pathname)
   const isRoot = pathname === '/'
 
   return (
@@ -49,8 +50,10 @@ export function CatchBoundary() {
         <Links />
       </head>
       <body>
-        <RootLayout {...{ isRoot, pathname }}>
-          <Layout {...{ title: status.toString(), Icon: Icon.NotFound, desc: statusText, prevRoute, pathname }}>
+        <RootLayout {...{ isRoot, pathname, sidebar }}>
+          <Layout
+            {...{ title: status.toString(), Icon: Icons.NotFound, desc: statusText, prevRoute, pathname, sidebar }}
+          >
             <div className='bx-error'>
               <h1>페이지를 찾을 수 없습니다.</h1>
               <p>이전으로 돌아 가시거나 다시 시도해 주세요.</p>
@@ -68,6 +71,7 @@ export function CatchBoundary() {
 export default function App() {
   const { pathname } = useLocation()
   const { datoQuerySubscription } = useLoaderData()
+  const { sidebar }: Route = useNav(pathname)
   const isRoot = pathname === '/'
 
   const {
@@ -83,7 +87,7 @@ export default function App() {
         {renderMetaTags([...site.favicon])}
       </head>
       <body>
-        <RootLayout {...{ isRoot, pathname }}>
+        <RootLayout {...{ isRoot, pathname, sidebar }}>
           <Outlet />
         </RootLayout>
         <ScrollRestoration />

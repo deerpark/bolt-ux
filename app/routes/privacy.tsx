@@ -4,10 +4,10 @@ import { Layout } from '~/components/Layout'
 
 export default function Privacy() {
   const { pathname } = useLocation()
-  const { title, Icon, desc }: Route = useNav(pathname)
+  const { title, Icon, desc, sidebar }: Route = useNav(pathname)
   const prevRoute = usePrevRoute(pathname)
   return (
-    <Layout {...{ title, Icon, desc, prevRoute }}>
+    <Layout {...{ title, Icon, desc, sidebar, prevRoute, isWide: true }}>
       <div className='bx-privacy prose-sm prose-slate dark:prose-invert'>
         <p className='ls2 lh6 bs5 ts4'>
           <em className='emphasis'>&lt;BOLT-UX&gt;('https://www.bolt-ux.com'이하 'BOLT-UX')</em>은(는) 「개인정보

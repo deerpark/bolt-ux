@@ -4,10 +4,10 @@ import { Layout } from '~/components/Layout'
 
 export default function Settings() {
   const { pathname } = useLocation()
-  const { title, Icon, desc }: Route = useNav(pathname)
+  const { title, Icon, desc, sidebar }: Route = useNav(pathname)
   const prevRoute = usePrevRoute(pathname)
   return (
-    <Layout {...{ title, Icon, desc, prevRoute }}>
+    <Layout {...{ title, Icon, desc, sidebar, prevRoute }}>
       <div className='bx-page-row'></div>
     </Layout>
   )

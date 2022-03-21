@@ -16,7 +16,7 @@ export const loader = ({ request }: any) => {
 
 export default function Plan() {
   const { pathname } = useLocation()
-  const { title, Icon, desc }: Route = useNav(pathname)
+  const { title, Icon, desc, sidebar }: Route = useNav(pathname)
   const prevRoute = usePrevRoute(pathname)
   const { datoQuerySubscription } = useLoaderData()
 
@@ -124,7 +124,7 @@ export default function Plan() {
   ]
 
   return (
-    <Layout {...{ title, Icon, desc, prevRoute }}>
+    <Layout {...{ title, Icon, desc, sidebar, prevRoute }}>
       <div className='bx-sections'>
         {list.map(listItem => (
           <Section key={listItem.title} item={listItem} />

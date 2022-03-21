@@ -20,7 +20,7 @@ export const loader = async ({ request }: any) => {
 export default function Index() {
   const { pathname } = useLocation()
   const { datoQuerySubscription } = useLoaderData()
-  const { title, Icon, desc }: Route = useNav(pathname)
+  const { title, Icon, desc, sidebar }: Route = useNav(pathname)
   const prevRoute = usePrevRoute(pathname)
 
   const {
@@ -30,7 +30,7 @@ export default function Index() {
   } = useQuerySubscription(datoQuerySubscription)
 
   return (
-    <Layout {...{ title, Icon, desc, prevRoute }}>
+    <Layout {...{ title, Icon, desc, sidebar, prevRoute }}>
       <div className='bx-sections'>
         <Posts {...{ firstPost, otherPosts }} />
       </div>
