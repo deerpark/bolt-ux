@@ -2201,6 +2201,11 @@ code {
   transition-timing-function: cubic-bezier(0,1.25,0,1);
 }
 
+.bx-thumbnail img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 /* Post */
 
 .bx-post-link {

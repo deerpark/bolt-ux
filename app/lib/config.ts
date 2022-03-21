@@ -48,7 +48,7 @@ export const nav: Routes[] = [
         title: '새소식',
         sidebar: true,
         id: '116679079',
-        display: true,
+        display: false,
         desc: '새로운 소식',
         Icon: Icon.news,
       },

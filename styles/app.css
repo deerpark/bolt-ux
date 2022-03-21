@@ -396,6 +396,9 @@
   .bx-thumbnail {
     @apply transform transition-all duration-[20000ms] ease-expo-out;
   }
+  .bx-thumbnail img {
+    @apply object-cover;
+  }
   /* Post */
   .bx-post-link {
     @apply aspect-video p-5 md:p-8 flex flex-col gap-y-4;

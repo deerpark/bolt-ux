@@ -31,7 +31,7 @@ export default function Index() {
 
   return (
     <Layout {...{ title, Icon, desc, sidebar, prevRoute }}>
-      <Posts {...{ firstPost, otherPosts, category: 'news' }} />
+      {firstPost && <Posts {...{ firstPost, otherPosts, category: 'news' }} />}
     </Layout>
   )
 }
