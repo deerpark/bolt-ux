@@ -401,7 +401,7 @@
     @apply aspect-video p-5 md:p-8 flex flex-col gap-y-4;
   }
   .bx-section:first-of-type .bx-post-link {
-    @apply pt-0;
+    @apply -mt-5 md:-mt-8;
   }
   .bx-post-thumb {
     @apply overflow-hidden rounded-lg;
