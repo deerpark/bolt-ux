@@ -10,30 +10,33 @@ export function Posts({ firstPost, otherPosts, category }: PostsProps) {
   return (
     <>
       {firstPost && (
-        <div className='bx-section'>
-          <section className='bx-post'>
-            <Link
-              className='bx-post-link'
-              to={`/${category || firstPost.category?.name?.toLowerCase() || 'posts'}/${firstPost.slug}`}
-            >
-              <div className='bx-post-thumb'>
-                <Image className='bx-thumbnail' data={firstPost.coverImage.responsiveImage} />
-              </div>
-              <div className='bx-post-info'>
-                <div className='bx-post-meta'>
-                  <h5 className='bx-post-title'>{firstPost.title}</h5>
-                  <div className='bx-post-desc'>{firstPost.excerpt}</div>
-                  <div className='bx-post-desc'>
-                    <Date dateString={firstPost.date} />
+        <>
+          <div className='bx-section'>
+            <section className='bx-post'>
+              <Link
+                className='bx-post-link'
+                to={`/${category || firstPost.category?.name?.toLowerCase() || 'posts'}/${firstPost.slug}`}
+              >
+                <div className='bx-post-thumb'>
+                  <Image className='bx-thumbnail' data={firstPost.coverImage.responsiveImage} />
+                </div>
+                <div className='bx-post-info'>
+                  <div className='bx-post-meta'>
+                    <h5 className='bx-post-title'>{firstPost.title}</h5>
+                    <div className='bx-post-desc'>{firstPost.excerpt}</div>
+                    <div className='bx-post-desc bx-post-date'>
+                      <Date dateString={firstPost.date} />
+                    </div>
+                  </div>
+                  <div className='bx-post-avatar'>
+                    <Avatar name={firstPost.author.name} picture={firstPost.author.picture} />
                   </div>
                 </div>
-                <div className='bx-post-avatar'>
-                  <Avatar name={firstPost.author.name} picture={firstPost.author.picture} />
-                </div>
-              </div>
-            </Link>
-          </section>
-        </div>
+              </Link>
+            </section>
+          </div>
+          <hr className='bx-hr' />
+        </>
       )}
       {otherPosts && (
         <div className='bx-section'>
@@ -51,7 +54,7 @@ export function Posts({ firstPost, otherPosts, category }: PostsProps) {
                     <div className='bx-post-meta'>
                       <h5 className='bx-post-title'>{post.title}</h5>
                       <div className='bx-post-desc'>{post.excerpt}</div>
-                      <div className='bx-post-desc'>
+                      <div className='bx-post-desc bx-post-date'>
                         <Date dateString={post.date} />
                       </div>
                     </div>
