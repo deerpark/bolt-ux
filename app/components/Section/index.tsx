@@ -1,5 +1,5 @@
 import { Image } from 'react-datocms'
-import { Button } from '~/components/Button'
+import { Button } from '@deerpark/bolt-ui'
 import * as Icon from '~/components/Icon'
 
 export type SectionItem = {

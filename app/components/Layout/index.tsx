@@ -1,8 +1,8 @@
 import { ReactElement } from 'react'
-import { Route, heroString, nav } from '~/lib/config'
+import { Route, heroString, routes } from '~/lib/config'
+import { Nav } from '@deerpark/bolt-ui'
 import { Header } from '~/components/Header'
 import { Hero } from '~/components/Hero'
-import { Nav } from '~/components/Nav'
 import { Footer } from '~/components/Footer'
 import { Banner, Promotion } from '~/components/Banner'
 
@@ -156,7 +156,7 @@ export function RootLayout({ isRoot, children, pathname, sidebar }: RootLayoutPr
               },
             ]}
           />
-          <Nav {...{ nav, pathname }} />
+          <Nav {...{ routes, pathname }} />
           <div className={`${isRoot ? 'px-3 md:px-0' : ''}`}>
             <Footer />
           </div>

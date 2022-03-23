@@ -1,5 +1,5 @@
+import { Button } from '@deerpark/bolt-ui'
 import * as Icon from '~/components/Icon'
-import { Button } from '~/components/Button'
 
 export type Promotion = {
   title: string,

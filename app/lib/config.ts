@@ -16,7 +16,7 @@ export type Routes = {
   children: Route[],
 }
 
-export const nav: Routes[] = [
+export const routes: Routes[] = [
   {
     title: '홈',
     display: false,
@@ -149,8 +149,8 @@ export const nav: Routes[] = [
 const exceptRoute = ['posts', 'services', 'events']
 
 export function useNav(pathname?: string): Route {
-  const matchedRoute = nav.reduce<Route[]>((acc, cur) => acc.concat(cur.children), []).find(route => route.pathname === pathname)
-  return matchedRoute || nav[0].children[0]
+  const matchedRoute = routes.reduce<Route[]>((acc, cur) => acc.concat(cur.children), []).find(route => route.pathname === pathname)
+  return matchedRoute || routes[0].children[0]
 }
 
 export function usePrevRoute(pathname : string): string {
