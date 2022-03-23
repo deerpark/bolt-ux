@@ -3,7 +3,7 @@ import Lottie from 'lottie-react'
 import { useNav, usePrevRoute, Route } from '~/lib/config'
 import { handleClickChatChannel, handleClickAddChannel } from '~/lib/kakao'
 import { Layout } from '~/components/Layout'
-import { Button, ButtonGroup } from '@deerpark/bolt-ui'
+import { Button, ButtonGroup } from 'bolt-ui'
 import * as Icons from '~/components/Icon'
 import cowboyHatFace from '~/lotties/cowboy-hat-face.json'
 

@@ -1,5 +1,5 @@
 import { Link } from 'remix'
-import { Button, ButtonGroup } from '@deerpark/bolt-ui'
+import { Button, ButtonGroup } from 'bolt-ui'
 import { HeroString } from '~/lib/config'
 import * as Icon from '~/components/Icon'
 

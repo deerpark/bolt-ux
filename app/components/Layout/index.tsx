@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 import { Route, heroString, routes } from '~/lib/config'
-import { Nav } from '@deerpark/bolt-ui'
+import { Nav } from 'bolt-ui'
 import { Header } from '~/components/Header'
 import { Hero } from '~/components/Hero'
 import { Footer } from '~/components/Footer'
