@@ -139,10 +139,10 @@
     @apply flex grow flex-col gap-y-0.5;
   }
   .bx-header-title {
-    @apply grow flex items-center gap-x-3 text-xl pl-1 md:pl-0 font-black text-slate-700 dark:text-white leading-[1.1];
+    @apply grow flex items-center gap-x-3 text-xl font-black text-slate-700 dark:text-white leading-[1.1];
   }
   .bx-header-desc {
-    @apply pl-1.5 md:pl-0 text-2xs text-slate-400 dark:text-slate-500;
+    @apply text-2xs text-slate-400 dark:text-slate-500;
   }
   .bx-header-date {
     @apply mt-1 text-[9px] opacity-75;
@@ -374,7 +374,12 @@
   }
   /* Tabs */
   .bx-tabs {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     @apply -mx-5 md:-mx-8 mb-5 md:mb-8 px-1 md:px-4 flex flex-nowrap items-stretch border-b border-slate-100 overflow-y-hidden overflow-x-auto md:overflow-x-hidden scroll-smooth snap-start snap-always snap-mandatory snap-x;
+  }
+  .bx-tabs::-webkit-scrollbar {
+    display: none;
   }
   .bx-tabs a {
     @apply relative h-10 px-4 flex items-center text-slate-600 dark:text-slate-400 font-semibold text-sm whitespace-nowrap;
