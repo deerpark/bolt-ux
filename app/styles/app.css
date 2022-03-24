@@ -2156,6 +2156,12 @@ code {
   padding-right: 0.25rem;
 }
 
+@media (prefers-color-scheme: dark) {
+  .bx-tabs {
+    --tw-border-opacity: 0.1;
+  }
+}
+
 @media (min-width: 768px) {
   .bx-tabs {
     margin-left: -2rem;
@@ -2207,11 +2213,10 @@ code {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  bottom: 1rem;
   left: 1rem;
   top: auto;
-  bottom: -1px;
-  height: 3px;
+  bottom: -0.125rem;
+  height: 0.25rem;
   border-radius: 0.25rem;
   --tw-bg-opacity: 1;
   background-color: rgb(71 85 105 / var(--tw-bg-opacity));
@@ -2819,7 +2824,7 @@ code {
 }
 
 .prose-sm h1:first-child {
-  margin-top: 1.75rem;
+  margin-top: 2.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -2839,7 +2844,7 @@ code {
   }
 
   .prose-sm h1:first-child {
-    margin-top: 3rem;
+    margin-top: 4rem;
   }
 }
 
@@ -2854,7 +2859,7 @@ code {
 }
 
 .prose-sm h2:first-child, .prose-sm h3:first-child, .prose-sm h4:first-child, .prose-sm h5:first-child, .prose-sm h6:first-child {
-  margin-top: 1.25rem;
+  margin-top: 1.75rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -2874,7 +2879,7 @@ code {
   }
 
   .prose-sm h2:first-child, .prose-sm h3:first-child, .prose-sm h4:first-child, .prose-sm h5:first-child, .prose-sm h6:first-child {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
   }
 }
 
