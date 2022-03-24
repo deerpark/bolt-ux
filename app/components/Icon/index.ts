@@ -3,6 +3,7 @@ export * from './BulletSolid'
 export * from './SettingsLight'
 export * from './HomeLight'
 export * from './ArrowLeftLight'
+export * from './TagLight'
 
 export * from './Logo'
 
@@ -21,8 +22,10 @@ export * from './Price'
 export * from './Settings'
 export * from './NotFound'
 export * from './Date'
+export * from './Tags'
 
 export * from './Youtube'
 export * from './Twitter'
 export * from './Instagram'
 export * from './Kakao'
+export * from './TagSolid'

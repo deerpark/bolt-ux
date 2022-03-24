@@ -61,7 +61,7 @@ export function Header({ title, Icon, desc, prevRoute, cover, date, sidebar, isW
             <div className='bx-header-desc'>{desc}</div>
             {date && <div className='bx-header-desc bx-header-date'>{date}</div>}
           </div>
-          <div className='bx-header-icon'>{Icon && typeof Icon === 'function' ? <Icon /> : Icon}</div>
+          {Icon && <div className='bx-header-icon'>{typeof Icon === 'function' ? <Icon /> : Icon}</div>}
         </div>
       </div>
     </div>

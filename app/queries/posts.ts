@@ -23,8 +23,29 @@ export const post = `
           }
         }
       }
+      tags
+      tabhometext
+      tabs {
+        tabid
+        tabname
+        tabcontents {
+          value
+          blocks {
+            __typename
+            ...on ImageBlockRecord {
+              id
+              image {
+                responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
+                  ...responsiveImageFragment
+                }
+              }
+            }
+          }
+        }
+      }
       category {
         id
+        name
       }
       date
       ogImage: coverImage{
@@ -65,8 +86,8 @@ export const post = `
 `
 
 export const posts = `
-  {
-    posts: allPosts(orderBy: date_DESC, first: 20) {
+  query PostBySlug($tag: String!) {
+    posts: allPosts(orderBy: date_DESC, first: 20, filter: {tags: {matches: {pattern: $tag}}}) {
       title
       slug
       excerpt
@@ -81,6 +102,11 @@ export const posts = `
         picture {
           url(imgixParams: {fm: jpg, fit: crop, w: 100, h: 100, sat: -100})
         }
+      }
+      tags
+      category {
+        id
+        name
       }
     }
     promotion: promotion(orderBy: expiredat_ASC, locale: ko_KR) {

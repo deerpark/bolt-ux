@@ -1,4 +1,4 @@
-import { useLoaderData } from 'remix'
+import { useLoaderData, Outlet } from 'remix'
 import { useLocation } from 'react-router-dom'
 import invariant from 'tiny-invariant'
 import { Image, toRemixMeta, useQuerySubscription } from 'react-datocms'
@@ -9,6 +9,7 @@ import { Avatar } from '~/components/Avatar'
 import { Date } from '~/components/Date'
 import { Layout } from '~/components/Layout'
 import { Post } from '~/components/Posts'
+import { TabContextType } from '~/types'
 
 export const loader = async ({ request, params }: any) => {
   invariant(params.slug, 'expected params.slug')
@@ -42,6 +43,12 @@ export default function PostSlug() {
     data: { post },
   } = useQuerySubscription(datoQuerySubscription)
 
+  const paths = pathname ? pathname.split('/') : [null]
+  const tabId = paths[paths.length - 1]
+  const context: TabContextType = { post, tabId }
+  const outlet = <Outlet context={context} />
+  console.log(pathname.split('/'))
+
   return (
     <Layout
       {...{
@@ -55,7 +62,7 @@ export default function PostSlug() {
         sidebar,
       }}
     >
-      <Post {...{ post }} />
+      <Post {...{ post, outlet, tabId }} />
     </Layout>
   )
 }

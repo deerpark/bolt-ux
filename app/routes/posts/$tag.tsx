@@ -6,11 +6,15 @@ import { posts as query } from '~/queries'
 import { useNav, usePrevRoute, Route } from '~/lib/config'
 import { Layout } from '~/components/Layout'
 import { Posts } from '~/components/Posts'
+import * as Icon from '~/components/Icon'
 
-export const loader = async ({ request }: any) => {
+export const loader = async ({ request, params }: any) => {
   const querySubscription = await datoQuerySubscription({
     request,
     query,
+    variables: {
+      tag: params.tag,
+    },
   })
   return {
     ...querySubscription,
@@ -20,8 +24,9 @@ export const loader = async ({ request }: any) => {
 export default function Index() {
   const { pathname } = useLocation()
   const { datoQuerySubscription } = useLoaderData()
-  const { title, Icon, desc, sidebar }: Route = useNav(pathname)
+  const { sidebar }: Route = useNav(pathname)
   const prevRoute = usePrevRoute(pathname)
+  const tag = decodeURI(pathname.split('/posts/')[1])
 
   const {
     data: {
@@ -30,7 +35,7 @@ export default function Index() {
   } = useQuerySubscription(datoQuerySubscription)
 
   return (
-    <Layout {...{ title, Icon, desc, sidebar, prevRoute }}>
+    <Layout {...{ title: tag, Icon: <Icon.Tags />, desc: '관련글 목록', sidebar, prevRoute }}>
       <div className='bx-sections'>
         <Posts {...{ firstPost, otherPosts }} />
       </div>

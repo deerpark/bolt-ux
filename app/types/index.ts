@@ -5,6 +5,11 @@ export type Author = {
   },
 }
 
+export type TabContextType = {
+  post: Post,
+  tabId?: string | null,
+}
+
 export type CoverImage = {
   srcSet: string,
   webpSrcSet: string,
@@ -16,6 +21,12 @@ export type CoverImage = {
   alt: string,
   title: string,
   base64: string,
+}
+
+export type Tab = {
+  tabid: string,
+  tabname: string,
+  tabcontents: any,
 }
 
 export type Post = {
@@ -32,6 +43,9 @@ export type Post = {
     id?: string,
     name: string,
   },
+  tags: string | null,
+  tabhometext?: string,
+  tabs?: Tab[],
 }
 
 export type PostsProps = {

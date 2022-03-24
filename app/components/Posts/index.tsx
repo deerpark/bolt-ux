@@ -4,7 +4,7 @@ import { Avatar } from '~/components/Avatar'
 import { Date } from '~/components/Date'
 import { PostsProps } from '~/types'
 
-export { Post } from '~/components/Posts/Post'
+export { Post, Contents } from '~/components/Posts/Post'
 
 export function Posts({ firstPost, otherPosts, category }: PostsProps) {
   return (
@@ -38,7 +38,7 @@ export function Posts({ firstPost, otherPosts, category }: PostsProps) {
           <hr className='bx-hr' />
         </>
       )}
-      {otherPosts && (
+      {otherPosts && !!otherPosts.length && (
         <div className='bx-section'>
           <ul>
             {otherPosts.map((post: any) => (
