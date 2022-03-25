@@ -1,6 +1,6 @@
 import { responsiveImageFragment, coverImage, author } from '~/lib/fragments'
 
-export const notice = `
+const notice = `
   {
     posts: allPosts(orderBy: _createdAt_DESC, filter: {category: {eq: "116676845"}}, first: 20) {
       title
@@ -13,3 +13,5 @@ export const notice = `
   }
   ${responsiveImageFragment}
 `
+
+export default notice

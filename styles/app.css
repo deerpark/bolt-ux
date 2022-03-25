@@ -392,6 +392,11 @@
   .bx-list {
     @apply grid grid-cols-1 mx-4 md:mx-8 divide-y divide-slate-100 dark:divide-slate-900 dark:divide-opacity-40 divide-dashed;
   }
+  .bx-list-small,
+  .bx-list-default,
+  .bx-list-large {
+    @apply -mx-5 md:-mx-8 mb-5 md:mb-8;
+  }
   .bx-contents-row-bg .bx-list {
     @apply divide-slate-200 dark:divide-slate-900 dark:divide-opacity-50;
   }
@@ -450,6 +455,18 @@
   .bx-contents-card {
     @apply flex items-center rounded-lg py-5 gap-x-5;
   }
+  .bx-list-small .bx-contents-card {
+    @apply px-5 md:px-8 py-2 rounded;
+  }
+  .bx-list-default .bx-contents-card {
+    @apply px-5 md:px-8 py-3 rounded-md;
+  }
+  .bx-list-large .bx-contents-card {
+    @apply px-5 md:px-8;
+  }
+  .bx-contents-card-link {
+    @apply flex items-center;
+  }
   .bx-contents-row-extend .bx-list .bx-contents-card {
     @apply px-5 md:px-8 rounded-none;
   }
@@ -461,6 +478,12 @@
   }
   .bx-contents-card-thumbnail {
     @apply w-1/5 flex-none flex items-center justify-center;
+  }
+  .bx-list-small .bx-contents-card-thumbnail {
+    @apply w-[12%];
+  }
+  .bx-list-default .bx-contents-card-thumbnail {
+    @apply w-1/6;
   }
   .bx-contents-card-reverse .bx-contents-card-thumbnail {
     @apply order-2;
@@ -543,6 +566,7 @@
   .prose-sm h1 {
     @apply text-slate-800 dark:text-slate-50 font-thin mt-14 first:mt-10 mb-5 md:mt-24 md:first:mt-16 md:mb-8;
   }
+  .bx-h5,
   .prose-sm h2,
   .prose-sm h3,
   .prose-sm h4,
@@ -550,12 +574,14 @@
   .prose-sm h6 {
     @apply mt-10 first:mt-7 mb-2.5 md:mt-16 md:first:mt-10 md:mb-4 flex items-center text-blue-600 dark:text-blue-500 font-extrabold;
   }
+  .bx-h5,
   .prose-sm h5 {
     font-size: 12px;
   }
   .prose-sm h6 {
     font-size: 10px;
   }
+  .bx-h5::before,
   .prose-sm h2::before,
   .prose-sm h2::before,
   .prose-sm h3::before,
@@ -575,7 +601,8 @@
   .prose-sm h4::before {
     @apply w-[18px] h-[18px];
   }
-  .prose-sm h5::before {
+  .prose-sm h5::before,
+  .bx-h5::before {
     @apply w-[14px] h-[14px];
   }
   .prose-sm h6::before {

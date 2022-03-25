@@ -149,7 +149,7 @@ export const routes: Routes[] = [
 const exceptRoute = ['posts', 'services', 'events']
 
 export function useNav(pathname?: string): Route {
-  const matchedRoute = routes.reduce<Route[]>((acc, cur) => acc.concat(cur.children), []).find(route => route.pathname === pathname)
+  const matchedRoute = routes.reduce<Route[]>((acc, cur) => acc.concat(cur.children), []).find(route => route.pathname?.includes(pathname || ''))
   return matchedRoute || routes[0].children[0]
 }
 

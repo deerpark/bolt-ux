@@ -62,6 +62,19 @@ export const post = `
           url(imgixParams: {fm: jpg, fit: crop, w: 100, h: 100, sat: -100})
         }
       }
+      listtitle
+      listsize
+      listitems {
+        title
+        url
+        desc
+        isdisplay
+        thumb {
+          responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
+            ...responsiveImageFragment
+          }
+        }
+      }
     }
     morePosts: allPosts(orderBy: date_DESC, first: 4, filter: {slug: {neq: $slug}}) {
       title

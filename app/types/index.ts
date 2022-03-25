@@ -29,6 +29,16 @@ export type Tab = {
   tabcontents: any,
 }
 
+export type ListItem = {
+  title: string,
+  url?: string,
+  desc?: string,
+  isdisplay: boolean,
+  thumb?: {
+    responsiveImage: CoverImage,
+  },
+}
+
 export type Post = {
   title: string,
   slug: string,
@@ -46,6 +56,9 @@ export type Post = {
   tags: string | null,
   tabhometext?: string,
   tabs?: Tab[],
+  listtitle?: string,
+  listsize?: 'small' | 'default' | 'large',
+  listitems?: ListItem[],
 }
 
 export type PostsProps = {

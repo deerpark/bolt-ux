@@ -1,7 +1,7 @@
 import tiny from 'tiny-json-http'
 import { getSession } from '~/sessions'
 
-export async function load({ query, variables, preview }: any) {
+export async function load({ query, variables, preview, params }: any) {
   let endpoint = 'https://graphql.datocms.com'
 
   if (process.env.DATOCMS_ENVIRONMENT) {
@@ -28,7 +28,7 @@ export async function load({ query, variables, preview }: any) {
     throw body.errors
   }
 
-  return body.data
+  return { ...body.data, params }
 }
 
 export async function datoQuerySubscription({ request, ...gqlRequest }: any) {

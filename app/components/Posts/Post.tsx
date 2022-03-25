@@ -40,6 +40,12 @@ export function Contents({ data }: ContentsProps) {
   )
 }
 
+const bxListSize = {
+  small: 'bx-list-small',
+  default: 'bx-list-default',
+  large: 'bx-list-large',
+}
+
 export function Post({ post /* , morePosts  */, outlet, tabId }: PostProps) {
   console.log(tabId, post)
   return (
@@ -62,6 +68,39 @@ export function Post({ post /* , morePosts  */, outlet, tabId }: PostProps) {
               ))}
           </ul>
         </div>
+        {!!post.listsize && !!post?.listitems?.length && (
+          <>
+            <h5 className='bx-h5'>{post.listtitle}</h5>
+            <ul className={`bx-list ${bxListSize[post.listsize]}`}>
+              {post.listitems.map(item => {
+                const itemContents = (
+                  <div className='bx-contents-card'>
+                    {item?.thumb && (
+                      <div className='bx-contents-card-thumbnail'>
+                        <Image className='bx-thumbnail' data={item?.thumb?.responsiveImage} />
+                      </div>
+                    )}
+                    <div className='bx-contents-card-body'>
+                      <div className='bx-contents-card-title'>{item.title}</div>
+                      {!!item.desc && <div className='bx-contents-card-desc'>{item.desc}</div>}
+                    </div>
+                  </div>
+                )
+                return (
+                  <li key={item.title} className={item.isdisplay ? '' : 'hidden'}>
+                    {item.url ? (
+                      <Link className='bx-contents-card-link' to={item.url}>
+                        {itemContents}
+                      </Link>
+                    ) : (
+                      itemContents
+                    )}
+                  </li>
+                )
+              })}
+            </ul>
+          </>
+        )}
         <div className='bx-article-body'>{tabId === post.slug ? <Contents data={post.content} /> : outlet}</div>
         <div className='bx-article-footer'>
           {post.tags && (

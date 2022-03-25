@@ -33,7 +33,7 @@ export const meta = ({
   return toRemixMeta(post.seo)
 }
 
-export default function PostSlug() {
+export default function Category() {
   const { pathname } = useLocation()
   const { datoQuerySubscription } = useLoaderData()
   const { title, desc, sidebar }: Route = useNav(pathname)

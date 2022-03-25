@@ -2265,6 +2265,23 @@ code {
   }
 }
 
+.bx-list-small, .bx-list-default, .bx-list-large {
+  margin-left: -1.25rem;
+  margin-right: -1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .bx-list-small, .bx-list-default, .bx-list-large {
+    margin-left: -2rem;
+    margin-right: -2rem;
+  }
+
+  .bx-list-small, .bx-list-default, .bx-list-large {
+    margin-bottom: 2rem;
+  }
+}
+
 .bx-contents-row-bg .bx-list > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1;
   border-color: rgb(226 232 240 / var(--tw-divide-opacity));
@@ -2477,6 +2494,53 @@ code {
   padding-bottom: 1.25rem;
 }
 
+.bx-list-small .bx-contents-card {
+  border-radius: 0.25rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .bx-list-small .bx-contents-card {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.bx-list-default .bx-contents-card {
+  border-radius: 0.375rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .bx-list-default .bx-contents-card {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.bx-list-large .bx-contents-card {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .bx-list-large .bx-contents-card {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.bx-contents-card-link {
+  display: flex;
+  align-items: center;
+}
+
 .bx-contents-row-extend .bx-list .bx-contents-card {
   border-radius: 0px;
   padding-left: 1.25rem;
@@ -2528,6 +2592,14 @@ code {
   flex: none;
   align-items: center;
   justify-content: center;
+}
+
+.bx-list-small .bx-contents-card-thumbnail {
+  width: 12%;
+}
+
+.bx-list-default .bx-contents-card-thumbnail {
+  width: 16.666667%;
 }
 
 .bx-contents-card-reverse .bx-contents-card-thumbnail {
@@ -2848,7 +2920,7 @@ code {
   }
 }
 
-.prose-sm h2, .prose-sm h3, .prose-sm h4, .prose-sm h5, .prose-sm h6 {
+.bx-h5, .prose-sm h2, .prose-sm h3, .prose-sm h4, .prose-sm h5, .prose-sm h6 {
   margin-top: 2.5rem;
   margin-bottom: 0.625rem;
   display: flex;
@@ -2858,32 +2930,33 @@ code {
   color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 
-.prose-sm h2:first-child, .prose-sm h3:first-child, .prose-sm h4:first-child, .prose-sm h5:first-child, .prose-sm h6:first-child {
+.bx-h5:first-child, .prose-sm h2:first-child, .prose-sm h3:first-child, .prose-sm h4:first-child, .prose-sm h5:first-child, .prose-sm h6:first-child {
   margin-top: 1.75rem;
 }
 
 @media (prefers-color-scheme: dark) {
-  .prose-sm h2, .prose-sm h3, .prose-sm h4, .prose-sm h5, .prose-sm h6 {
+  .bx-h5, .prose-sm h2, .prose-sm h3, .prose-sm h4, .prose-sm h5, .prose-sm h6 {
     --tw-text-opacity: 1;
     color: rgb(59 130 246 / var(--tw-text-opacity));
   }
 }
 
 @media (min-width: 768px) {
-  .prose-sm h2, .prose-sm h3, .prose-sm h4, .prose-sm h5, .prose-sm h6 {
+  .bx-h5, .prose-sm h2, .prose-sm h3, .prose-sm h4, .prose-sm h5, .prose-sm h6 {
     margin-top: 4rem;
   }
 
-  .prose-sm h2, .prose-sm h3, .prose-sm h4, .prose-sm h5, .prose-sm h6 {
+  .bx-h5, .prose-sm h2, .prose-sm h3, .prose-sm h4, .prose-sm h5, .prose-sm h6 {
     margin-bottom: 1rem;
   }
 
-  .prose-sm h2:first-child, .prose-sm h3:first-child, .prose-sm h4:first-child, .prose-sm h5:first-child, .prose-sm h6:first-child {
+  .bx-h5:first-child, .prose-sm h2:first-child, .prose-sm h3:first-child, .prose-sm h4:first-child, .prose-sm h5:first-child, .prose-sm h6:first-child {
     margin-top: 2.5rem;
   }
 }
 
-.prose-sm h5 {
+.bx-h5,
+  .prose-sm h5 {
   font-size: 12px;
 }
 
@@ -2891,7 +2964,8 @@ code {
   font-size: 10px;
 }
 
-.prose-sm h2::before,
+.bx-h5::before,
+  .prose-sm h2::before,
   .prose-sm h2::before,
   .prose-sm h3::before,
   .prose-sm h4::before,
@@ -2904,7 +2978,7 @@ code {
 }
 
 @media (min-width: 768px) {
-  .prose-sm h2::before, .prose-sm h2::before, .prose-sm h3::before, .prose-sm h4::before, .prose-sm h5::before, .prose-sm h6::before {
+  .bx-h5::before, .prose-sm h2::before, .prose-sm h2::before, .prose-sm h3::before, .prose-sm h4::before, .prose-sm h5::before, .prose-sm h6::before {
     margin-right: 0.5rem;
   }
 }
@@ -2924,7 +2998,7 @@ code {
   width: 18px;
 }
 
-.prose-sm h5::before {
+.prose-sm h5::before, .bx-h5::before {
   height: 14px;
   width: 14px;
 }
