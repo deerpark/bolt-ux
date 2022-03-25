@@ -47,7 +47,6 @@ const bxListSize = {
 }
 
 export function Post({ post /* , morePosts  */, outlet, tabId }: PostProps) {
-  console.log(tabId, post)
   return (
     <>
       <div className='bx-article'>
@@ -68,39 +67,47 @@ export function Post({ post /* , morePosts  */, outlet, tabId }: PostProps) {
               ))}
           </ul>
         </div>
-        {!!post.listsize && !!post?.listitems?.length && (
-          <>
-            <h5 className='bx-h5'>{post.listtitle}</h5>
-            <ul className={`bx-list ${bxListSize[post.listsize]}`}>
-              {post.listitems.map(item => {
-                const itemContents = (
-                  <div className='bx-contents-card'>
-                    {item?.thumb && (
-                      <div className='bx-contents-card-thumbnail'>
-                        <Image className='bx-thumbnail' data={item?.thumb?.responsiveImage} />
+        {!!post.listsize &&
+          !!post?.listgroup?.length &&
+          post.listgroup.map(group => (
+            <div key={group.title} className=''>
+              <h5 className='bx-h5'>{group.title}</h5>
+              {!!group.listblock.length && (
+                <ul className={`bx-list ${bxListSize[post.listsize || 'default']}`}>
+                  {group.listblock.map(item => {
+                    const itemContents = (
+                      <div className='bx-contents-card'>
+                        {item?.thumb && (
+                          <div className='bx-contents-card-thumbnail'>
+                            <Image className='bx-thumbnail' data={item?.thumb?.responsiveImage} />
+                          </div>
+                        )}
+                        <div className='bx-contents-card-body'>
+                          <div className='bx-contents-card-title'>{item.title}</div>
+                          {!!item.desc && <div className='bx-contents-card-desc'>{item.desc}</div>}
+                        </div>
                       </div>
-                    )}
-                    <div className='bx-contents-card-body'>
-                      <div className='bx-contents-card-title'>{item.title}</div>
-                      {!!item.desc && <div className='bx-contents-card-desc'>{item.desc}</div>}
-                    </div>
-                  </div>
-                )
-                return (
-                  <li key={item.title} className={item.isdisplay ? '' : 'hidden'}>
-                    {item.url ? (
-                      <Link className='bx-contents-card-link' to={item.url}>
-                        {itemContents}
-                      </Link>
-                    ) : (
-                      itemContents
-                    )}
-                  </li>
-                )
-              })}
-            </ul>
-          </>
-        )}
+                    )
+                    return (
+                      <li key={item.title} className={item.isdisplay ? '' : 'hidden'}>
+                        {!item.url ? (
+                          itemContents
+                        ) : item.url?.includes('://') ? (
+                          <a className='bx-contents-card-link' href={item.url} target='_blank' rel='noreferrer'>
+                            {itemContents}
+                          </a>
+                        ) : (
+                          <Link className='bx-contents-card-link' to={item.url}>
+                            {itemContents}
+                          </Link>
+                        )}
+                      </li>
+                    )
+                  })}
+                </ul>
+              )}
+            </div>
+          ))}
         <div className='bx-article-body'>{tabId === post.slug ? <Contents data={post.content} /> : outlet}</div>
         <div className='bx-article-footer'>
           {post.tags && (

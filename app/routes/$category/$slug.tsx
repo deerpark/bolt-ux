@@ -47,7 +47,6 @@ export default function Category() {
   const tabId = paths[paths.length - 1]
   const context: TabContextType = { post, tabId }
   const outlet = <Outlet context={context} />
-  console.log(pathname.split('/'))
 
   return (
     <Layout

@@ -13,10 +13,9 @@ type Params = {
 
 export const loader = async ({ request, params }: any) => {
   const { category }: Params = params
-  console.log(query[category])
   const querySubscription = await datoQuerySubscription({
     request,
-    query: query[category],
+    query: query[category] || query.post,
     params,
   })
   return {
@@ -36,8 +35,6 @@ export default function Index() {
       params: { category },
     },
   } = useQuerySubscription(datoQuerySubscription)
-
-  console.log(pathname)
 
   return (
     <Layout {...{ title, Icon, desc, sidebar, prevRoute }}>

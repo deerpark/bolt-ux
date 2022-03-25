@@ -56,9 +56,11 @@ export type Post = {
   tags: string | null,
   tabhometext?: string,
   tabs?: Tab[],
-  listtitle?: string,
   listsize?: 'small' | 'default' | 'large',
-  listitems?: ListItem[],
+  listgroup?: {
+    title: string
+    listblock: ListItem[]
+  }[],
 }
 
 export type PostsProps = {

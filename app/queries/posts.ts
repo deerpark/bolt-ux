@@ -62,16 +62,18 @@ export const post = `
           url(imgixParams: {fm: jpg, fit: crop, w: 100, h: 100, sat: -100})
         }
       }
-      listtitle
       listsize
-      listitems {
+      listgroup {
         title
-        url
-        desc
-        isdisplay
-        thumb {
-          responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
-            ...responsiveImageFragment
+        listblock {
+          title
+          isdisplay
+          desc
+          url
+          thumb {
+            responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
+              ...responsiveImageFragment
+            }
           }
         }
       }
