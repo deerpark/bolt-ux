@@ -110,4 +110,5 @@ dist
 
 /build/
 /public/build
-.DS_Store
+*.DS_Store
+api/
