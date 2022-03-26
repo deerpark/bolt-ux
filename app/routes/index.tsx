@@ -21,17 +21,15 @@ export default function Index() {
   } = useQuerySubscription(datoQuerySubscription)
 
   return (
-    <section className='bx-page-row hidden md:flex'>
-      <div className='bx-page max-w-112'>
-        <Promotions {...{ promotions }} />
-        <h2 className='bx-contents-h2 mx-4 md:mx-8 -mb-4'>
-          <span>
-            <Icons.BulletSolid />
-          </span>
-          <span>최근 포스트</span>
-        </h2>
-        <Posts {...{ otherPosts: morePosts }} />
-      </div>
+    <section className='bx-page max-w-112 hidden md:flex'>
+      <Promotions {...{ promotions }} />
+      <h2 className='bx-contents-h2 mx-4 md:mx-8 -mb-4'>
+        <span>
+          <Icons.BulletSolid />
+        </span>
+        <span>최근 포스트</span>
+      </h2>
+      <Posts {...{ otherPosts: morePosts }} />
     </section>
   )
 }

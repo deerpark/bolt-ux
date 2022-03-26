@@ -4,6 +4,7 @@ export * from './SettingsLight'
 export * from './HomeLight'
 export * from './ArrowLeftLight'
 export * from './TagLight'
+export * from './CommentsLight'
 
 export * from './Logo'
 
@@ -23,6 +24,7 @@ export * from './Settings'
 export * from './NotFound'
 export * from './Date'
 export * from './Tags'
+export * from './Comments'
 
 export * from './Youtube'
 export * from './Twitter'

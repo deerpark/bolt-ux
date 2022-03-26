@@ -143,7 +143,7 @@ export function RootLayout({ isRoot, children, pathname, sidebar }: RootLayoutPr
   return (
     <div className='bx-container'>
       {sidebar && (
-        <div className={`bx-page bx-page-root ${isRoot ? '' : 'hidden md:flex'}`}>
+        <section className={`bx-page bx-page-root ${isRoot ? '' : 'hidden md:flex'}`}>
           <Hero
             isRoot={isRoot}
             heroString={heroString}
@@ -160,7 +160,7 @@ export function RootLayout({ isRoot, children, pathname, sidebar }: RootLayoutPr
           <div className={`${isRoot ? 'px-3 md:px-0' : ''}`}>
             <Footer />
           </div>
-        </div>
+        </section>
       )}
       {children}
     </div>

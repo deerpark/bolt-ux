@@ -1,3 +1,4 @@
+import {createRef, useEffect} from 'react'
 import { Link } from 'remix'
 import { StructuredText, Image } from 'react-datocms'
 import { Post as PostType } from '~/types'
@@ -14,6 +15,11 @@ type PostProps = {
 type ContentsProps = {
   data: any,
   children?: any,
+}
+
+const disqusSettings = {
+  src: 'https://bolt-ux.disqus.com/embed.js',
+  'data-timestamp': (+new Date()).toString(),
 }
 
 export function Contents({ data }: ContentsProps) {
@@ -47,6 +53,14 @@ const bxListSize = {
 }
 
 export function Post({ post /* , morePosts  */, outlet, tabId }: PostProps) {
+  const ref = createRef<HTMLDivElement>()
+  useEffect(() => {
+    const disqus = document.createElement("script")
+    Object.entries(disqusSettings).forEach(([key, value]) => {
+      disqus.setAttribute(key, value)
+    })
+    ref?.current?.appendChild(disqus)
+  }, [ref])
   return (
     <>
       <div className='bx-article'>
@@ -146,6 +160,7 @@ export function Post({ post /* , morePosts  */, outlet, tabId }: PostProps) {
           ))}
         </ul>
       </section> */}
+      <div id="disqus_thread" ref={ref} />
     </>
   )
 }

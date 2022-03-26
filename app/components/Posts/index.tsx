@@ -3,6 +3,7 @@ import { Image } from 'react-datocms'
 import { Avatar } from '~/components/Avatar'
 import { Date } from '~/components/Date'
 import { PostsProps } from '~/types'
+import * as Icon from '~/components/Icon'
 
 export { Post, Contents } from '~/components/Posts/Post'
 
@@ -22,7 +23,19 @@ export function Posts({ firstPost, otherPosts, category }: PostsProps) {
                 </div>
                 <div className='bx-post-info'>
                   <div className='bx-post-meta'>
-                    <h5 className='bx-post-title'>{firstPost.title}</h5>
+                    <h5 className='bx-post-title'>
+                      <span className='bx-post-title-text'>{firstPost.title}</span>
+                      <span className='bx-post-comments-count'>
+                        <Icon.Comments />
+                        <Link
+                          to={`/${category || firstPost.category?.name?.toLowerCase() || 'posts'}/${
+                            firstPost.slug
+                          }#disqus_thread`}
+                        >
+                          0
+                        </Link>
+                      </span>
+                    </h5>
                     <div className='bx-post-desc'>{firstPost.excerpt}</div>
                     <div className='bx-post-desc bx-post-date'>
                       <Date dateString={firstPost.date} />
@@ -52,7 +65,19 @@ export function Posts({ firstPost, otherPosts, category }: PostsProps) {
                   </div>
                   <div className='bx-post-info'>
                     <div className='bx-post-meta'>
-                      <h5 className='bx-post-title'>{post.title}</h5>
+                      <h5 className='bx-post-title'>
+                        <span className='bx-post-title-text'>{post.title}</span>
+                        <span className='bx-post-comments-count'>
+                          <Icon.Comments />
+                          <Link
+                            to={`/${category || post.category?.name?.toLowerCase() || 'posts'}/${
+                              post.slug
+                            }#disqus_thread`}
+                          >
+                            0
+                          </Link>
+                        </span>
+                      </h5>
                       <div className='bx-post-desc'>{post.excerpt}</div>
                       <div className='bx-post-desc bx-post-date'>
                         <Date dateString={post.date} />
@@ -65,6 +90,7 @@ export function Posts({ firstPost, otherPosts, category }: PostsProps) {
           </ul>
         </div>
       )}
+      <script id='dsq-count-scr' async src='//bolt-ux.disqus.com/count.js' />
     </>
   )
 }
