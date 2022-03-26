@@ -51,22 +51,26 @@ export function Post({ post /* , morePosts  */, outlet, tabId }: PostProps) {
     <>
       <div className='bx-article'>
         <div className='bx-article-header'>
+          {!!post.beforecontent && <Contents data={post.beforecontent} />}
           <ul className='bx-tabs'>
             {!!post.tabhometext && (
               <li key={post.tabhometext} className={tabId === post.slug ? 'bx-tab-active' : ''}>
-                <Link to={`/${post.category?.name.toLocaleLowerCase()}/${post.slug}`}>{post.tabhometext}</Link>
+                <Link to={`/${post.category?.name.toLocaleLowerCase()}/${post.slug}`}>
+                  <span>{post.tabhometext}</span>
+                </Link>
               </li>
             )}
             {post.tabs &&
               post.tabs.map(tab => (
                 <li key={tab.tabid} className={tabId === tab.tabid ? 'bx-tab-active' : ''}>
                   <Link to={`/${post.category?.name.toLocaleLowerCase()}/${post.slug}/${tab.tabid}`}>
-                    {tab.tabname}
+                    <span>{tab.tabname}</span>
                   </Link>
                 </li>
               ))}
           </ul>
         </div>
+        {!!post.aftercontent && <Contents data={post.aftercontent} />}
         {!!post.listsize &&
           !!post?.listgroup?.length &&
           post.listgroup.map(group => (
@@ -108,7 +112,9 @@ export function Post({ post /* , morePosts  */, outlet, tabId }: PostProps) {
               )}
             </div>
           ))}
-        <div className='bx-article-body'>{tabId === post.slug ? <Contents data={post.content} /> : outlet}</div>
+        <div className='bx-article-body'>
+          {tabId === post.slug ? !!post.content && <Contents data={post.content} /> : outlet}
+        </div>
         <div className='bx-article-footer'>
           {post.tags && (
             <div className='bx-tags'>

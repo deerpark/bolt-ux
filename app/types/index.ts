@@ -43,7 +43,9 @@ export type Post = {
   title: string,
   slug: string,
   excerpt: string,
-  content: any,
+  aftercontent?: any,
+  beforecontent?: any,
+  content?: any,
   date: string,
   coverImage: {
     responsiveImage: CoverImage,

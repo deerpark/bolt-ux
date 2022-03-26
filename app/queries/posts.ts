@@ -23,6 +23,34 @@ export const post = `
           }
         }
       }
+      aftercontent {
+        value
+        blocks {
+          __typename
+          ...on ImageBlockRecord {
+            id
+            image {
+              responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
+                ...responsiveImageFragment
+              }
+            }
+          }
+        }
+      }
+      beforecontent {
+        value
+        blocks {
+          __typename
+          ...on ImageBlockRecord {
+            id
+            image {
+              responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
+                ...responsiveImageFragment
+              }
+            }
+          }
+        }
+      }
       tags
       tabhometext
       tabs {
