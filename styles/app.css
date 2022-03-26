@@ -365,6 +365,9 @@
   .bx-article {
     @apply mx-5 md:mx-8;
   }
+  .bx-article .bx-error {
+    @apply px-0;
+  }
   .bx-article-image {
     @apply rounded-3xl my-8;
   }

@@ -10,6 +10,7 @@ import { Date } from '~/components/Date'
 import { Layout } from '~/components/Layout'
 import { Post } from '~/components/Posts'
 import { TabContextType } from '~/types'
+import * as Icons from '~/components/Icon'
 
 export const loader = async ({ request, params }: any) => {
   invariant(params.slug, 'expected params.slug')
@@ -30,7 +31,7 @@ export const meta = ({
     },
   },
 }: any) => {
-  return toRemixMeta(post.seo)
+  return post?.seo ? toRemixMeta(post.seo) : []
 }
 
 export default function Category() {
@@ -47,21 +48,32 @@ export default function Category() {
   const tabId = paths[paths.length - 1]
   const context: TabContextType = { post, tabId }
   const outlet = <Outlet context={context} />
+  const props = {
+    title: post?.title || title,
+    Icon: post?.author ? <Avatar name={post.author.name} picture={post.author.picture} /> : <></>,
+    desc: post?.excerpt || desc,
+    prevRoute,
+    cover: post?.coverImage ? <Image data={post.coverImage.responsiveImage} /> : <></>,
+    date: post?.date ? <Date dateString={post.date} /> : <></>,
+    categoryId: post?.category?.id,
+    sidebar,
+  }
 
+  if (!post) {
+    props.title = '404'
+    props.desc = 'Page Not Found'
+    props.Icon = <Icons.NotFound />
+  }
   return (
-    <Layout
-      {...{
-        title: post?.title || title,
-        Icon: <Avatar name={post.author.name} picture={post.author.picture} />,
-        desc: post?.excerpt || desc,
-        prevRoute,
-        cover: <Image data={post.coverImage.responsiveImage} />,
-        date: <Date dateString={post.date} />,
-        categoryId: post?.category?.id,
-        sidebar,
-      }}
-    >
-      <Post {...{ post, outlet, tabId }} />
+    <Layout {...props}>
+      {post ? (
+        <Post {...{ post, outlet, tabId }} />
+      ) : (
+        <div className='bx-error'>
+          <h1>페이지를 찾을 수 없습니다.</h1>
+          <p>이전으로 돌아 가시거나 다시 시도해 주세요.</p>
+        </div>
+      )}
     </Layout>
   )
 }

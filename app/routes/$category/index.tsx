@@ -31,18 +31,22 @@ export default function Index() {
   const prevRoute = usePrevRoute(pathname)
   const { data } = useQuerySubscription(datoQuerySubscription)
   const { posts, params } = data
-  const props = { title, Icon, desc, sidebar, prevRoute, pathname }
+  const props = { posts, params, title, Icon, desc, sidebar, prevRoute, pathname }
 
+  let firstPost = null
+  let otherPosts = []
   if (!posts) {
     props.title = '404'
     props.desc = 'Page Not Found'
     props.Icon = Icons.NotFound
     props.pathname = pathname
+  } else {
+    ;[firstPost, ...otherPosts] = posts
   }
   return (
     <Layout {...props}>
-      {posts?.firstPost ? (
-        <Posts {...{ firstPost: posts?.firstPost, otherPosts: posts?.otherPosts, category: params?.category }} />
+      {posts ? (
+        <Posts {...{ firstPost, otherPosts, category: params?.category }} />
       ) : (
         <div className='bx-error'>
           <h1>페이지를 찾을 수 없습니다.</h1>
