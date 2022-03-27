@@ -3,6 +3,7 @@ import { Link } from 'remix'
 import { StructuredText, Image } from 'react-datocms'
 import { Post as PostType } from '~/types'
 import * as Icon from '~/components/Icon'
+import { Tabs } from '~/components/Tabs'
 
 type PostProps = {
   post: PostType,
@@ -10,7 +11,7 @@ type PostProps = {
   categoryId?: string,
   tabId?: string | null,
   outlet?: any,
-  pathname?: string,
+  pathname: string,
 }
 
 type ContentsProps = {
@@ -67,18 +68,30 @@ const bxListSize = {
 
 export function Post({ post /* , morePosts  */, outlet, tabId, pathname }: PostProps) {
   const ref = createRef<HTMLDivElement>()
+  const tabs = post?.tabs?.length ? [{
+    tabid: post.slug,
+    tabname: post.tabhometext || '',
+    url: `/${post.category?.name.toLocaleLowerCase()}/${post.slug}`,
+  }, ...post.tabs.map(tab => {
+    tab.url = `/${post.category?.name.toLocaleLowerCase()}/${post.slug}/${tab.tabid}`
+    return tab
+  })] : []
   useEffect(() => {
     const disqus = document.createElement('script')
     Object.entries(disqusSettings).forEach(([key, value]) => {
       disqus.setAttribute(key, value)
     })
     ref?.current?.appendChild(disqus)
-    window.disqus_config = function () {
-      const identifier = pathname || `${post.category?.name?.toLowerCase()} || 'posts'}/${post.slug}`
-      this.page.url = 'https://www.bolt-ux.com/' + identifier
-      this.page.identifier = post.id || identifier 
-      this.page.title = post.title
-      this.page.category_id = post.category?.id || undefined
+    if (window) {
+      window.disqus_config = function () {
+        const identifier = pathname || `${post.category?.slug} || 'posts'}/${post.slug}`
+        this.page = this.page || {}
+        this.page.url = 'https://www.bolt-ux.com' + identifier
+        this.page.identifier = post.id || identifier 
+        this.page.title = post.title
+        this.page.category_id = post.category?.id || undefined
+      }
+      window.disqus_config()
     }
   }, [ref, pathname, post])
   return (
@@ -86,23 +99,7 @@ export function Post({ post /* , morePosts  */, outlet, tabId, pathname }: PostP
       <div className='bx-article'>
         <div className='bx-article-header'>
           {!!post.beforecontent && <Contents data={post.beforecontent} />}
-          <ul className='bx-tabs'>
-            {!!post.tabhometext && (
-              <li key={post.tabhometext} className={tabId === post.slug ? 'bx-tab-active' : ''}>
-                <Link to={`/${post.category?.name.toLocaleLowerCase()}/${post.slug}`}>
-                  <span>{post.tabhometext}</span>
-                </Link>
-              </li>
-            )}
-            {post.tabs &&
-              post.tabs.map(tab => (
-                <li key={tab.tabid} className={tabId === tab.tabid ? 'bx-tab-active' : ''}>
-                  <Link to={`/${post.category?.name.toLocaleLowerCase()}/${post.slug}/${tab.tabid}`}>
-                    <span>{tab.tabname}</span>
-                  </Link>
-                </li>
-              ))}
-          </ul>
+          {!!post?.tabs?.length && <Tabs currentId={tabId || post.slug} tabs={tabs} />}
         </div>
         {!!post.aftercontent && <Contents data={post.aftercontent} />}
         {!!post.listsize &&

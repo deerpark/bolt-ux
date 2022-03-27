@@ -41,7 +41,7 @@ export const routes: Routes[] = [
         id: '116676845',
         display: true,
         desc: '알려드립니다.',
-        Icon: Icon.notice,
+        Icon: Icon.notices,
       },
       {
         pathname: '/news',

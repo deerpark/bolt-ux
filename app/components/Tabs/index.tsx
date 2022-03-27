@@ -12,7 +12,7 @@ export function Tabs({ tabs, currentId }: TabsProps) {
       {tabs &&
         tabs.map(tab => (
           <li key={tab.tabid} className={currentId === tab.tabid ? 'bx-tab-active' : ''}>
-            {tab.url.includes('://') ? (
+            {tab?.url && tab.url.includes('://') ? (
               <Link to={tab.url}>
                 <span>{tab.tabname}</span>
               </Link>

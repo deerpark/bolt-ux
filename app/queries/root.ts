@@ -12,6 +12,14 @@ export const root = `
         ...metaTagsFragment
       }
     }
+    allCategories {
+      id
+      name
+      slug
+      desc
+      display
+      sidebar
+    }
   }
   ${metaTagsFragment}
 `

@@ -74,6 +74,7 @@ export const post = `
       category {
         id
         name
+        slug
       }
       date
       ogImage: coverImage{
@@ -150,6 +151,7 @@ export const posts = `
       category {
         id
         name
+        slug
       }
     }
     promotion: promotion(orderBy: expiredat_ASC, locale: ko_KR) {

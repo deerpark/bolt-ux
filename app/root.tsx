@@ -31,7 +31,7 @@ export const loader = async ({ request }: any) => {
 export const meta = ({
   data: {
     datoQuerySubscription: {
-      initialData: { blog, site },
+      initialData: { blog, site, ...data },
     },
   },
 }: any) => {
@@ -70,6 +70,15 @@ export function CatchBoundary() {
   )
 }
 
+type Category = {
+  id: string,
+  name: string,
+  slug: 'notices' | 'news',
+  desc: string,
+  display: boolean,
+  sidebar: boolean,
+}
+
 export default function App() {
   const { pathname } = useLocation()
   const { datoQuerySubscription } = useLoaderData()
@@ -77,8 +86,20 @@ export default function App() {
   const isRoot = pathname === '/'
 
   const {
-    data: { site },
+    data: { site, allCategories },
   } = useQuerySubscription(datoQuerySubscription)
+
+  const categories: Route[] = allCategories.map((category: Category) => {
+    return {
+      pathname: `/${category.slug}`,
+      title: category.name,
+      sidebar: category.sidebar,
+      id: category.id,
+      display: category.display,
+      desc: '알려드립니다.',
+      Icon: Icons[category.slug || 'NotFound'],
+    }
+  })
 
   return (
     <html lang='en'>
@@ -89,7 +110,7 @@ export default function App() {
         {renderMetaTags([...site.favicon])}
       </head>
       <body>
-        <RootLayout {...{ isRoot, pathname, sidebar }}>
+        <RootLayout {...{ isRoot, pathname, sidebar, categories }}>
           <Outlet />
         </RootLayout>
         <ScrollRestoration />

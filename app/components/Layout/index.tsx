@@ -23,6 +23,7 @@ type RootLayoutProps = {
   isRoot: boolean,
   sidebar: boolean,
   categoryId?: string,
+  categories?: Route[],
 }
 
 export function SiteMeta() {
@@ -139,7 +140,13 @@ export function Layout({
   )
 }
 
-export function RootLayout({ isRoot, children, pathname, sidebar }: RootLayoutProps) {
+export function RootLayout({ isRoot, children, pathname, sidebar, categories }: RootLayoutProps) {
+  let newRoutes
+  if (categories) {
+    const [_, r2, ..._2] = routes
+    r2.children = categories
+    newRoutes = [_, r2, ..._2]
+  }
   return (
     <div className='bx-container'>
       {sidebar && (
@@ -156,7 +163,7 @@ export function RootLayout({ isRoot, children, pathname, sidebar }: RootLayoutPr
               },
             ]}
           />
-          <Nav {...{ routes, pathname }} />
+          <Nav {...{ routes: newRoutes || routes, pathname }} />
           <div className={`${isRoot ? 'px-3 md:px-0' : ''}`}>
             <Footer />
           </div>

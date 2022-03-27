@@ -8,7 +8,8 @@ export type Author = {
 export type Tab = {
   tabid: string,
   tabname: string,
-  url: string,
+  url?: string,
+  tabcontents?: any,
 }
 
 export type Service = {
@@ -40,12 +41,6 @@ export type CoverImage = {
   base64: string,
 }
 
-export type PostTab = {
-  tabid: string,
-  tabname: string,
-  tabcontents: any,
-}
-
 export type PostListItem = {
   title: string,
   url?: string,
@@ -72,10 +67,11 @@ export type Post = {
   category?: {
     id?: string,
     name: string,
+    slug: string,
   },
   tags: string | null,
   tabhometext?: string,
-  tabs?: PostTab[],
+  tabs?: Tab[],
   listsize?: 'small' | 'default' | 'large',
   listgroup?: {
     title: string

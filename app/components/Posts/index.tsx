@@ -16,7 +16,7 @@ export function Posts({ firstPost, otherPosts, category }: PostsProps) {
             <section className='bx-post'>
               <Link
                 className='bx-post-link'
-                to={`/${category || firstPost.category?.name?.toLowerCase() || 'posts'}/${firstPost.slug}`}
+                to={`/${category || firstPost.category?.slug || 'posts'}/${firstPost.slug}`}
               >
                 <div className='bx-post-thumb'>
                   <Image className='bx-thumbnail' data={firstPost.coverImage.responsiveImage} />
@@ -52,10 +52,7 @@ export function Posts({ firstPost, otherPosts, category }: PostsProps) {
           <ul>
             {otherPosts.map((post: any) => (
               <li className='bx-post bx-other-post' key={post.slug}>
-                <Link
-                  className='bx-post-link'
-                  to={`/${category || post.category?.name?.toLowerCase() || 'posts'}/${post.slug}`}
-                >
+                <Link className='bx-post-link' to={`/${category || post.category?.slug || 'posts'}/${post.slug}`}>
                   <div className='bx-post-thumb'>
                     <Image className='bx-thumbnail' data={post.coverImage.responsiveImage} />
                   </div>
