@@ -27,13 +27,9 @@ export function Posts({ firstPost, otherPosts, category }: PostsProps) {
                       <span className='bx-post-title-text'>{firstPost.title}</span>
                       <span className='bx-post-comments-count'>
                         <Icon.Comments />
-                        <Link
-                          to={`/${category || firstPost.category?.name?.toLowerCase() || 'posts'}/${
-                            firstPost.slug
-                          }#disqus_thread`}
-                        >
+                        <span className='disqus-comment-count' data-disqus-identifier={firstPost.id}>
                           0
-                        </Link>
+                        </span>
                       </span>
                     </h5>
                     <div className='bx-post-desc'>{firstPost.excerpt}</div>
@@ -69,13 +65,9 @@ export function Posts({ firstPost, otherPosts, category }: PostsProps) {
                         <span className='bx-post-title-text'>{post.title}</span>
                         <span className='bx-post-comments-count'>
                           <Icon.Comments />
-                          <Link
-                            to={`/${category || post.category?.name?.toLowerCase() || 'posts'}/${
-                              post.slug
-                            }#disqus_thread`}
-                          >
+                          <span className='disqus-comment-count' data-disqus-identifier={post.id}>
                             0
-                          </Link>
+                          </span>
                         </span>
                       </h5>
                       <div className='bx-post-desc'>{post.excerpt}</div>

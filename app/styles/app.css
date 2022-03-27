@@ -1925,7 +1925,7 @@ code {
   }
 }
 
-.bx-post-comments-count a {
+.disqus-comment-count {
   display: flex;
   align-items: center;
   border-radius: 0.25rem;
@@ -1937,7 +1937,7 @@ code {
 }
 
 @media (prefers-color-scheme: dark) {
-  .bx-post-comments-count a {
+  .disqus-comment-count {
     --tw-text-opacity: 1;
     color: rgb(59 130 246 / var(--tw-text-opacity));
   }

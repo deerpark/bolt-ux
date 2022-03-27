@@ -67,7 +67,7 @@ export default function Category() {
   return (
     <Layout {...props}>
       {post ? (
-        <Post {...{ post, outlet, tabId }} />
+        <Post {...{ post, outlet, tabId, pathname }} />
       ) : (
         <div className='bx-error'>
           <h1>페이지를 찾을 수 없습니다.</h1>

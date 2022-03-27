@@ -10,6 +10,7 @@ type PostProps = {
   categoryId?: string,
   tabId?: string | null,
   outlet?: any,
+  pathname?: string,
 }
 
 type ContentsProps = {
@@ -46,21 +47,40 @@ export function Contents({ data }: ContentsProps) {
   )
 }
 
+declare global {
+  interface Window {
+    disqus_config: () => void;
+    page: {
+      url: string,
+      identifier: string,
+      title: string,
+      category_id: string | undefined,
+    };
+  }
+}
+
 const bxListSize = {
   small: 'bx-list-small',
   default: 'bx-list-default',
   large: 'bx-list-large',
 }
 
-export function Post({ post /* , morePosts  */, outlet, tabId }: PostProps) {
+export function Post({ post /* , morePosts  */, outlet, tabId, pathname }: PostProps) {
   const ref = createRef<HTMLDivElement>()
   useEffect(() => {
-    const disqus = document.createElement("script")
+    const disqus = document.createElement('script')
     Object.entries(disqusSettings).forEach(([key, value]) => {
       disqus.setAttribute(key, value)
     })
     ref?.current?.appendChild(disqus)
-  }, [ref])
+    window.disqus_config = function () {
+      const identifier = pathname || `${post.category?.name?.toLowerCase()} || 'posts'}/${post.slug}`
+      this.page.url = 'https://www.bolt-ux.com/' + identifier
+      this.page.identifier = post.id || identifier 
+      this.page.title = post.title
+      this.page.category_id = post.category?.id || undefined
+    }
+  }, [ref, pathname, post])
   return (
     <>
       <div className='bx-article'>
@@ -86,7 +106,7 @@ export function Post({ post /* , morePosts  */, outlet, tabId }: PostProps) {
         </div>
         {!!post.aftercontent && <Contents data={post.aftercontent} />}
         {!!post.listsize &&
-          !!post?.listgroup?.length &&
+          !!post.listgroup?.length &&
           post.listgroup.map(group => (
             <div key={group.title} className=''>
               <h5 className='bx-h5'>{group.title}</h5>

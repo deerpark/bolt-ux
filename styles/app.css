@@ -333,7 +333,7 @@
   .bx-post-comments-count .bx-icon-secondary {
     @apply fill-yellow-500 dark:bg-yellow-400;
   }
-  .bx-post-comments-count a {
+  .disqus-comment-count {
     @apply flex items-center text-[9px] leading-none font-bold rounded text-blue-600 dark:text-blue-500;
   }
   .bx-post-desc {
