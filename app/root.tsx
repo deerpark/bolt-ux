@@ -71,12 +71,16 @@ export function CatchBoundary() {
 }
 
 type Category = {
+  order: number,
   id: string,
   name: string,
   slug: 'notices' | 'news',
   desc: string,
   display: boolean,
   sidebar: boolean,
+  icon: {
+    url: string,
+  },
 }
 
 export default function App() {
@@ -86,20 +90,22 @@ export default function App() {
   const isRoot = pathname === '/'
 
   const {
-    data: { site, allCategories },
+    data: { site, allCategories},
   } = useQuerySubscription(datoQuerySubscription)
 
-  const categories: Route[] = allCategories.map((category: Category) => {
-    return {
-      pathname: `/${category.slug}`,
-      title: category.name,
-      sidebar: category.sidebar,
-      id: category.id,
-      display: category.display,
-      desc: '알려드립니다.',
-      Icon: Icons[category.slug || 'NotFound'],
-    }
-  })
+  const categories: Route[] = (allCategories as Category[])
+    .sort((a, b) => a.order - b.order)
+    .map((category) => {
+      return {
+        pathname: `/${category.slug}`,
+        title: category.name,
+        sidebar: category.sidebar,
+        id: category.id,
+        display: category.display,
+        desc: category.desc,
+        Icon: Icons[category.slug || 'NotFound'],
+      }
+    })
 
   return (
     <html lang='en'>

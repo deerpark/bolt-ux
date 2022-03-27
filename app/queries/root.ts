@@ -13,12 +13,16 @@ export const root = `
       }
     }
     allCategories {
+      order
       id
       name
       slug
       desc
       display
       sidebar
+      icon {
+        url
+      }
     }
   }
   ${metaTagsFragment}
