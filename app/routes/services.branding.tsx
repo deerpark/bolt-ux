@@ -4,8 +4,10 @@ import { useQuerySubscription } from 'react-datocms'
 import { branding as query } from '~/queries'
 import { datoQuerySubscription } from '~/lib/datocms'
 import { useNav, usePrevRoute, Route } from '~/lib/config'
+import { tabs } from '~/lib/service'
 import { Layout } from '~/components/Layout'
 import { Banner } from '~/components/Banner'
+import { Tabs } from '~/components/Tabs'
 import { Flow, Crews, FAQ, Refund } from '~/components/Services'
 
 export const loader = async ({ request }: any) => {
@@ -27,6 +29,9 @@ export default function Branding() {
 
   return (
     <Layout {...{ title, Icon, desc, sidebar, prevRoute }}>
+      <div className='mx-5 md:mx-8'>
+        <Tabs currentId={pathname} tabs={tabs} />
+      </div>
       <Banner {...promotion} />
       <Flow />
       <Crews

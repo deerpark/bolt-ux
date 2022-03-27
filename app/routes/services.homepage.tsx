@@ -3,10 +3,12 @@ import { useLocation } from 'react-router-dom'
 import { Image, useQuerySubscription } from 'react-datocms'
 import { homepage as query } from '~/queries'
 import { datoQuerySubscription } from '~/lib/datocms'
+import { tabs } from '~/lib/service'
 import { useNav, usePrevRoute, Route } from '~/lib/config'
+import { ListItem } from '~/types'
 import { Layout } from '~/components/Layout'
 import { Banner } from '~/components/Banner'
-import { ListItem } from '~/components/List'
+import { Tabs } from '~/components/Tabs'
 import { Recommend, Tech, Flow, Crews, FAQ, Refund } from '~/components/Services'
 
 export const loader = async ({ request }: any) => {
@@ -67,6 +69,9 @@ export default function Homepage() {
 
   return (
     <Layout {...{ title, Icon, desc, sidebar, prevRoute }}>
+      <div className='mx-5 md:mx-8'>
+        <Tabs currentId={pathname} tabs={tabs} />
+      </div>
       <Banner {...promotion} />
       <Recommend list={list} />
       <Tech list={techList} className='bx-contents-row-bg' />

@@ -1,8 +1,4 @@
-export type ListItem = {
-  title?: string | JSX.Element,
-  thumb?: string | JSX.Element,
-  contents?: (string | JSX.Element)[],
-}
+import { ListItem } from '~/types'
 
 export type ListProps = {
   list: ListItem[],

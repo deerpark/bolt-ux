@@ -5,6 +5,23 @@ export type Author = {
   },
 }
 
+export type Tab = {
+  tabid: string,
+  tabname: string,
+  url: string,
+}
+
+export type Service = {
+  list?: PostListItem[],
+  techList?: PostListItem[],
+}
+
+export type ListItem = {
+  title?: string | JSX.Element,
+  thumb?: string | JSX.Element,
+  contents?: (string | JSX.Element)[],
+}
+
 export type TabContextType = {
   post: Post,
   tabId?: string | null,
@@ -23,13 +40,13 @@ export type CoverImage = {
   base64: string,
 }
 
-export type Tab = {
+export type PostTab = {
   tabid: string,
   tabname: string,
   tabcontents: any,
 }
 
-export type ListItem = {
+export type PostListItem = {
   title: string,
   url?: string,
   desc?: string,
@@ -58,11 +75,11 @@ export type Post = {
   },
   tags: string | null,
   tabhometext?: string,
-  tabs?: Tab[],
+  tabs?: PostTab[],
   listsize?: 'small' | 'default' | 'large',
   listgroup?: {
     title: string
-    listblock: ListItem[]
+    listblock: PostListItem[]
   }[],
 }
 

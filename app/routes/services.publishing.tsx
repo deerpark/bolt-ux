@@ -4,9 +4,11 @@ import { Image, useQuerySubscription } from 'react-datocms'
 import { publishing as query } from '~/queries'
 import { datoQuerySubscription } from '~/lib/datocms'
 import { useNav, usePrevRoute, Route } from '~/lib/config'
+import { tabs } from '~/lib/service'
+import { ListItem } from '~/types'
 import { Layout } from '~/components/Layout'
 import { Banner } from '~/components/Banner'
-import { ListItem } from '~/components/List'
+import { Tabs } from '~/components/Tabs'
 import { Recommend, Tech, Flow, Crews, FAQ, Refund } from '~/components/Services'
 
 export const loader = async ({ request }: any) => {
@@ -65,6 +67,9 @@ export default function Publishing() {
 
   return (
     <Layout {...{ title, Icon, desc, sidebar, prevRoute }}>
+      <div className='mx-5 md:mx-8'>
+        <Tabs currentId={pathname} tabs={tabs} />
+      </div>
       <Banner {...promotion} />
       <Recommend list={recommendList} />
       <Tech className='bx-contents-row-bg' list={techList} />
