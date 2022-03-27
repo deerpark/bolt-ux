@@ -171,7 +171,7 @@
   }
   /* Hero */
   .bx-hero {
-    @apply flex-none flex flex-col items-center;
+    @apply pt-5 md:pt-7 flex-none flex flex-col items-center;
   }
   .bx-hero-logo {
     @apply w-full px-5 md:px-8 py-16 md:py-8 flex items-center;

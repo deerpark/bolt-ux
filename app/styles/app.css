@@ -1314,6 +1314,13 @@ code {
   flex: none;
   flex-direction: column;
   align-items: center;
+  padding-top: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .bx-hero {
+    padding-top: 1.75rem;
+  }
 }
 
 .bx-hero-logo {
