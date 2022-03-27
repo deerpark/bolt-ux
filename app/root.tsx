@@ -3,6 +3,7 @@ import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderD
 import { renderMetaTags, toRemixMeta, useQuerySubscription } from 'react-datocms'
 import { datoQuerySubscription } from '~/lib/datocms'
 import { root as query } from '~/queries'
+import { CategorySlug } from '~/types'
 import { usePrevRoute, useNav, Route } from '~/lib/config'
 import { RootLayout, Layout, SiteMeta } from '~/components/Layout'
 import * as Icons from '~/components/Icon'
@@ -74,7 +75,7 @@ type Category = {
   order: number,
   id: string,
   name: string,
-  slug: 'notices' | 'news' | 'dev' | 'design' | 'uiux' | 'badminton',
+  slug: CategorySlug,
   desc: string,
   display: boolean,
   sidebar: boolean,

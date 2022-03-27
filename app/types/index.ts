@@ -1,3 +1,9 @@
+export type CategorySlug = 'notices' | 'news' | 'dev' | 'design' | 'uiux' | 'badminton'
+
+export type Params = {
+  category: CategorySlug,
+}
+
 export type Author = {
   name: string,
   picture: {

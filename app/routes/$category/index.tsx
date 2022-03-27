@@ -3,14 +3,11 @@ import { useLoaderData } from 'remix'
 import { useQuerySubscription } from 'react-datocms'
 import { datoQuerySubscription } from '~/lib/datocms'
 import * as query from '~/queries'
+import { Params } from '~/types'
 import { useNav, usePrevRoute, Route } from '~/lib/config'
 import { Layout } from '~/components/Layout'
 import { Posts } from '~/components/Posts'
 import * as Icons from '~/components/Icon'
-
-type Params = {
-  category: 'news' | 'notices',
-}
 
 export const loader = async ({ request, params }: any) => {
   const { category }: Params = params
