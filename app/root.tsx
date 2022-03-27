@@ -74,7 +74,7 @@ type Category = {
   order: number,
   id: string,
   name: string,
-  slug: 'notices' | 'news',
+  slug: 'notices' | 'news' | 'dev' | 'design' | 'uiux' | 'badminton',
   desc: string,
   display: boolean,
   sidebar: boolean,
