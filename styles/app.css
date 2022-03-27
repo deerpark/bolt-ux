@@ -295,7 +295,7 @@
   }
   /* Post */
   .bx-post {
-    @apply -mt-2.5 md:-mt-8 mb-5 md:mb-8;
+    @apply -mt-2.5 md:-mt-8;
   }
   .bx-post-link {
     @apply aspect-video p-5 md:p-8 flex flex-col gap-y-4;
@@ -439,10 +439,10 @@
   }
   /* Section */
   .bx-sections {
-    @apply py-5 divide-y-[10px] divide-slate-50 dark:divide-slate-900 dark:divide-opacity-70;
+    @apply divide-y-[10px] divide-slate-50 dark:divide-slate-900 dark:divide-opacity-70;
   }
   .bx-sections .bx-section {
-    @apply first:pt-0 flex flex-col gap-y-2.5;
+    @apply first:pt-0 flex flex-col;
   }
   .bx-sections .bx-section::after,
   .bx-sections .bx-section::before {

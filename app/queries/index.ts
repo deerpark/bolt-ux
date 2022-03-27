@@ -1,5 +1,6 @@
 export * from '~/queries/root'
-export * from '~/queries/posts'
+export * from '~/queries/post'
+export { default as posts } from '~/queries/posts'
 export { default as news } from '~/queries/news'
 export { default as notices } from '~/queries/notices'
 export { default as dev } from '~/queries/dev'

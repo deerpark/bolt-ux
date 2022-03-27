@@ -9,14 +9,14 @@ export { Post, Contents } from '~/components/Posts/Post'
 
 export function Posts({ firstPost, otherPosts, category }: PostsProps) {
   return (
-    <>
+    <div className='bx-sections'>
       {firstPost && (
         <>
           <div className='bx-section'>
             <section className='bx-post'>
               <Link
                 className='bx-post-link'
-                to={`/${category || firstPost.category?.slug || 'posts'}/${firstPost.slug}`}
+                to={`/${firstPost.category?.slug || category || 'posts'}/${firstPost.slug}`}
               >
                 <div className='bx-post-thumb'>
                   <Image className='bx-thumbnail' data={firstPost.coverImage.responsiveImage} />
@@ -44,7 +44,6 @@ export function Posts({ firstPost, otherPosts, category }: PostsProps) {
               </Link>
             </section>
           </div>
-          <hr className='bx-hr' />
         </>
       )}
       {otherPosts && !!otherPosts.length && (
@@ -52,7 +51,7 @@ export function Posts({ firstPost, otherPosts, category }: PostsProps) {
           <ul>
             {otherPosts.map((post: any) => (
               <li className='bx-post bx-other-post' key={post.slug}>
-                <Link className='bx-post-link' to={`/${category || post.category?.slug || 'posts'}/${post.slug}`}>
+                <Link className='bx-post-link' to={`/${post.category?.slug || category || 'posts'}/${post.slug}`}>
                   <div className='bx-post-thumb'>
                     <Image className='bx-thumbnail' data={post.coverImage.responsiveImage} />
                   </div>
@@ -80,6 +79,6 @@ export function Posts({ firstPost, otherPosts, category }: PostsProps) {
         </div>
       )}
       <script id='dsq-count-scr' async src='//bolt-ux.disqus.com/count.js' />
-    </>
+    </div>
   )
 }

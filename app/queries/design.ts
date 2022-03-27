@@ -7,6 +7,10 @@ const news = `
       slug
       excerpt
       date
+      category {
+        name
+        slug
+      }
       ${coverImage}
       ${author}
     }

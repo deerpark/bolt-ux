@@ -27,32 +27,20 @@ export const routes: Routes[] = [
         sidebar: true,
         display: true,
         desc: '',
+      },
+      {
+        pathname: '/posts',
+        title: '블로그',
+        sidebar: true,
+        display: false,
+        desc: '모든 카테고리의 글',
       }
     ]
   },
   {
     title: '블로그',
     display: true,
-    children: [
-      {
-        pathname: '/notices',
-        title: '공지사항',
-        sidebar: true,
-        id: '116676845',
-        display: true,
-        desc: '알려드립니다.',
-        Icon: Icon.notices,
-      },
-      {
-        pathname: '/news',
-        title: '새소식',
-        sidebar: true,
-        id: '116679079',
-        display: true,
-        desc: '좋은 소식',
-        Icon: Icon.news,
-      },
-    ],
+    children: [],
   },
   {
     title: '서비스',

@@ -7,6 +7,10 @@ const notice = `
       slug
       excerpt
       date
+      category {
+        name
+        slug
+      }
       ${coverImage}
       ${author}
     }

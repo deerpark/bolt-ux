@@ -35,6 +35,7 @@ export const main = `
       }
       category {
         name
+        slug
       }
     }
   }

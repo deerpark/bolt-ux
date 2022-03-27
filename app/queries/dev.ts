@@ -9,6 +9,10 @@ const news = `
       date
       ${coverImage}
       ${author}
+      category {
+        name
+        slug
+      }
     }
   }
   ${responsiveImageFragment}
