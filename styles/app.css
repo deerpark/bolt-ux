@@ -382,7 +382,7 @@
   }
   /* Tags */
   .bx-tags {
-    @apply flex items-center gap-x-2;
+    @apply flex items-center gap-x-2 gap-y-1 flex-wrap;
   }
   .bx-tag {
     @apply flex items-center px-2 py-px gap-x-1 rounded bg-slate-100 dark:bg-slate-900 text-slate-500 hover:text-slate-600 dark:hover:text-slate-400 text-xs transition-all transform hover:bg-white dark:hover:bg-[#182436] hover:-translate-y-0.5 active:-translate-y-0 focus:-translate-y-0;
@@ -397,13 +397,13 @@
   .bx-tabs {
     -ms-overflow-style: none;
     scrollbar-width: none;
-    @apply -mx-5 md:-mx-8 mb-5 md:mb-8 px-1 md:px-4 flex flex-nowrap items-stretch border-b border-slate-100 dark:border-slate-900 dark:border-opacity-60 overflow-y-hidden overflow-x-auto md:overflow-x-hidden scroll-smooth snap-start snap-always snap-mandatory snap-x;
+    @apply -mx-5 md:-mx-8 mb-5 md:mb-8 px-1 md:px-4 flex flex-nowrap items-stretch border-b border-slate-100 dark:border-slate-900 dark:border-opacity-60 overflow-y-hidden overflow-x-auto md:overflow-x-hidden scroll-smooth snap-always snap-x;
   }
   .bx-tabs::-webkit-scrollbar {
     display: none;
   }
   .bx-tabs a {
-    @apply relative h-10 px-4 flex items-center text-slate-500 font-semibold text-sm whitespace-nowrap;
+    @apply snap-center relative h-10 px-4 flex items-center text-slate-500 font-semibold text-sm whitespace-nowrap;
   }
   .bx-tabs a span {
     @apply transform transition-all;
@@ -570,10 +570,13 @@
   }
   /* Carousel */
   .bx-carousel {
-    @apply flex pt-5 pb-2.5 px-5 md:px-8 items-stretch overflow-x-auto border-b border-dashed border-slate-100 dark:border-slate-900 dark:border-opacity-50;
+    @apply flex pt-5 pb-2.5 px-5 md:px-8 items-stretch border-b border-dashed border-slate-100 dark:border-slate-900 dark:border-opacity-50;
   }
   .bx-carousel ul {
-    @apply flex items-stretch gap-x-5;
+    @apply flex items-stretch gap-x-5 snap-proximity snap-x overflow-x-auto;
+  }
+  .bx-carousel li {
+    @apply snap-center;
   }
   /* Card Square */
   .bx-card-sqaure {

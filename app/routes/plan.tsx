@@ -125,7 +125,7 @@ export default function Plan() {
 
   return (
     <Layout {...{ title, Icon, desc, sidebar, prevRoute }}>
-      <div className='bx-sections'>
+      <div className='bx-sections pt-5 md:pt-8'>
         {list.map(listItem => (
           <Section key={listItem.title} item={listItem} />
         ))}

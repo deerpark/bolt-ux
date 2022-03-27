@@ -2151,9 +2151,11 @@ code {
 
 .bx-tags {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   -moz-column-gap: 0.5rem;
        column-gap: 0.5rem;
+  row-gap: 0.25rem;
 }
 
 .bx-tag {
@@ -2241,8 +2243,6 @@ code {
   display: flex;
   -ms-scroll-snap-type: x var(--tw-scroll-snap-strictness);
       scroll-snap-type: x var(--tw-scroll-snap-strictness);
-  --tw-scroll-snap-strictness: mandatory;
-  scroll-snap-align: start;
   scroll-snap-stop: always;
   flex-wrap: nowrap;
   align-items: stretch;
@@ -2295,6 +2295,7 @@ code {
   position: relative;
   display: flex;
   height: 2.5rem;
+  scroll-snap-align: center;
   align-items: center;
   white-space: nowrap;
   padding-left: 1rem;
@@ -3003,7 +3004,6 @@ code {
 .bx-carousel {
   display: flex;
   align-items: stretch;
-  overflow-x: auto;
   border-bottom-width: 1px;
   border-style: dashed;
   --tw-border-opacity: 1;
@@ -3034,9 +3034,17 @@ code {
 
 .bx-carousel ul {
   display: flex;
+  -ms-scroll-snap-type: x var(--tw-scroll-snap-strictness);
+      scroll-snap-type: x var(--tw-scroll-snap-strictness);
+  --tw-scroll-snap-strictness: proximity;
   align-items: stretch;
   -moz-column-gap: 1.25rem;
        column-gap: 1.25rem;
+  overflow-x: auto;
+}
+
+.bx-carousel li {
+  scroll-snap-align: center;
 }
 
 /* Card Square */
@@ -3587,12 +3595,12 @@ code {
   padding-top: 5rem;
 }
 
-.pb-1 {
-  padding-bottom: 0.25rem;
-}
-
 .pt-5 {
   padding-top: 1.25rem;
+}
+
+.pb-1 {
+  padding-bottom: 0.25rem;
 }
 
 .pt-2\.5 {
@@ -3746,16 +3754,16 @@ code {
     padding-right: 2rem;
   }
 
+  .md\:pt-8 {
+    padding-top: 2rem;
+  }
+
   .md\:pb-4 {
     padding-bottom: 1rem;
   }
 
   .md\:pb-5 {
     padding-bottom: 1.25rem;
-  }
-
-  .md\:pt-8 {
-    padding-top: 2rem;
   }
 
   .md\:text-7xl {
