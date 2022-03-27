@@ -38,6 +38,7 @@ export function SiteMeta() {
       <meta name='application-name' content='BOLT UX' />
       <meta name='msapplication-TileColor' content='#2563eb' />
       <meta name='theme-color' content='#f8fafc' />
+      <meta name='naver-site-verification' content='7a408e59ed0578ac277fa7130f830fcde8adef72' />
       <script
         async
         src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1315238860718549'
