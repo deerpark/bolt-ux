@@ -3,7 +3,6 @@ import { Image } from 'react-datocms'
 import { Avatar } from '~/components/Avatar'
 import { Date } from '~/components/Date'
 import { PostsProps } from '~/types'
-import * as Icon from '~/components/Icon'
 
 export { Post, Contents } from '~/components/Posts/Post'
 
@@ -25,12 +24,6 @@ export function Posts({ firstPost, otherPosts, category }: PostsProps) {
                   <div className='bx-post-meta'>
                     <h5 className='bx-post-title'>
                       <span className='bx-post-title-text'>{firstPost.title}</span>
-                      <span className='bx-post-comments-count'>
-                        <Icon.Comments />
-                        <span className='disqus-comment-count' data-disqus-identifier={firstPost.id}>
-                          0
-                        </span>
-                      </span>
                     </h5>
                     <div className='bx-post-desc'>{firstPost.excerpt}</div>
                     <div className='bx-post-desc bx-post-date'>
@@ -59,12 +52,6 @@ export function Posts({ firstPost, otherPosts, category }: PostsProps) {
                     <div className='bx-post-meta'>
                       <h5 className='bx-post-title'>
                         <span className='bx-post-title-text'>{post.title}</span>
-                        <span className='bx-post-comments-count'>
-                          <Icon.Comments />
-                          <span className='disqus-comment-count' data-disqus-identifier={post.id}>
-                            0
-                          </span>
-                        </span>
                       </h5>
                       <div className='bx-post-desc'>{post.excerpt}</div>
                       <div className='bx-post-desc bx-post-date'>

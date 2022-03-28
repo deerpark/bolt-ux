@@ -1,4 +1,3 @@
-import {createRef, useEffect} from 'react'
 import { Link } from 'remix'
 import { StructuredText, Image } from 'react-datocms'
 import { Post as PostType } from '~/types'
@@ -17,11 +16,6 @@ type PostProps = {
 type ContentsProps = {
   data: any,
   children?: any,
-}
-
-const disqusSettings = {
-  src: 'https://bolt-ux.disqus.com/embed.js',
-  'data-timestamp': (+new Date()).toString(),
 }
 
 export function Contents({ data }: ContentsProps) {
@@ -66,45 +60,27 @@ const bxListSize = {
   large: 'bx-list-large',
 }
 
-export function Post({ post, morePosts , outlet, tabId, pathname }: PostProps) {
-  const ref = createRef<HTMLDivElement>()
+export function Post({ post, morePosts , outlet, tabId }: PostProps) {
   const tabs = post?.tabs?.length ? [{
     tabid: post.slug,
     tabname: post.tabhometext || '',
-    url: `/${post.category?.name.toLocaleLowerCase()}/${post.slug}`,
+    url: `/${post.category?.slug}/${post.slug}`,
   }, ...post.tabs.map(tab => {
-    tab.url = `/${post.category?.name.toLocaleLowerCase()}/${post.slug}/${tab.tabid}`
+    tab.url = `/${post.category?.slug}/${post.slug}/${tab.tabid}`
     return tab
   })] : []
-  const toc = [...post.beforecontent.value.document.children.filter((item: any) => item.type === 'heading'),...post.content.value.document.children.filter((item: any) => item.type === 'heading'),...post.aftercontent.value.document.children.filter((item: any) => item.type === 'heading')]
-  useEffect(() => {
-    const disqus = document.createElement('script')
-    Object.entries(disqusSettings).forEach(([key, value]) => {
-      disqus.setAttribute(key, value)
-    })
-    ref?.current?.appendChild(disqus)
-    if (window) {
-      window.disqus_config = function () {
-        const identifier = pathname || `${post.category?.slug} || 'posts'}/${post.slug}`
-        this.page = this.page || {}
-        this.page.url = 'https://www.bolt-ux.com' + identifier
-        this.page.identifier = post.id || identifier 
-        this.page.title = post.title
-        this.page.category_id = post.category?.id || undefined
-      }
-      window.disqus_config()
-    }
-  }, [ref, pathname, post])
+  const tabcontents = tabId && post.tabs?.length ? post.tabs.find(tab => tab.tabid === tabId)?.tabcontents : null
+  const toc = tabcontents ? [...tabcontents.value.document.children.filter((item: any) => item.type === 'heading')] : [...post.beforecontent.value.document.children.filter((item: any) => item.type === 'heading'),...post.content.value.document.children.filter((item: any) => item.type === 'heading'),...post.aftercontent.value.document.children.filter((item: any) => item.type === 'heading')]
   return (
     <div className='bx-sections'>
       <div className='bx-section bx-article'>
         <div className='bx-article-header'>
           {post.beforecontent && <Contents data={post.beforecontent} />}
           {!!post?.tabs?.length && <Tabs currentId={tabId || post.slug} tabs={tabs} />}
-          {!!toc?.length && <div className='bx-toc'><h2 title='Table of Content'><span>목차</span></h2><ul>
-            {toc.map(heading => <li key={heading.children[0].value}>{heading.children[0].value}</li>)}
-          </ul></div>}
         </div>
+        {!!toc?.length && <div className='bx-toc'><h2 title='Table of Content'><span>목차</span></h2><ul>
+          {toc.map(heading => <li key={heading.children[0].value}><span>{heading.children[0].value}</span></li>)}
+        </ul></div>}
         {post.aftercontent && <Contents data={post.aftercontent} />}
         {post.listsize &&
           !!post.listgroup?.length &&
@@ -190,9 +166,6 @@ export function Post({ post, morePosts , outlet, tabId, pathname }: PostProps) {
               </li>
           ))}
         </ul>
-      </section>
-      <section className='bx-section'>
-        <div id="disqus_thread" ref={ref} />
       </section>
     </div>
   )

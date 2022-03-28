@@ -2239,12 +2239,10 @@ code {
   display: flex;
   flex-direction: column;
   row-gap: 0.75rem;
-  border-radius: 0.5rem;
-  border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(241 245 249 / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgb(248 250 252 / var(--tw-bg-opacity));
+  border-bottom-width: 1px;
+  border-style: dashed;
+  border-color: rgb(226 232 240 / var(--tw-border-opacity));
+  --tw-border-opacity: 0.5;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
@@ -2256,30 +2254,13 @@ code {
   }
 
   .bx-toc {
-    --tw-border-opacity: 0.4;
-  }
-
-  .bx-toc {
-    --tw-bg-opacity: 1;
-    background-color: rgb(15 23 42 / var(--tw-bg-opacity));
-  }
-
-  .bx-toc {
-    --tw-bg-opacity: 0.1;
-  }
-}
-
-@media (min-width: 768px) {
-  .bx-toc {
-    margin-bottom: 2rem;
+    --tw-border-opacity: 0.5;
   }
 }
 
 .bx-toc h2 {
   margin-top: 0px !important;
   margin-bottom: 0px !important;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
   font-weight: 700;
   line-height: 1;
   --tw-text-opacity: 1 !important;
@@ -2303,8 +2284,9 @@ code {
   --tw-divide-y-reverse: 0;
   border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
   border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+  border-style: dashed;
   --tw-divide-opacity: 1;
-  border-color: rgb(241 245 249 / var(--tw-divide-opacity));
+  border-color: rgb(248 250 252 / var(--tw-divide-opacity));
 }
 
 @media (prefers-color-scheme: dark) {
@@ -2314,21 +2296,33 @@ code {
   }
 
   .bx-toc ul > :not([hidden]) ~ :not([hidden]) {
-    --tw-divide-opacity: 0.4;
+    --tw-divide-opacity: 0.2;
   }
 }
 
 .bx-toc li {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 0.625rem;
+       column-gap: 0.625rem;
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
   font-size: 0.75rem;
   line-height: 1rem;
+  font-weight: 700;
+}
+
+.bx-toc li span {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
+}
+
+.bx-toc li::before {
+  content: '•';
+  margin-left: 0.25rem;
+  font-size: 11px;
 }
 
 /* Tabs */
