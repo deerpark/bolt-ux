@@ -423,7 +423,7 @@
     display: none;
   }
   .bx-tabs a {
-    @apply snap-center relative h-10 px-4 flex items-center text-slate-500 font-semibold text-sm whitespace-nowrap;
+    @apply snap-start relative h-10 px-4 flex items-center text-slate-500 font-semibold text-sm whitespace-nowrap;
   }
   .bx-tabs a span {
     @apply transform transition-all;
@@ -596,7 +596,7 @@
     @apply flex items-stretch gap-x-5 snap-proximity snap-x overflow-x-auto;
   }
   .bx-carousel li {
-    @apply snap-center;
+    @apply snap-start;
   }
   /* Card Square */
   .bx-card-sqaure {

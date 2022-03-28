@@ -2388,7 +2388,7 @@ code {
   position: relative;
   display: flex;
   height: 2.5rem;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   align-items: center;
   white-space: nowrap;
   padding-left: 1rem;
@@ -3137,7 +3137,7 @@ code {
 }
 
 .bx-carousel li {
-  scroll-snap-align: center;
+  scroll-snap-align: start;
 }
 
 /* Card Square */
@@ -3567,14 +3567,14 @@ code {
   }
 }
 
-.mx-5 {
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
-}
-
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
+}
+
+.mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
 }
 
 .mb-5 {
