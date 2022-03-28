@@ -393,6 +393,19 @@
   .bx-tag:hover {
     @apply fill-slate-600 dark:fill-slate-400;
   }
+  /* ToC */
+  .bx-toc {
+    @apply mb-5 md:mb-8 flex flex-col gap-y-3 py-3 border rounded-lg border-slate-100 dark:border-slate-900 dark:border-opacity-40 bg-slate-50 dark:bg-slate-900 dark:bg-opacity-10;
+  }
+  .bx-toc h2 {
+    @apply text-2xs font-bold !mt-0 !mb-0 px-5 !text-slate-300 dark:!text-slate-600 leading-none;
+  }
+  .bx-toc ul {
+    @apply flex flex-col divide-y divide-slate-100 dark:divide-slate-900 dark:divide-opacity-40;
+  }
+  .bx-toc li {
+    @apply text-xs px-5 py-3 line-clamp-1;
+  }
   /* Tabs */
   .bx-tabs {
     -ms-overflow-style: none;

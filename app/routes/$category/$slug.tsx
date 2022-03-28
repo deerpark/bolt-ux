@@ -41,7 +41,7 @@ export default function Category() {
   const prevRoute = usePrevRoute(pathname)
 
   const {
-    data: { post },
+    data: { post, morePosts },
   } = useQuerySubscription(datoQuerySubscription)
 
   const paths = pathname ? pathname.split('/') : [null]
@@ -67,7 +67,7 @@ export default function Category() {
   return (
     <Layout {...props}>
       {post ? (
-        <Post {...{ post, outlet, tabId, pathname }} />
+        <Post {...{ post, outlet, tabId, pathname, morePosts }} />
       ) : (
         <div className='bx-error'>
           <h1>페이지를 찾을 수 없습니다.</h1>

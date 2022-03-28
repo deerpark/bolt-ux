@@ -66,7 +66,7 @@ const bxListSize = {
   large: 'bx-list-large',
 }
 
-export function Post({ post /* , morePosts  */, outlet, tabId, pathname }: PostProps) {
+export function Post({ post, morePosts , outlet, tabId, pathname }: PostProps) {
   const ref = createRef<HTMLDivElement>()
   const tabs = post?.tabs?.length ? [{
     tabid: post.slug,
@@ -76,6 +76,7 @@ export function Post({ post /* , morePosts  */, outlet, tabId, pathname }: PostP
     tab.url = `/${post.category?.name.toLocaleLowerCase()}/${post.slug}/${tab.tabid}`
     return tab
   })] : []
+  const toc = [...post.beforecontent.value.document.children.filter((item: any) => item.type === 'heading'),...post.content.value.document.children.filter((item: any) => item.type === 'heading'),...post.aftercontent.value.document.children.filter((item: any) => item.type === 'heading')]
   useEffect(() => {
     const disqus = document.createElement('script')
     Object.entries(disqusSettings).forEach(([key, value]) => {
@@ -95,14 +96,17 @@ export function Post({ post /* , morePosts  */, outlet, tabId, pathname }: PostP
     }
   }, [ref, pathname, post])
   return (
-    <>
-      <div className='bx-article'>
+    <div className='bx-sections'>
+      <div className='bx-section bx-article'>
         <div className='bx-article-header'>
-          {!!post.beforecontent && <Contents data={post.beforecontent} />}
+          {post.beforecontent && <Contents data={post.beforecontent} />}
           {!!post?.tabs?.length && <Tabs currentId={tabId || post.slug} tabs={tabs} />}
+          {!!toc?.length && <div className='bx-toc'><h2 title='Table of Content'><span>목차</span></h2><ul>
+            {toc.map(heading => <li key={heading.children[0].value}>{heading.children[0].value}</li>)}
+          </ul></div>}
         </div>
-        {!!post.aftercontent && <Contents data={post.aftercontent} />}
-        {!!post.listsize &&
+        {post.aftercontent && <Contents data={post.aftercontent} />}
+        {post.listsize &&
           !!post.listgroup?.length &&
           post.listgroup.map(group => (
             <div key={group.title} className=''>
@@ -144,7 +148,7 @@ export function Post({ post /* , morePosts  */, outlet, tabId, pathname }: PostP
             </div>
           ))}
         <div className='bx-article-body'>
-          {tabId === post.slug ? !!post.content && <Contents data={post.content} /> : outlet}
+          {tabId === post.slug ? post.content && <Contents data={post.content} /> : outlet}
         </div>
         <div className='bx-article-footer'>
           {post.tags && (
@@ -159,25 +163,37 @@ export function Post({ post /* , morePosts  */, outlet, tabId, pathname }: PostP
           )}
         </div>
       </div>
-      {/* <section className='section'>
-        <div className='section__title'>More posts</div>
-        <ul className='grid'>
-          {morePosts.map((post: any) => (
-            <li key={post.slug} className='grid__item'>
-              <Link to={`/posts/${post.slug}`} className='grid__link'>
-                <div>
-                  <Image className='grid__image' data={post.coverImage.responsiveImage} />
-                  <p className='grid__title'>{post.title}</p>
-                  <Date dateString={post.date} />
-                  <p className='date'>{post.excerpt}</p>
-                  <Avatar name={post.author.name} picture={post.author.picture} />
-                </div>
-              </Link>
-            </li>
+      <section className='bx-section'>
+        <h5 className='bx-h5 mx-5 md:mx-8'>More posts</h5>
+        <ul>
+          {morePosts && !!morePosts.length && morePosts.map((post: any) => (
+            <li className='bx-post bx-other-post' key={post.slug}>
+                <Link className='bx-post-link' to={`/${post.category?.slug || 'posts'}/${post.slug}`}>
+                  <div className='bx-post-thumb'>
+                    <Image className='bx-thumbnail' data={post.coverImage.responsiveImage} />
+                  </div>
+                  <div className='bx-post-info'>
+                    <div className='bx-post-meta'>
+                      <h5 className='bx-post-title'>
+                        <span className='bx-post-title-text'>{post.title}</span>
+                        <span className='bx-post-comments-count'>
+                          <Icon.Comments />
+                          <span className='disqus-comment-count' data-disqus-identifier={post.id}>
+                            0
+                          </span>
+                        </span>
+                      </h5>
+                      <div className='bx-post-desc'>{post.excerpt}</div>
+                    </div>
+                  </div>
+                </Link>
+              </li>
           ))}
         </ul>
-      </section> */}
-      <div id="disqus_thread" ref={ref} />
-    </>
+      </section>
+      <section className='bx-section'>
+        <div id="disqus_thread" ref={ref} />
+      </section>
+    </div>
   )
 }
