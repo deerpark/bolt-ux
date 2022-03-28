@@ -30,6 +30,10 @@ export function SiteMeta() {
   return (
     <>
       <meta charSet='utf-8' />
+      <meta
+        name='keyword'
+        content='홈페이지, 제작, 웹사이트, BOLT UX, BOLT UI, 프론트엔드, 개발, 디자인, 웹디자인, 싱글페이지, 이벤트 페이지, 브랜드 가이드, 앱디자인, UX, UX 엔지니어, FrontEnd, Developer, Website'
+      />
       <meta name='viewport' content='width=device-width,initial-scale=1' />
       <link rel='manifest' href='/site.webmanifest?v=20220313' />
       <link rel='mask-icon' href='/images/safari-pinned-tab.svg?v=20220313' color='#2563eb' />
