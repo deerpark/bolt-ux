@@ -123,6 +123,10 @@ export const post = `
           url(imgixParams: {fm: jpg, fit: crop, w: 100, h: 100, sat: -100})
         }
       }
+      category {
+        name
+        slug
+      }
     }
   }
   ${responsiveImageFragment}
