@@ -70,7 +70,7 @@ export function Post({ post, morePosts , outlet, tabId }: PostProps) {
     return tab
   })] : []
   const tabcontents = tabId && post.tabs?.length ? post.tabs.find(tab => tab.tabid === tabId)?.tabcontents : null
-  const toc = tabcontents ? [...tabcontents.value.document.children.filter((item: any) => item.type === 'heading')] : [...post.beforecontent.value.document.children.filter((item: any) => item.type === 'heading'),...post.content.value.document.children.filter((item: any) => item.type === 'heading'),...post.aftercontent.value.document.children.filter((item: any) => item.type === 'heading')]
+  const toc = tabcontents ? [...tabcontents.value.document.children.filter((item: any) => item.type === 'heading')] : [...post.beforecontent.value.document.children.filter((item: any) => item.type === 'heading'),...post.aftercontent.value.document.children.filter((item: any) => item.type === 'heading'),...post.content.value.document.children.filter((item: any) => item.type === 'heading')]
   return (
     <div className='bx-sections'>
       <div className='bx-section bx-article'>
