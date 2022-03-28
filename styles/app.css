@@ -632,7 +632,7 @@
   }
   /* Prose */
   .prose-sm * {
-    @apply subpixel-antialiased;
+    @apply subpixel-antialiased text-slate-500;
   }
   .prose-sm h1 {
     @apply text-slate-800 dark:text-slate-50 font-thin mt-14 first:mt-10 mb-5 md:mt-24 md:first:mt-16 md:mb-8;
