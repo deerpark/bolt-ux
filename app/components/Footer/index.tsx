@@ -2,9 +2,13 @@ import { Link } from 'remix'
 import { handleClickChatChannel } from '~/lib/kakao'
 import * as Icon from '~/components/Icon'
 
-export function Footer() {
+type FooterProps = {
+  className?: string,
+}
+
+export function Footer({ className }: FooterProps) {
   return (
-    <div className='bx-footer'>
+    <div className={`bx-footer ${className}`}>
       <div className='bx-footer-logo'>
         <Link to='/'>
           <Icon.Logo />

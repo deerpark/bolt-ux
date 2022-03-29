@@ -27,10 +27,7 @@ export function Hero({ heroString = [['', '']], desc, links, isRoot }: HeroProps
         <div className='bx-hero-promotion'>
           <div className='bx-hero-heading'>
             {heroString.map(heading => (
-              <div
-                key={heading[0]}
-                className='inline-flex gap-x-0.5 text-2xl leading-tight text-slate-600 dark:text-slate-300 even:ml-5'
-              >
+              <div key={heading[0]} className='bx-hero-heading-text'>
                 <span className='font-black'>{heading[0]}</span>
                 <span className='font-thin'>{heading[1]}</span>
               </div>

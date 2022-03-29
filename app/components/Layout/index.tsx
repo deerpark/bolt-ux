@@ -190,9 +190,7 @@ export function RootLayout({ isRoot, children, pathname, sidebar, categories }: 
             ]}
           />
           <Nav {...{ routes: newRoutes || routes, pathname }} />
-          <div className={`${isRoot ? 'px-3 md:px-0' : ''}`}>
-            <Footer />
-          </div>
+          <Footer />
           {!isRoot && (
             <button className='bx-collapse-button' type='button' onClick={handleToggleCollapse}>
               {collapse ? <Icons.LeftToLineSolid /> : <Icons.RightToLineSolid />}

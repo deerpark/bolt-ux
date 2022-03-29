@@ -46,7 +46,7 @@
 
 @layer base {
   body {
-    @apply min-h-screen text-slate-400 dark:text-slate-500 bg-white md:bg-slate-50 dark:bg-slate-700 dark:md:bg-[#121B2C];
+    @apply min-h-screen text-slate-400 dark:text-slate-500 bg-white md:bg-slate-50 dark:bg-black md:dark:bg-black;
   }
   code {
     @apply break-words;
@@ -59,7 +59,7 @@
     @apply max-w-full relative flex flex-col justify-center min-h-screen mx-auto md:flex-row md:items-stretch;
   }
   .bx-page {
-    @apply relative w-full grow md:min-w-80 md:max-w-162 flex flex-col gap-y-5 md:pb-12 md:gap-y-8 bg-white dark:bg-[#182436] md:border-r md:border-slate-100 dark:md:border-slate-900 dark:md:border-opacity-40 md:border-l transition-all;
+    @apply relative w-full grow md:min-w-80 md:max-w-162 flex flex-col gap-y-5 md:pb-12 md:gap-y-8 bg-white dark:bg-black md:border-r md:border-slate-100 dark:md:border-slate-900 dark:md:border-opacity-40 md:border-l transition-all;
   }
   .bx-page + .bx-page {
     @apply border-l-0;
@@ -71,7 +71,7 @@
     @apply flex flex-col items-center gap-y-16 md:gap-y-10;
   }
   .bx-page-root {
-    @apply z-10 md:max-w-80 bg-slate-50 dark:bg-slate-800 md:pb-0;
+    @apply z-10 md:max-w-80 bg-slate-50 dark:bg-slate-900/30 md:pb-0;
   }
   /* Contents */
   .bx-contents {
@@ -87,7 +87,7 @@
     @apply px-5 md:px-8 pb-5 md:pb-8;
   }
   .bx-contents-row-bg {
-    @apply bg-slate-50 bg-opacity-60 dark:bg-gray-900 dark:bg-opacity-30;
+    @apply bg-slate-50 bg-opacity-60 dark:bg-slate-900/20;
   }
   .bx-contents-row-extend {
     @apply px-0;
@@ -111,7 +111,7 @@
   }
   /* Mobile Nav */
   .bx-mobile-nav {
-    @apply fixed inset-0 bottom-auto z-40 flex-between md:hidden h-16 px-5 border-b border-slate-400 border-opacity-10 dark:border-black dark:border-opacity-20 backdrop-blur-sm bg-slate-50/50 dark:bg-slate-700/50 shadow-lg shadow-slate-700/5 dark:shadow-black/10;
+    @apply fixed inset-0 bottom-auto z-40 flex-between md:hidden h-16 px-5 border-b border-slate-400 border-opacity-10 dark:border-slate-900/50 dark:border-opacity-20 backdrop-blur-sm bg-slate-50/50 dark:bg-black/70 shadow-lg shadow-slate-900/30 dark:shadow-black/20;
   }
   .bx-mobile-home,
   .bx-mobile-settings {
@@ -151,7 +151,7 @@
     @apply mt-1 text-[9px] opacity-50;
   }
   .bx-header-icon {
-    @apply w-12 h-12 hidden flex-none md:flex justify-center items-center rounded-2xl bg-slate-100 dark:bg-slate-800;
+    @apply w-12 h-12 hidden flex-none md:flex justify-center items-center rounded-2xl bg-slate-100 dark:bg-slate-900/30;
   }
   .bx-cover ~ .bx-header-content .bx-header-icon {
     @apply flex;
@@ -177,7 +177,7 @@
     @apply pt-5 md:pt-7 flex-none flex flex-col items-center;
   }
   .bx-hero-promotion {
-    @apply w-64 h-[216px] overflow-hidden;
+    @apply pb-10 flex flex-col items-center overflow-hidden;
   }
   .bx-logo {
     @apply w-full px-5 md:px-8 py-16 md:py-8 flex items-center justify-center md:pb-4;
@@ -211,6 +211,9 @@
   .bx-hero-heading {
     @apply flex flex-col items-center;
   }
+  .bx-hero-heading-text {
+    @apply inline-flex gap-x-0.5 text-2xl leading-tight text-slate-600 dark:text-slate-500 even:ml-5;
+  }
   .bx-hero-desc {
     @apply inline-flex max-w-[200px] text-xs mt-3 text-center;
   }
@@ -231,7 +234,7 @@
   }
   /* Footer */
   .bx-footer {
-    @apply w-full flex flex-col grow gap-y-5 px-5 md:px-8 py-12 bg-slate-50 dark:bg-slate-800 text-slate-300 hover:text-slate-400 dark:text-slate-600 dark:hover:text-slate-500 border-t border-slate-100 dark:border-slate-800;
+    @apply w-full flex flex-col flex-none gap-y-5 px-8 py-12 bg-slate-50 dark:bg-slate-900/10 text-slate-300 hover:text-slate-400 dark:text-slate-600 dark:hover:text-slate-500 border-t border-slate-100 dark:border-slate-900/50;
   }
   .bx-footer-logo {
     @apply flex items-center;
@@ -474,14 +477,14 @@
     @apply -mx-5 md:-mx-8 mb-5 md:mb-8;
   }
   .bx-contents-row-bg .bx-list {
-    @apply divide-slate-200 dark:divide-slate-900 dark:divide-opacity-50;
+    @apply divide-slate-200 dark:divide-slate-900/50;
   }
   .bx-contents-row-extend .bx-list {
     @apply mx-0;
   }
   /* Section */
   .bx-sections {
-    @apply divide-y-[10px] divide-slate-50 dark:divide-slate-900 dark:divide-opacity-70;
+    @apply divide-y-[10px] divide-transparent;
   }
   .bx-sections .bx-section {
     @apply first:pt-0 flex flex-col;
@@ -547,13 +550,13 @@
     @apply px-5 md:px-8 rounded-none;
   }
   .bx-list-even .bx-contents-card:nth-of-type(even) {
-    @apply bg-slate-50 dark:bg-gray-900 dark:bg-opacity-50;
+    @apply bg-slate-50 dark:bg-slate-900/50;
   }
   .bx-list-odd .bx-contents-card:nth-of-type(odd) {
-    @apply bg-slate-50 dark:bg-gray-900 dark:bg-opacity-50;
+    @apply bg-slate-50 dark:bg-slate-900/50;
   }
   .bx-contents-card-thumbnail {
-    @apply w-1/4 md:w-1/5 flex-none flex items-center justify-center;
+    @apply w-1/4 md:w-1/5 lg:w-1/6 flex-none flex items-center justify-center;
   }
   .bx-list-small .bx-contents-card-thumbnail {
     @apply w-1/6 md:w-[12%];
@@ -568,7 +571,7 @@
     @apply aspect-square rounded-2xl;
   }
   .bx-contents-card-icon {
-    @apply aspect-square w-full flex items-center justify-center rounded-2xl bg-slate-50 dark:bg-gray-900 dark:bg-opacity-50 font-thin text-5xl;
+    @apply aspect-square w-full flex items-center justify-center rounded-2xl bg-slate-50 dark:bg-slate-900/50 font-thin text-5xl;
   }
   .bx-contents-card-icon > svg {
     @apply aspect-square w-3/5;
@@ -733,13 +736,16 @@
     @apply inline-block px-1 bg-slate-100 dark:bg-slate-900 rounded;
   }
   .prose-sm pre {
-    @apply bg-slate-100 dark:bg-slate-900 rounded;
+    @apply bg-slate-100 dark:bg-slate-900/30 rounded;
+  }
+  .prose-sm pre code {
+    @apply bg-transparent;
   }
   .prose-sm hr {
     @apply border-slate-100 border-0 border-b dark:border-slate-900 dark:border-opacity-30 border-dashed;
   }
   .bx-collapse-button {
-    @apply hidden w-8 h-8 md:flex items-center justify-center transform transition-all absolute top-40 -left-4 border border-slate-200/70 dark:border-black/20 rounded-full bg-white dark:bg-slate-900 shadow-xl shadow-slate-300/50 dark:shadow-black/50 hover:bg-slate-50 dark:hover:bg-black hover:scale-110 active:scale-100 focus:scale-100 active:shadow-none focus:shadow-none;
+    @apply hidden w-8 h-8 md:flex items-center justify-center transform transition-all absolute top-40 -left-4 border border-slate-200/70 dark:border-black rounded-full bg-white dark:bg-slate-800 shadow-xl shadow-slate-300/50 dark:shadow-black/50 hover:bg-slate-50 dark:hover:bg-slate-900 hover:scale-110 active:scale-100 focus:scale-100 active:shadow-none focus:shadow-none;
   }
   .bx-collapse-button svg {
     @apply w-4 h-4 fill-slate-500 dark:fill-slate-300;
@@ -748,7 +754,7 @@
     @apply md:max-w-200;
   }
   .bx-collapse .bx-page-root {
-    @apply md:max-w-24 min-w-0 bg-white dark:bg-[#182436];
+    @apply md:max-w-24 min-w-0 bg-white dark:bg-black;
   }
   .bx-collapse .bx-logo {
     @apply px-0 md:px-0 flex items-center justify-center;
@@ -791,7 +797,7 @@
     @apply transform delay-100 translate-x-2 opacity-0 transition-all;
   }
   .bx-collapse .bx-footer {
-    @apply px-0 bg-white dark:bg-[#182436];
+    @apply px-0 bg-white dark:bg-black;
   }
   .bx-collapse .bx-footer-logo {
     @apply justify-center;
