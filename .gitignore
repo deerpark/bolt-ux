@@ -112,4 +112,4 @@ dist
 /public/build
 *.DS_Store
 api/
-app/style/app.css
+app/styles/app.css
