@@ -155,7 +155,7 @@ export function RootLayout({ isRoot, children, pathname, sidebar, categories }: 
     [isRoot]
   )
   const [settings, setSettings] = useState(InitialSettings)
-  const collapse = settings?.collapse || false
+  const collapse = settings?.collapse !== false ? true : false
   const handleToggleCollapse = useCallback(() => {
     const tempSettings = { collapse: !settings?.collapse }
     setSettings(tempSettings)
