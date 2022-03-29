@@ -27,6 +27,9 @@
   .min-w-80 {
     min-width: 320px;
   }
+  .max-w-24 {
+    max-width: 94px;
+  }
   .max-w-80 {
     max-width: 320px;
   }
@@ -56,7 +59,7 @@
     @apply max-w-full relative flex flex-col justify-center min-h-screen mx-auto md:flex-row md:items-stretch;
   }
   .bx-page {
-    @apply w-full grow md:min-w-80 md:max-w-162 flex flex-col gap-y-5 md:pb-12 md:gap-y-8 bg-white dark:bg-[#182436] md:border-r md:border-slate-100 dark:md:border-slate-900 dark:md:border-opacity-40 md:border-l;
+    @apply relative w-full grow md:min-w-80 md:max-w-162 flex flex-col gap-y-5 md:pb-12 md:gap-y-8 bg-white dark:bg-[#182436] md:border-r md:border-slate-100 dark:md:border-slate-900 dark:md:border-opacity-40 md:border-l transition-all;
   }
   .bx-page + .bx-page {
     @apply border-l-0;
@@ -68,7 +71,7 @@
     @apply flex flex-col items-center gap-y-16 md:gap-y-10;
   }
   .bx-page-root {
-    @apply md:max-w-80 bg-slate-50 dark:bg-slate-800 md:pb-0;
+    @apply z-10 md:max-w-80 bg-slate-50 dark:bg-slate-800 md:pb-0;
   }
   /* Contents */
   .bx-contents {
@@ -173,24 +176,43 @@
   .bx-hero {
     @apply pt-5 md:pt-7 flex-none flex flex-col items-center;
   }
-  .bx-hero-logo {
-    @apply w-full px-5 md:px-8 py-16 md:py-8 flex items-center;
+  .bx-hero-promotion {
+    @apply w-64 h-[216px] overflow-hidden;
   }
-  .bx-hero-logo a {
-    @apply inline transition-all hover:transform hover:scale-110 focus:scale-100 active:scale-100;
+  .bx-logo {
+    @apply w-full px-5 md:px-8 py-16 md:py-8 flex items-center justify-center md:pb-4;
   }
-  .bx-hero-logo .bx-logo-primary {
+  .bx-logo-root {
+    @apply justify-center;
+  }
+  .bx-logo a {
+    @apply p-4 md:p-0 md:py-10 inline transition-all hover:transform hover:scale-110 focus:scale-100 active:scale-100;
+  }
+  .bx-logo-root a {
+    @apply md:p-4 md:py-4;
+  }
+  .bx-logo-compact {
+    @apply hidden;
+  }
+  .bx-logo .bx-logo-primary {
     @apply fill-blue-600 dark:fill-yellow-400;
   }
-  .bx-hero-logo .bx-logo-secondary {
+  .bx-logo .bx-logo-secondary {
     @apply fill-slate-400 dark:fill-blue-600 dark:opacity-100;
   }
-  .bx-hero-logo a:hover .bx-logo-primary {
+  .bx-logo a:hover .bx-logo-primary {
     fill: #F8BF0F;
     @apply dark:fill-slate-300;
   }
-  .bx-hero-logo a:hover .bx-logo-secondary {
+  .bx-logo a:hover .bx-logo-secondary {
     @apply fill-blue-600 dark:fill-slate-300;
+  }
+  /* Hero */
+  .bx-hero-heading {
+    @apply flex flex-col items-center;
+  }
+  .bx-hero-desc {
+    @apply inline-flex max-w-[200px] text-xs mt-3 text-center;
   }
   .bx-hero-links {
     @apply w-full px-8 mt-10 mb-8;
@@ -716,8 +738,67 @@
   .prose-sm hr {
     @apply border-slate-100 border-0 border-b dark:border-slate-900 dark:border-opacity-30 border-dashed;
   }
-  #disqus_thread {
-    @apply mx-5 md:mx-8;
+  .bx-collapse-button {
+    @apply hidden w-8 h-8 md:flex items-center justify-center transform transition-all absolute top-40 -left-4 border border-slate-200/70 dark:border-black/30 rounded-full bg-white dark:bg-black shadow-xl shadow-slate-300/50 dark:shadow-black/50 hover:bg-slate-50 dark:hover:bg-slate-900 hover:scale-110 active:scale-100 focus:scale-100 active:shadow-none focus:shadow-none;
+  }
+  .bx-collapse-button svg {
+    @apply w-4 h-4 fill-slate-500 dark:fill-slate-300;
+  }
+  .bx-collapse .bx-page {
+    @apply md:max-w-200;
+  }
+  .bx-collapse .bx-page-root {
+    @apply md:max-w-24 min-w-0;
+  }
+  .bx-collapse .bx-logo {
+    @apply px-0 md:px-0 flex items-center justify-center;
+  }
+  .bx-collapse .bx-logo a {
+    @apply md:px-0;
+  }
+  .bx-collapse .bx-logo-default {
+    @apply hidden;
+  }
+  .bx-collapse .bx-logo-compact {
+    @apply inline-block;
+  }
+  .bx-collapse .bx-logo-compact svg {
+    @apply w-8 h-8 fill-blue-600;
+  }
+  .bx-collapse .bx-hero-promotion {
+    @apply w-0 h-0 overflow-hidden transition-all;
+  }
+  .bx-collapse .bx-nav-category {
+    @apply px-1 truncate text-center;
+  }
+  .bx-collapse .bx-nav-item {
+    @apply flex-nowrap relative;
+  }
+  .bx-collapse .bx-nav-item .bx-nav-label {
+    @apply transform translate-x-2 transition-all;
+  }
+  .bx-collapse .bx-nav-item .bx-nav-name {
+    @apply absolute top-1/2 rounded-sm leading-none opacity-0 pointer-events-none transform -translate-y-1/2 translate-x-0 whitespace-nowrap;
+  }
+  .bx-collapse .bx-nav-item:hover .bx-nav-name {
+    transition-property: transform, opacity;
+    @apply opacity-100 -translate-x-1 p-1 text-2xs bg-slate-700 dark:bg-slate-300 text-white dark:text-slate-700;
+  }
+  .bx-collapse .bx-nav-item .bx-nav-desc {
+    @apply line-clamp-1 opacity-0 transition-all;
+  }
+  .bx-collapse .bx-nav-item .bx-nav-arrow {
+    @apply transform delay-100 translate-x-2 opacity-0 transition-all;
+  }
+  .bx-collapse .bx-footer {
+    @apply px-0;
+  }
+  .bx-collapse .bx-footer-logo {
+    @apply justify-center;
+  }
+  .bx-collapse .bx-footer-contact,
+  .bx-collapse .bx-footer-sns {
+    @apply w-0 h-0 overflow-hidden transition-all;
   }
 }
 

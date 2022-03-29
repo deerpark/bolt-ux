@@ -4,6 +4,10 @@ export type Params = {
   category: CategorySlug,
 }
 
+export type Settings = {
+  collapse: boolean
+}
+
 export type Author = {
   name: string,
   picture: {

@@ -1,10 +1,11 @@
-import { ReactElement } from 'react'
+import { useState, useEffect, ReactElement, useMemo } from 'react'
 import { Route, heroString, routes } from '~/lib/config'
 import { Nav } from 'bolt-ui'
 import { Header } from '~/components/Header'
 import { Hero } from '~/components/Hero'
 import { Footer } from '~/components/Footer'
 import { Banner, Promotion } from '~/components/Banner'
+import * as Icons from '~/components/Icon'
 
 type LayoutProps = Route & {
   children: ReactElement | ReactElement[],
@@ -146,14 +147,32 @@ export function Layout({
 }
 
 export function RootLayout({ isRoot, children, pathname, sidebar, categories }: RootLayoutProps) {
+  const InitialSettings = useMemo(
+    () => ({
+      collapse: !isRoot,
+    }),
+    [isRoot]
+  )
+  const [{ collapse }, setSettings] = useState(InitialSettings)
+  const handleToggleCollapse = () => {
+    const settings = { collapse: !collapse }
+    setSettings(settings)
+    if (window?.localStorage) localStorage.setItem('settings', JSON.stringify(settings))
+  }
   let newRoutes
   if (categories) {
     const [_, r2, ..._2] = routes
     r2.children = categories
     newRoutes = [_, r2, ..._2]
   }
+  useEffect(() => {
+    const initialCollapse = window?.localStorage
+      ? JSON.parse(localStorage.getItem('settings') || 'null')
+      : InitialSettings
+    setSettings(initialCollapse)
+  }, [InitialSettings])
   return (
-    <div className='bx-container'>
+    <div className={`bx-container ${collapse && !isRoot ? 'bx-collapse' : ''}`}>
       {sidebar && (
         <section className={`bx-page bx-page-root ${isRoot ? '' : 'hidden md:flex'}`}>
           <Hero
@@ -172,6 +191,11 @@ export function RootLayout({ isRoot, children, pathname, sidebar, categories }: 
           <div className={`${isRoot ? 'px-3 md:px-0' : ''}`}>
             <Footer />
           </div>
+          {!isRoot && (
+            <button className='bx-collapse-button' type='button' onClick={handleToggleCollapse}>
+              {collapse ? <Icons.LeftToLineSolid /> : <Icons.RightToLineSolid />}
+            </button>
+          )}
         </section>
       )}
       {children}

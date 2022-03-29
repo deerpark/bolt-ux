@@ -13,14 +13,19 @@ type HeroProps = {
 export function Hero({ heroString = [['', '']], desc, links, isRoot }: HeroProps) {
   return (
     <div className='bx-hero'>
-      <div className={`bx-hero-logo ${isRoot ? 'justify-center' : 'justify-center md:pb-4'}`}>
-        <Link className={`p-4 ${isRoot ? '' : 'md:p-0 md:py-10'}`} to='/'>
-          <Icon.Logo />
+      <div className={`bx-logo ${isRoot ? 'bx-logo-root' : ''}`}>
+        <Link to='/'>
+          <span className='bx-logo-default'>
+            <Icon.Logo />
+          </span>
+          <span className='bx-logo-compact'>
+            <Icon.BulletSolid />
+          </span>
         </Link>
       </div>
       {isRoot && (
-        <>
-          <div className='flex flex-col items-center'>
+        <div className='bx-hero-promotion'>
+          <div className='bx-hero-heading'>
             {heroString.map(heading => (
               <div
                 key={heading[0]}
@@ -31,7 +36,7 @@ export function Hero({ heroString = [['', '']], desc, links, isRoot }: HeroProps
               </div>
             ))}
           </div>
-          {desc && <div className='inline-flex max-w-[200px] text-xs mt-3 text-center'>{desc}</div>}
+          {desc && <div className='bx-hero-desc'>{desc}</div>}
           {links && (
             <div className='bx-hero-links'>
               <ButtonGroup className='flex'>
@@ -49,7 +54,7 @@ export function Hero({ heroString = [['', '']], desc, links, isRoot }: HeroProps
               </ButtonGroup>
             </div>
           )}
-        </>
+        </div>
       )}
     </div>
   )
