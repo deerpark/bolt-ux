@@ -5,7 +5,7 @@ export type Params = {
 }
 
 export type Settings = {
-  collapse: boolean
+  collapse?: boolean
 }
 
 export type Author = {

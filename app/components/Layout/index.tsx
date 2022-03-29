@@ -1,6 +1,7 @@
-import { useState, useEffect, ReactElement, useMemo } from 'react'
+import { useState, useEffect, ReactElement, useCallback, useMemo } from 'react'
 import { Route, heroString, routes } from '~/lib/config'
 import { Nav } from 'bolt-ui'
+import { Settings } from '~/types'
 import { Header } from '~/components/Header'
 import { Hero } from '~/components/Hero'
 import { Footer } from '~/components/Footer'
@@ -147,18 +148,19 @@ export function Layout({
 }
 
 export function RootLayout({ isRoot, children, pathname, sidebar, categories }: RootLayoutProps) {
-  const InitialSettings = useMemo(
+  const InitialSettings: Settings = useMemo(
     () => ({
       collapse: !isRoot,
     }),
     [isRoot]
   )
-  const [{ collapse }, setSettings] = useState(InitialSettings)
-  const handleToggleCollapse = () => {
-    const settings = { collapse: !collapse }
-    setSettings(settings)
-    if (window?.localStorage) localStorage.setItem('settings', JSON.stringify(settings))
-  }
+  const [settings, setSettings] = useState(InitialSettings)
+  const collapse = settings?.collapse || false
+  const handleToggleCollapse = useCallback(() => {
+    const tempSettings = { collapse: !settings?.collapse }
+    setSettings(tempSettings)
+    if (window?.localStorage) localStorage.setItem('settings', JSON.stringify(tempSettings))
+  }, [settings])
   let newRoutes
   if (categories) {
     const [_, r2, ..._2] = routes
