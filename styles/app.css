@@ -142,7 +142,7 @@
     @apply flex grow flex-col gap-y-0.5;
   }
   .bx-header-title {
-    @apply grow flex items-center gap-x-3 text-xl font-black text-slate-700 dark:text-slate-300 leading-[1.1];
+    @apply grow flex items-center gap-x-3 text-xl font-black text-slate-700 dark:text-slate-400 leading-[1.1];
   }
   .bx-header-desc {
     @apply text-2xs text-slate-400 dark:text-slate-500;
@@ -177,7 +177,7 @@
     @apply pt-5 md:pt-7 flex-none flex flex-col items-center;
   }
   .bx-hero-promotion {
-    @apply pb-10 flex flex-col items-center overflow-hidden;
+    @apply w-full pb-10 px-8 flex flex-col items-center overflow-hidden;
   }
   .bx-logo {
     @apply w-full px-5 md:px-8 py-16 md:py-8 flex items-center justify-center md:pb-4;
@@ -344,7 +344,7 @@
     @apply flex items-center gap-x-2;
   }
   .bx-post-title .bx-post-title-text {
-    @apply line-clamp-1 leading-tight text-slate-600 dark:text-slate-400 text-base font-bold;
+    @apply line-clamp-1 leading-tight text-slate-500 text-base font-bold;
   }
   .bx-post-comments-count {
     @apply flex items-end gap-x-1;
@@ -362,13 +362,13 @@
     @apply flex items-center text-[9px] leading-none font-bold rounded text-blue-600 dark:text-blue-500;
   }
   .bx-post-desc {
-    @apply line-clamp-3 text-slate-400 dark:text-slate-600 text-xs break-words;
+    @apply line-clamp-3 text-slate-400 dark:text-slate-700 text-xs break-words;
   }
   .bx-post-date {
     @apply mt-1 text-[9px] opacity-75;
   }
   .bx-post-avatar {
-    @apply w-12 h-12 hidden flex-none md:flex justify-center items-center rounded-2xl bg-slate-100 dark:bg-slate-800;
+    @apply w-12 h-12 hidden flex-none md:flex justify-center items-center rounded-2xl bg-slate-100 dark:bg-slate-900/50;
   }
   .bx-other-post {
     @apply mt-0;
@@ -736,7 +736,7 @@
     @apply inline-block px-1 bg-slate-100 dark:bg-slate-900 rounded;
   }
   .prose-sm pre {
-    @apply bg-slate-100 dark:bg-slate-900/30 rounded;
+    @apply bg-slate-100 dark:bg-slate-900/40 rounded;
   }
   .prose-sm pre code {
     @apply bg-transparent;
