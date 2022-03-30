@@ -15,7 +15,7 @@ export function Promotions({promotions}: PromotionsProps) {
               className='bx-promotion-image'
               data={promotion.banner.responsiveImage}
               style={{
-                '--tw-shadow-color': `rgba(${promotion.color.red}, ${promotion.color.green}, ${promotion.color.blue}, .5)`,
+                '--tw-shadow-color': `rgba(${promotion.color.red}, ${promotion.color.green}, ${promotion.color.blue}, .2)`,
                 '--tw-shadow': 'var(--tw-shadow-colored)',
               } as React.CSSProperties}
             />
