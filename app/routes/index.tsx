@@ -21,7 +21,7 @@ export default function Index() {
   } = useQuerySubscription(datoQuerySubscription)
 
   return (
-    <section className='bx-page max-w-112 hidden md:flex'>
+    <section className='bx-page hidden md:flex'>
       <Promotions {...{ promotions }} />
       <h2 className='bx-contents-h2 mx-4 md:mx-8 -mb-4'>
         <span>
