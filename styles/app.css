@@ -749,7 +749,7 @@
     @apply bg-slate-100 dark:bg-slate-900/40 rounded;
   }
   .prose-sm pre code {
-    @apply bg-transparent;
+    @apply bg-transparent dark:bg-transparent;
   }
   .prose-sm hr {
     @apply border-slate-100 border-0 border-b dark:border-slate-900 dark:border-opacity-30 border-dashed;
