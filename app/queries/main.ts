@@ -2,7 +2,7 @@ import { responsiveImageFragment } from '~/lib/fragments'
 
 export const main = `
   {
-    promotions: allPromotions(orderBy: expiredat_ASC, first: 1) {
+    promotions: allPromotions(orderBy: expiredat_ASC, first: 2) {
       title
       color {
         blue

@@ -1,3 +1,4 @@
+import { Link } from 'remix'
 import { useEffect, ReactElement, useCallback } from 'react'
 import { useRecoilState } from 'recoil'
 import { Nav } from 'bolt-ui'
@@ -162,7 +163,7 @@ export function RootLayout({ isRoot, children, pathname, sidebar, categories }: 
   if (categories) {
     const [_, r2, ..._2] = routes
     r2.children = categories
-    newRoutes = [_, r2, ..._2]
+    newRoutes = [r2, _, ..._2]
   }
   useEffect(() => {
     const settings = storage.get('settings', InitialSettings)
@@ -170,11 +171,21 @@ export function RootLayout({ isRoot, children, pathname, sidebar, categories }: 
     setTheme(settings?.theme || null)
   }, [setSettings])
   return (
-    <div className={`bx-container ${settings?.collapse && !isRoot ? 'bx-collapse' : ''}`}>
+    <div className={`bx-container ${settings?.collapse ? 'bx-collapse' : ''}`}>
       {sidebar && (
         <section className={`bx-page bx-page-root ${isRoot ? '' : 'hidden md:flex'}`}>
+          <div className={`bx-logo ${isRoot ? 'bx-logo-root' : ''}`}>
+            <Link to='/'>
+              <span className='bx-logo-default'>
+                <Icons.Logo />
+              </span>
+              <span className='bx-logo-compact'>
+                <Icons.BulletSolid />
+              </span>
+            </Link>
+          </div>
           <Hero
-            isRoot={isRoot}
+            className='md:hidden'
             heroString={heroString}
             desc='더 나은 사용자 경험을 생각하며 꼼꼼하게 만들어 드려요.'
             links={[

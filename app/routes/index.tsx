@@ -29,7 +29,14 @@ export default function Index() {
         </span>
         <span>최근 포스트</span>
       </h2>
-      <Posts {...{ otherPosts: morePosts }} />
+      <div className='bx-latest-posts'>
+        <div className='bx-latest-col-1'>
+          <Posts {...{ otherPosts: morePosts.slice(0, 3) }} />
+        </div>
+        <div className='bx-latest-col-2'>
+          <Posts {...{ otherPosts: morePosts.slice(3, 6) }} />
+        </div>
+      </div>
     </section>
   )
 }

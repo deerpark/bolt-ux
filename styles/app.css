@@ -281,7 +281,7 @@
   }
   /* Promotion Index */
   .bx-promotions {
-    @apply p-8 flex flex-col gap-y-8;
+    @apply p-8 flex flex-col md:flex-row gap-8;
   }
   .bx-promotion-image {
     @apply shadow-lg rounded-lg transition-all transform hover:scale-[1.02] focus:scale-100 active:scale-100;
@@ -836,5 +836,17 @@
   }
   .bx-settings-items-desc {
     @apply text-2xs text-slate-400 dark:text-slate-600;
+  }
+  .bx-latest-posts {
+    @apply flex items-stretch;
+  }
+  .bx-latest-posts > div {
+    @apply flex-1;
+  }
+  .bx-latest-col-1 .bx-post-link {
+    @apply pr-4 rounded-r-lg;
+  }
+  .bx-latest-col-2 .bx-post-link {
+    @apply pl-4 rounded-l-lg;
   }
 }
