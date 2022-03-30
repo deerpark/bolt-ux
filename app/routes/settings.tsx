@@ -92,7 +92,7 @@ export default function Settings() {
                 <ButtonGroup>
                   <Button
                     size='small'
-                    isActive={settings.collapse === false}
+                    isActive={settings?.collapse === false}
                     onClick={() => {
                       handleChangeSetting({ collapse: false })
                     }}
@@ -101,7 +101,7 @@ export default function Settings() {
                   </Button>
                   <Button
                     size='small'
-                    isActive={settings.collapse !== false || settings.collapse}
+                    isActive={settings?.collapse !== false || settings?.collapse}
                     onClick={() => {
                       handleChangeSetting({ collapse: true })
                     }}

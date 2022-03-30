@@ -154,7 +154,7 @@ export function Layout({
 export function RootLayout({ isRoot, children, pathname, sidebar, categories }: RootLayoutProps) {
   const [settings, setSettings] = useRecoilState(settingsState)
   const handleToggleCollapse = useCallback(() => {
-    const settingsData = { ...settings, collapse: !settings.collapse }
+    const settingsData = { ...settings, collapse: !settings?.collapse }
     setSettings(settingsData)
     storage.set('settings', settingsData)
   }, [settings, setSettings])
@@ -170,7 +170,7 @@ export function RootLayout({ isRoot, children, pathname, sidebar, categories }: 
     setTheme(settings?.theme || null)
   }, [setSettings])
   return (
-    <div className={`bx-container ${settings.collapse && !isRoot ? 'bx-collapse' : ''}`}>
+    <div className={`bx-container ${settings?.collapse && !isRoot ? 'bx-collapse' : ''}`}>
       {sidebar && (
         <section className={`bx-page bx-page-root ${isRoot ? '' : 'hidden md:flex'}`}>
           <Hero
@@ -189,7 +189,7 @@ export function RootLayout({ isRoot, children, pathname, sidebar, categories }: 
           <Footer />
           {!isRoot && (
             <button className='bx-collapse-button' type='button' onClick={handleToggleCollapse}>
-              {settings.collapse ? <Icons.LeftToLineSolid /> : <Icons.RightToLineSolid />}
+              {settings?.collapse ? <Icons.LeftToLineSolid /> : <Icons.RightToLineSolid />}
             </button>
           )}
         </section>
