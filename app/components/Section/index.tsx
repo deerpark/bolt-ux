@@ -25,7 +25,7 @@ type SectionProps = {
 export function Section({ item }: SectionProps) {
   const { title, icon, photos, /* tags, */ metas, extra, badge, link, label } = item
   return (
-    <div className='bx-section'>
+    <div className='bx-section overflow-hidden'>
       <div className='bx-section-header'>
         <div className='bx-section-title'>
           {icon ? icon : <Icon.BulletSolid />}
