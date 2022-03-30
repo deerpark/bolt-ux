@@ -51,7 +51,7 @@ export default function Settings() {
                 <h4 className='bx-settings-items-title'>테마</h4>
                 <div className='bx-settings-items-desc'>취향에 따라 라이트, 다크모드를 선택해 주세요.</div>
               </div>
-              <div className='bx-settings-items-control'>
+              <div className='bx-settings-items-control opacity-50 pointer-events-none'>
                 <ButtonGroup>
                   <Button
                     size='small'
