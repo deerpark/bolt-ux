@@ -1,7 +1,11 @@
-import { useState, useEffect, ReactElement, useCallback, useMemo } from 'react'
-import { Route, heroString, routes } from '~/lib/config'
+import { useEffect, ReactElement, useCallback } from 'react'
+import { useRecoilState } from 'recoil'
 import { Nav } from 'bolt-ui'
-import { Settings } from '~/types'
+import { settingsState } from '~/stores/root'
+import { Route, heroString, routes } from '~/lib/config'
+import { setTheme } from '~/lib/util'
+import { InitialSettings } from '~/lib/config'
+import { storage } from '~/lib/storage'
 import { Header } from '~/components/Header'
 import { Hero } from '~/components/Hero'
 import { Footer } from '~/components/Footer'
@@ -148,19 +152,12 @@ export function Layout({
 }
 
 export function RootLayout({ isRoot, children, pathname, sidebar, categories }: RootLayoutProps) {
-  const InitialSettings: Settings = useMemo(
-    () => ({
-      collapse: !isRoot,
-    }),
-    [isRoot]
-  )
-  const [settings, setSettings] = useState(InitialSettings)
-  const collapse = settings?.collapse !== false ? true : false
+  const [settings, setSettings] = useRecoilState(settingsState)
   const handleToggleCollapse = useCallback(() => {
-    const tempSettings = { collapse: !settings?.collapse }
-    setSettings(tempSettings)
-    if (window?.localStorage) localStorage.setItem('settings', JSON.stringify(tempSettings))
-  }, [settings])
+    const settingsData = { ...settings, collapse: !settings.collapse }
+    setSettings(settingsData)
+    storage.set('settings', settingsData)
+  }, [settings, setSettings])
   let newRoutes
   if (categories) {
     const [_, r2, ..._2] = routes
@@ -168,13 +165,12 @@ export function RootLayout({ isRoot, children, pathname, sidebar, categories }: 
     newRoutes = [_, r2, ..._2]
   }
   useEffect(() => {
-    const initialCollapse = window?.localStorage
-      ? JSON.parse(localStorage.getItem('settings') || 'null')
-      : InitialSettings
-    setSettings(initialCollapse)
-  }, [InitialSettings])
+    const settings = storage.get('settings', InitialSettings)
+    setSettings(settings)
+    setTheme(settings.theme)
+  }, [setSettings])
   return (
-    <div className={`bx-container ${collapse && !isRoot ? 'bx-collapse' : ''}`}>
+    <div className={`bx-container ${settings.collapse && !isRoot ? 'bx-collapse' : ''}`}>
       {sidebar && (
         <section className={`bx-page bx-page-root ${isRoot ? '' : 'hidden md:flex'}`}>
           <Hero
@@ -193,7 +189,7 @@ export function RootLayout({ isRoot, children, pathname, sidebar, categories }: 
           <Footer />
           {!isRoot && (
             <button className='bx-collapse-button' type='button' onClick={handleToggleCollapse}>
-              {collapse ? <Icons.LeftToLineSolid /> : <Icons.RightToLineSolid />}
+              {settings.collapse ? <Icons.LeftToLineSolid /> : <Icons.RightToLineSolid />}
             </button>
           )}
         </section>

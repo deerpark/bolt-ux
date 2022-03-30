@@ -4,8 +4,11 @@ export type Params = {
   category: CategorySlug,
 }
 
+export type Theme = 'light' | 'dark' | null
+
 export type Settings = {
-  collapse?: boolean
+  theme: Theme
+  collapse: boolean
 }
 
 export type Author = {

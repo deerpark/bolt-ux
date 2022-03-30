@@ -1,3 +1,4 @@
+import { Settings } from '~/types'
 import * as Icon from '~/components/Icon'
 
 export type Route = {
@@ -155,3 +156,5 @@ export const heroString: HeroString = [
   ['홈페이지 제작', '부터'],
   ['브랜드 가이드', '까지'],
 ]
+
+export const InitialSettings: Settings = Object.freeze({ theme: null, collapse: true })

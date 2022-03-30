@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom'
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData, useCatch } from 'remix'
 import { renderMetaTags, toRemixMeta, useQuerySubscription } from 'react-datocms'
+import { RecoilRoot } from 'recoil'
 import { datoQuerySubscription } from '~/lib/datocms'
 import { root as query } from '~/queries'
 import { CategorySlug } from '~/types'
@@ -117,9 +118,11 @@ export default function App() {
         {renderMetaTags([...site.favicon])}
       </head>
       <body>
-        <RootLayout {...{ isRoot, pathname, sidebar, categories }}>
-          <Outlet />
-        </RootLayout>
+        <RecoilRoot>
+          <RootLayout {...{ isRoot, pathname, sidebar, categories }}>
+            <Outlet />
+          </RootLayout>
+        </RecoilRoot>
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === 'development' && <LiveReload />}

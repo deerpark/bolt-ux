@@ -111,7 +111,7 @@
   }
   /* Mobile Nav */
   .bx-mobile-nav {
-    @apply fixed inset-0 bottom-auto z-40 flex-between md:hidden h-16 px-5 border-b border-slate-400 border-opacity-10 dark:border-slate-900/50 dark:border-opacity-20 backdrop-blur-sm bg-slate-50/50 dark:bg-black/70 shadow-lg shadow-slate-900/30 dark:shadow-black/20;
+    @apply fixed inset-0 bottom-auto z-40 flex-between md:hidden h-16 px-5 border-b border-slate-400 border-opacity-10 dark:border-slate-900/50 dark:border-opacity-20 backdrop-blur-sm bg-slate-50/50 dark:bg-black/70 shadow-lg shadow-slate-900/5 dark:shadow-black/20;
   }
   .bx-mobile-home,
   .bx-mobile-settings {
@@ -663,6 +663,7 @@
     @apply text-slate-800 dark:text-slate-50 font-thin mt-14 first:mt-10 mb-5 md:mt-24 md:first:mt-16 md:mb-8;
   }
   .bx-h5,
+  .bx-settings-group-title,
   .prose-sm h2,
   .prose-sm h3,
   .prose-sm h4,
@@ -671,6 +672,7 @@
     @apply mt-10 first:mt-7 mb-2.5 md:mt-16 md:first:mt-10 md:mb-4 flex items-center text-blue-600 dark:text-blue-500 font-extrabold;
   }
   .bx-h5,
+  .bx-settings-group-title,
   .prose-sm h5 {
     font-size: 12px;
   }
@@ -678,6 +680,7 @@
     font-size: 10px;
   }
   .bx-h5::before,
+  .bx-settings-group-title::before,
   .prose-sm h2::before,
   .prose-sm h2::before,
   .prose-sm h3::before,
@@ -698,6 +701,7 @@
     @apply w-[18px] h-[18px];
   }
   .prose-sm h5::before,
+  .bx-settings-group-title::before,
   .bx-h5::before {
     @apply w-[14px] h-[14px];
   }
@@ -805,5 +809,26 @@
   .bx-collapse .bx-footer-contact,
   .bx-collapse .bx-footer-sns {
     @apply w-0 h-0 overflow-hidden transition-all;
+  }
+  .bx-settings {
+    @apply flex flex-col gap-y-5 md:gap-y-8 divide-y divide-slate-100 dark:divide-slate-900/50;
+  }
+  .bx-settings-group {
+    @apply px-5 md:px-8 flex flex-col gap-y-2 md:gap-y-4;
+  }
+  .bx-settings-group-items {
+    @apply flex flex-col gap-y-2.5 md:gap-y-4 divide-y divide-dashed divide-slate-50 dark:divide-slate-900/40;
+  }
+  .bx-settings-item {
+    @apply pt-2.5 md:pt-4 first:pt-0 md:first:pt-0 flex items-center justify-between gap-x-2.5 md:gap-x-4;
+  }
+  .bx-settings-items-label {
+    @apply flex flex-col gap-y-0.5 md:gap-y-1;
+  }
+  .bx-settings-items-title {
+    @apply text-sm font-bold text-slate-500 dark:text-slate-500;
+  }
+  .bx-settings-items-desc {
+    @apply text-2xs text-slate-400 dark:text-slate-600;
   }
 }
