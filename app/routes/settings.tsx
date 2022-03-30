@@ -1,9 +1,7 @@
-import { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 import { useLocation } from 'react-router-dom'
 import { settingsState } from '~/stores/root'
 import { storage } from '~/lib/storage'
-import { InitialSettings } from '~/lib/config'
 import { Settings as SettingsType } from '~/types'
 import { setTheme } from '~/lib/util'
 import { useNav, usePrevRoute, Route } from '~/lib/config'
@@ -26,10 +24,6 @@ export default function Settings() {
     storage.set('settings', settingsData)
     setSettings(settingsData)
   }
-  useEffect(() => {
-    const settings = storage.get('settings', InitialSettings)
-    setSettings(settings)
-  }, [setSettings])
   return (
     <Layout {...{ title, Icon, desc, sidebar, prevRoute }}>
       <div className='bx-settings'>
@@ -61,7 +55,7 @@ export default function Settings() {
                 <ButtonGroup>
                   <Button
                     size='small'
-                    isActive={settings.theme === 'light'}
+                    isActive={settings?.theme === 'light'}
                     onClick={() => {
                       handleChangeSetting({ theme: 'light' })
                     }}
@@ -70,7 +64,7 @@ export default function Settings() {
                   </Button>
                   <Button
                     size='small'
-                    isActive={settings.theme === 'dark'}
+                    isActive={settings?.theme === 'dark'}
                     onClick={() => {
                       handleChangeSetting({ theme: 'dark' })
                     }}
@@ -79,7 +73,7 @@ export default function Settings() {
                   </Button>
                   <Button
                     size='small'
-                    isActive={!settings.theme}
+                    isActive={!settings?.theme}
                     onClick={() => {
                       handleChangeSetting({ theme: null })
                     }}

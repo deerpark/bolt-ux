@@ -167,7 +167,7 @@ export function RootLayout({ isRoot, children, pathname, sidebar, categories }: 
   useEffect(() => {
     const settings = storage.get('settings', InitialSettings)
     setSettings(settings)
-    setTheme(settings.theme)
+    setTheme(settings?.theme || null)
   }, [setSettings])
   return (
     <div className={`bx-container ${settings.collapse && !isRoot ? 'bx-collapse' : ''}`}>
