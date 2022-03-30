@@ -49,7 +49,7 @@
     @apply scroll-smooth;
   }
   body {
-    @apply min-h-screen text-slate-400 dark:text-slate-500 bg-white md:bg-slate-50 dark:bg-black md:dark:bg-black;
+    @apply min-h-screen text-slate-400 dark:text-slate-500 bg-white md:bg-slate-50 dark:bg-black dark:md:bg-black;
   }
   code {
     @apply break-words;
@@ -764,57 +764,57 @@
     @apply md:max-w-200;
   }
   .bx-collapse .bx-page-root {
-    @apply md:max-w-24 min-w-0 bg-white dark:bg-black;
+    @apply md:max-w-24 md:min-w-0 md:bg-white dark:md:bg-black;
   }
   .bx-collapse .bx-logo {
-    @apply px-0 md:px-0 flex items-center justify-center;
+    @apply md:px-0 md:flex md:items-center md:justify-center;
   }
   .bx-collapse .bx-logo a {
     @apply md:px-0;
   }
   .bx-collapse .bx-logo-default {
-    @apply hidden;
+    @apply md:hidden;
   }
   .bx-collapse .bx-logo-compact {
-    @apply inline-block;
+    @apply md:inline-block;
   }
   .bx-collapse .bx-logo-compact svg {
-    @apply w-8 h-8 fill-blue-600;
+    @apply md:w-8 md:h-8 md:fill-blue-600;
   }
   .bx-collapse .bx-hero-promotion {
-    @apply w-0 h-0 overflow-hidden transition-all;
+    @apply md:w-0 md:h-0 md:overflow-hidden md:transition-all;
   }
   .bx-collapse .bx-nav-category {
-    @apply px-1 truncate text-center;
+    @apply md:px-1 md:truncate md:text-center;
   }
   .bx-collapse .bx-nav-item {
-    @apply flex-nowrap relative;
+    @apply md:flex-nowrap md:relative;
   }
   .bx-collapse .bx-nav-item .bx-nav-label {
-    @apply transform translate-x-2 transition-all;
+    @apply md:transform md:translate-x-2 md:transition-all;
   }
   .bx-collapse .bx-nav-item .bx-nav-name {
-    @apply absolute top-1/2 rounded-sm leading-none opacity-0 pointer-events-none transform -translate-y-1/2 translate-x-0 whitespace-nowrap;
+    @apply md:absolute md:top-1/2 md:rounded-sm md:leading-none md:opacity-0 md:pointer-events-none md:transform md:-translate-y-1/2 md:translate-x-0 md:whitespace-nowrap;
   }
   .bx-collapse .bx-nav-item:hover .bx-nav-name {
     transition-property: transform, opacity;
-    @apply opacity-100 -translate-x-1 p-1 text-2xs bg-slate-700 dark:bg-slate-300 text-white dark:text-slate-700 shadow-lg shadow-black/20 dark:shadow-black/20;
+    @apply md:opacity-100 md:-translate-x-1 md:p-1 md:text-2xs md:bg-slate-700 dark:md:bg-slate-300 md:text-white dark:md:text-slate-700 md:shadow-lg md:shadow-black/20 dark:md:shadow-black/20;
   }
   .bx-collapse .bx-nav-item .bx-nav-desc {
-    @apply line-clamp-1 opacity-0 transition-all;
+    @apply md:line-clamp-1 md:opacity-0 md:transition-all;
   }
   .bx-collapse .bx-nav-item .bx-nav-arrow {
-    @apply transform delay-100 translate-x-2 opacity-0 transition-all;
+    @apply md:transform md:delay-100 md:translate-x-2 md:opacity-0 md:transition-all;
   }
   .bx-collapse .bx-footer {
-    @apply px-0 bg-white dark:bg-black;
+    @apply md:px-0 md:bg-white dark:md:bg-black;
   }
   .bx-collapse .bx-footer-logo {
-    @apply justify-center;
+    @apply md:justify-center;
   }
   .bx-collapse .bx-footer-contact,
   .bx-collapse .bx-footer-sns {
-    @apply w-0 h-0 overflow-hidden transition-all;
+    @apply md:w-0 md:h-0 md:overflow-hidden md:transition-all;
   }
   .bx-settings {
     @apply flex flex-col gap-y-5 md:gap-y-8 divide-y divide-slate-100 dark:divide-slate-900/50;

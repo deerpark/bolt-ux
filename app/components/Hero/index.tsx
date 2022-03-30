@@ -11,6 +11,7 @@ type HeroProps = {
 export function Hero({ heroString = [['', '']], desc, links, className }: HeroProps) {
   return (
     <div className={`bx-hero ${className ? className : ''}`}>
+      <div></div>
       <div className='bx-hero-promotion'>
         <div className='bx-hero-heading'>
           {heroString.map(heading => (
