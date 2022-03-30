@@ -13,6 +13,22 @@ export const plan = `
           webpSrcSet
           width
           title
+          alt
+        }
+      }
+      homepagepremium {
+        responsiveImage {
+          aspectRatio
+          base64
+          bgColor
+          height
+          sizes
+          src
+          srcSet
+          webpSrcSet
+          width
+          title
+          alt
         }
       }
       singlepagebasic {
@@ -27,6 +43,7 @@ export const plan = `
           webpSrcSet
           width
           title
+          alt
         }
       }
       publishingbasic {
@@ -41,6 +58,7 @@ export const plan = `
           webpSrcSet
           width
           title
+          alt
         }
       }
       appdesignbasic {
@@ -55,6 +73,7 @@ export const plan = `
           webpSrcSet
           width
           title
+          alt
         }
       }
       brandingbasic {
@@ -69,6 +88,7 @@ export const plan = `
           webpSrcSet
           width
           title
+          alt
         }
       }
     }

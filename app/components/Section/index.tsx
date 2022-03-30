@@ -1,3 +1,4 @@
+import { Link } from 'remix'
 import { Image } from 'react-datocms'
 import { Button } from 'bolt-ui'
 import * as Icon from '~/components/Icon'
@@ -40,7 +41,9 @@ export function Section({ item }: SectionProps) {
             photos.map(({ responsiveImage }) => (
               <li key={responsiveImage.title} className='bx-card-sqaure'>
                 <div className='bx-card-thumb'>
-                  <Image className='bx-thumbnail' data={responsiveImage} />
+                  <Link to={responsiveImage?.alt || '/'}>
+                    <Image className='bx-thumbnail' data={responsiveImage} />
+                  </Link>
                 </div>
                 <div className='bx-card-sqaure-info'>{responsiveImage.title}</div>
               </li>
