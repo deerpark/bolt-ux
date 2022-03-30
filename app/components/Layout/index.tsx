@@ -1,5 +1,5 @@
 import { Link } from 'remix'
-import { useEffect, ReactElement, useCallback } from 'react'
+import { useLayoutEffect, ReactElement, useCallback } from 'react'
 import { useRecoilState } from 'recoil'
 import { Nav } from 'bolt-ui'
 import { settingsState } from '~/stores/root'
@@ -165,7 +165,7 @@ export function RootLayout({ isRoot, children, pathname, sidebar, categories }: 
     r2.children = categories
     newRoutes = [r2, _, ..._2]
   }
-  useEffect(() => {
+  useLayoutEffect(() => {
     const settings = storage.get('settings', InitialSettings)
     setSettings(settings)
     setTheme(settings?.theme || null)
