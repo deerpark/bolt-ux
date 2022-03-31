@@ -10,7 +10,7 @@ type HeaderProps = Route & {
   isWide?: boolean,
 }
 
-export function Header({ title, Icon, desc, prevRoute, cover, date, sidebar, isWide }: HeaderProps) {
+export function Header({ title, Icon, desc, prevRoute, date, sidebar, isWide }: HeaderProps) {
   return (
     <div className='bx-header'>
       {(isWide || !sidebar) && (
@@ -52,13 +52,12 @@ export function Header({ title, Icon, desc, prevRoute, cover, date, sidebar, isW
         </div>
       </div>
       <div className='bx-header-section'>
-        {cover && <div className='bx-cover'>{cover}</div>}
         <div className='bx-header-content'>
           <div className='bx-header-meta'>
             <div className='bx-header-title'>
               <span>{title}</span>
             </div>
-            <div className='bx-header-desc'>{desc}</div>
+            {desc && <div className='bx-header-desc'>{desc}</div>}
             {date && <div className='bx-header-desc bx-header-date'>{date}</div>}
           </div>
           {Icon && <div className='bx-header-icon'>{typeof Icon === 'function' ? <Icon /> : Icon}</div>}
