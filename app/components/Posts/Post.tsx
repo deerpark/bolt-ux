@@ -123,15 +123,6 @@ export function Post({ post, morePosts , outlet, tabId }: PostProps) {
               )}
             </div>
           ))}
-        <script async={true} src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1315238860718549"
-            crossOrigin="anonymous"></script>
-        <ins className="adsbygoogle"
-            style={{display: 'block'}}
-            data-ad-format="fluid"
-            data-ad-layout-key="-6k+cw+58-14-6a"
-            data-ad-client="ca-pub-1315238860718549"
-            data-ad-slot="9419847376"></ins>
-        <script dangerouslySetInnerHTML={{ __html: `(adsbygoogle = window.adsbygoogle || []).push({});` }}></script>
         <div className='bx-article-body'>
           {tabId === post.slug ? post.content && <Contents data={post.content} /> : outlet}
         </div>
