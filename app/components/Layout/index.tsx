@@ -51,12 +51,12 @@ export function SiteMeta() {
       <meta name='theme-color' content='#f8fafc' />
       <meta name='naver-site-verification' content='7a408e59ed0578ac277fa7130f830fcde8adef72' />
       <script
-        async
+        async={true}
         src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1315238860718549'
         crossOrigin='anonymous'
       ></script>
       {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
-      <script async src='https://www.googletagmanager.com/gtag/js?id=G-NTZDCTHDX5'></script>
+      <script async={true} src='https://www.googletagmanager.com/gtag/js?id=G-NTZDCTHDX5'></script>
       <script
         dangerouslySetInnerHTML={{
           __html: `
@@ -112,7 +112,7 @@ export function SiteMeta() {
         }}
       ></script>
       {/* <!-- End Channel Plugin --> */}
-      <script async src='https://developers.kakao.com/sdk/js/kakao.min.js'></script>
+      <script async={true} src='https://developers.kakao.com/sdk/js/kakao.min.js'></script>
     </>
   )
 }
