@@ -17,7 +17,7 @@ export const main = `
         }
       }
     }
-    morePosts: allPosts(orderBy: date_DESC, first: 5) {
+    morePosts: allPosts(orderBy: date_DESC, first: 6) {
       title
       slug
       excerpt
