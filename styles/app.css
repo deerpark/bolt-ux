@@ -281,7 +281,7 @@
   }
   /* Promotion Index */
   .bx-promotions {
-    @apply p-8 flex flex-col md:flex-row gap-8;
+    @apply p-8 flex flex-col md:flex-row gap-8 mb-8;
   }
   .bx-promotion-image {
     @apply shadow-lg rounded-lg transition-all transform hover:scale-[1.02] focus:scale-100 active:scale-100;
@@ -313,6 +313,9 @@
   }
   .bx-banner-link .bx-button-background {
     @apply bg-yellow-500 border-yellow-600;
+  }
+  .bx-banner-link .bx-button-label:active~.bx-button-background, .bx-banner-link .bx-button-label:focus~.bx-button-background {
+    @apply bg-yellow-600 border-yellow-700;
   }
   /* Thumbnail */
   .bx-thumbnail {
@@ -851,5 +854,36 @@
   }
   .bx-latest-col-2 .bx-post-link {
     @apply pl-4 rounded-l-lg;
+  }
+  /* Intro */
+  .intro-header {
+    @apply flex flex-col justify-center py-10 relative min-h-[300px];
+  }
+  .intro-lottie {
+    @apply absolute top-8 right-5 bottom-8 z-10;
+  }
+  .intro-text {
+    @apply flex flex-col pl-10 justify-center relative z-20 gap-y-4;
+  }
+  .intro-heading {
+    @apply flex flex-col text-3xl font-thin text-slate-700 dark:text-slate-300;
+  }
+  .intro-heading b {
+    @apply font-black;
+  }
+  .intro-desc {
+    @apply flex flex-col text-2xs text-slate-400 dark:text-slate-600;
+  }
+  .intro-divider {
+    @apply h-[200px] -my-20;
+  }
+  #mask0_11_485 {
+    mask-type:alpha;
+  }
+  .divider-one {
+    @apply stroke-slate-100 dark:stroke-slate-800/50;
+  }
+  .divider-two {
+    @apply stroke-slate-200/75 dark:stroke-slate-900/50;
   }
 }
